@@ -1,0 +1,16 @@
+@import '../../assets/scss/var';
+
+.footer {
+  text-align: center;
+  padding: 40px;
+
+  &__text {
+    font-size: 1em;
+    color: $color_grey;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
