@@ -1,0 +1,17 @@
+// Default
+html, body, * {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+@media screen and (max-width: $bp_tablet){
+    .container {
+        padding: 0 20px;
+    }
+}

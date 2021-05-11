@@ -6,9 +6,11 @@ import history from "./history";
 
 //Pagina's
 import IndexPage from "./pages/index/index";
+import DeviceSelectionPage from "./pages/deviceselection/DeviceSelection";
 
 const guestRoutes: Array<GuestRouteInterface> = [
   { path: "/", component: IndexPage, exact: true },
+  { path: "/deviceselection", component: DeviceSelectionPage, exact: true },
 ];
 
 class App extends Component {
