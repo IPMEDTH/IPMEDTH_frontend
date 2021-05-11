@@ -20,8 +20,7 @@ class IndexPage extends React.Component {
               {/* <section>
                 <h3> Account </h3>
               </section> */}
-                <NavLink exact className="index__content__selection-item" to="/reservation">
-                 {/*activeClassName="active"*/}
+                <NavLink exact className="index__content__selection-item" to="/deviceselection">
                   <h3 className="index__content__selection-item__title"> Reserveren </h3>
                 </NavLink>
                 <NavLink exact className="index__content__selection-item" to="/inventory">
