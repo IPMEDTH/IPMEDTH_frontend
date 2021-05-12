@@ -1,0 +1,64 @@
+@import '../../assets/scss/var';
+
+.index{
+  &__content{
+    width: 100%;
+    // margin: 0 auto;
+
+    &__header{
+      text-align: center;
+      margin-top: $default-gap/2;
+      margin-bottom: $default-gap;
+    }
+
+    &__wrapper{
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    &__selection{
+      display: inline-grid;
+      grid-template-columns: auto auto;
+      width: 100%;
+
+      &-item{
+        box-sizing: border-box;
+        background-color: $color_blue;
+        color: white;
+        border-radius: 3px;
+        height: 82px;
+        width: 95%;
+        margin: 10px auto;
+        padding: 10px;
+        // text-align: center;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+
+        &__title{
+          color: white;
+          margin: 0 auto;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+}
+
+@media (min-width: $bp_mobile){
+  .index{
+  }
+}
+
+@media (min-width: $bp_tablet){
+
+  .index{
+  }
+}
+
+@media (min-width: $bp_laptop){
+
+  .index{
+  }
+}
