@@ -1,5 +1,5 @@
 import React from "react";
-import {NavLink, Redirect} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import './index.css';
 
 import Header from "../../components/header/Header"

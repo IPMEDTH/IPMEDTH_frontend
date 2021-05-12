@@ -7,7 +7,11 @@ import Footer from "../../components/footer/Footer"
 class Inventory extends React.Component {
   render(){
     return(
-      <p>inventory</p>
+      <main>
+        <Header />
+          <p>inventory</p>
+        <Footer />
+      </main>
     );
   }
 }

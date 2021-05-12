@@ -7,7 +7,11 @@ import Footer from "../../components/footer/Footer"
 class Register extends React.Component {
   render(){
     return(
-      <p>register</p>
+      <main>
+        <Header />
+          <p>Register</p>
+        <Footer />
+      </main>
     );
   }
 }
