@@ -62,8 +62,11 @@
       }
 
       p {
-        margin: 0;
-        padding: 0;
+        margin: 5px;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.5);
+        font-family: 'Muli', sans-serif;
       }
     }
 
@@ -72,6 +75,30 @@
       margin-top: 7px;
     }
   }
+}
+
+.lasercutter {
+  background-image: url(../../images/lasersnijder.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+
+.printer {
+  background-image: url(../../images/3dprinter.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.woodworking {
+  background-image: url(../../images/houtbewerking.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.workplace {
+  background-image: url(../../images/werkplek.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
 .container {

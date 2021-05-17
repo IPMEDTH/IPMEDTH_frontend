@@ -2,9 +2,17 @@ import React from "react";
 import './DeviceSelection.scss';
 
 import Header from "../../components/header/Header"
+import CardList from "../../pages/deviceselection/CardList";
 import Footer from "../../components/footer/Footer"
+import { Redirect } from "react-router-dom";
 
 class DeviceSelectionPage extends React.Component {
+
+  cardClicked = (id) => {
+    console.log(`Gekozen apparaat: ${id}`);
+  }
+
+
   render() {
     return(
       <section className="deviceselection">
@@ -19,31 +27,9 @@ class DeviceSelectionPage extends React.Component {
             </p>
           </section>
           <section className="container opties">
-          
-            <article className="optie">
-              <section className="optie__knop" onClick = {this.onLasercutterClicked}>
-                <p>Lasersnijder</p>
-              </section>
-            </article>
 
-            <article className="optie">
-              <section className="optie__knop" onClick = {this.on3dPrinterClicked}>
-                <p>3D printer</p>
-              </section>
-            </article>
-
-            <article className="optie">
-              <section className="optie__knop" onClick = {this.onWoodWorkingClicked}>
-                <p>Houtbewerkingslokaal</p>
-              </section>
-            </article>
-
-            <article className="optie">
-              <section className="optie__knop" onClick = {this.onWorkplaceClicked}>
-                <p>Werkplek</p>
-              </section>
-            </article>
-
+            <CardList cardClicked = {this.cardClicked} />
+            
           </section>
         </article>
 
