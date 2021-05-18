@@ -5,18 +5,6 @@ import './login.css';
 import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
 
-// class Login extends React.Component {
-//   render(){
-//     return(
-//       <main>
-//         <Header />
-//           <p>Login</p>
-//         <Footer />
-//       </main>
-//     );
-//   }
-// }
-
 // const POST_URL = "https://somewhere.com/api/login";
 const POST_URL = 'http://localhost:8000/api/login';
 
@@ -57,15 +45,6 @@ class Login extends React.Component {
 		});
   }
 
-
-  // render() {
-  //
-  //   // let component = <Modal onSubmit={ this.handleSubmit } key='modal'/> : <ModalBack onClick={ this.handleRemount } key='bringitback'/>;
-  //   let component = [<Modal onSubmit={ this.handleSubmit }/>];
-  //
-  //   return { component }
-  // }
-
   render() {
     return <div className='Modal'>
               <form onSubmit= { this.handleSubmit }>
@@ -77,19 +56,6 @@ class Login extends React.Component {
            </div>
   }
 }
-
-// class Modal extends React.Component {
-//   render() {
-//     return <div className='Modal'>
-//               <form onSubmit= { this.props.onSubmit }>
-//                 <Input type='text' name='username' placeholder='username' />
-//                 <Input type='password' name='password' placeholder='password' />
-//                 <input className="" type='submit' value='Login' />
-//               </form>
-//                 <a href='#'>Forgot your password?</a>
-//            </div>
-//   }
-// }
 
 // Generic input field
 class Input extends React.Component {
