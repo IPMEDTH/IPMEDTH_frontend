@@ -4,9 +4,10 @@ import './login.css';
 
 import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
+import Input from "../../components/input_field/Input"
 
-// const POST_URL = "https://somewhere.com/api/login";
-const POST_URL = 'http://localhost:8000/api/login';
+// const LOGIN_URL = "https://somewhere.com/api/login";
+const LOGIN_URL = 'http://localhost:8000/api/login';
 
 // Main app
 class Login extends React.Component {
@@ -33,7 +34,7 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.setState({ loading: true });
-		axios.post(POST_URL, {
+		axios.post(LOGIN_URL, {
 			email: this.state.email,
 			password: this.state.password
 		})
@@ -63,17 +64,6 @@ class Login extends React.Component {
                 <a href='#'>Forgot your password?</a>
            </div>
   }
-}
-
-// Generic input field
-class Input extends React.Component {
-  render() {
-    return <div className='Input'>
-              <input type={ this.props.type } name={ this.props.name } onChange={this.props.handleChange} placeholder={ this.props.placeholder } required autoComplete='false'/>
-              <label htmlFor={ this.props.name } ></label>
-           </div>
-  }
-
 }
 
 export default Login;

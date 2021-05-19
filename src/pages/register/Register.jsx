@@ -5,6 +5,7 @@ import './register.css';
 
 import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
+import Input from "../../components/input_field/Input"
 
 // const REGISTER_URL = "https://somewhere.com/api/register";
 // const LOGIN_URL = "https://somewhere.com/api/login";
@@ -88,14 +89,5 @@ class Register extends React.Component {
     );
   };
 };
-
-class Input extends React.Component {
-  render() {
-    return <div className='Input'>
-              <input type={ this.props.type } name={ this.props.name } onChange={this.props.handleChange} placeholder={ this.props.placeholder } required autoComplete='false'/>
-              <label htmlFor={ this.props.name } ></label>
-           </div>
-  }
-}
 
 export default Register;
