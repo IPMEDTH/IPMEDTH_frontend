@@ -20,7 +20,15 @@ class Login extends React.Component {
       }
       // Bindings
     this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleChange = this.handleChange.bind(this);
   }
+
+	handleChange(event) {
+		const name = event.target.name;
+		this.setState({
+			[name]: event.target.value
+		});
+	};
 
   handleSubmit(e) {
     e.preventDefault();
@@ -48,8 +56,8 @@ class Login extends React.Component {
   render() {
     return <div className='Modal'>
               <form onSubmit= { this.handleSubmit }>
-                <Input type='text' name='username' placeholder='username' />
-                <Input type='password' name='password' placeholder='password' />
+                <Input type='text' name='username' onChange={this.handleChange} placeholder='username' />
+                <Input type='password' name='password' onChange={this.handleChange} placeholder='password' />
                 <input className="" type='submit' value='Login' />
               </form>
                 <a href='#'>Forgot your password?</a>
@@ -61,7 +69,7 @@ class Login extends React.Component {
 class Input extends React.Component {
   render() {
     return <div className='Input'>
-              <input type={ this.props.type } name={ this.props.name } placeholder={ this.props.placeholder } required autoComplete='false'/>
+              <input type={ this.props.type } name={ this.props.name } onChange={this.props.handleChange} placeholder={ this.props.placeholder } required autoComplete='false'/>
               <label htmlFor={ this.props.name } ></label>
            </div>
   }
