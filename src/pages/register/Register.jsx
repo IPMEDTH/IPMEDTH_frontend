@@ -11,18 +11,6 @@ import Footer from "../../components/footer/Footer"
 const REGISTER_URL = 'http://localhost:8000/api/register';
 const LOGIN_URL = 'http://localhost:8000/api/login';
 
-// class Register extends React.Component {
-//   render(){
-//     return(
-//       <main>
-//         <Header />
-//           <p>Register</p>
-//         <Footer />
-//       </main>
-//     );
-//   }
-// }
-
 class Register extends React.Component {
   constructor() {
     super();
