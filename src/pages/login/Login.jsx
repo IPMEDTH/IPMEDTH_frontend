@@ -50,17 +50,14 @@ class Login extends React.Component {
   		  // this.setState({ loading: false });
   			// this.setState({ error: '' });
   		})
-  		//Error when provided e-mail not exists in database
-  		.catch((error) => {
-        console.log(error);
-  			if (error.response) {
-          const status = error.response.status;
-          console.log(status);
-    			if (status === 401) {
-    				this.setState({ error: 'Username or password not recognised.' });
-    			}
-        }
-  		});
+  	// 	//Error when provided e-mail not exists in database
+  	// 	.catch((error) => {
+    //     console.log(error);
+  	// 		if (error.response) {
+    //       const status = error.response.status;
+    //       console.log(status);
+    //     }
+  	// 	});
     });
 
 
