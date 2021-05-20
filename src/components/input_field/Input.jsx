@@ -5,7 +5,7 @@ import './input.scss';
 class Input extends React.Component {
   render() {
     return <div className='Input'>
-              <input type={ this.props.type } name={ this.props.name } onChange={this.props.handleChange} placeholder={ this.props.placeholder } required autoComplete='false'/>
+              <input type={ this.props.type } name={ this.props.name } placeholder={ this.props.placeholder } value={this.props.value} onChange={this.props.onChange} required autoComplete='false'/>
               <label htmlFor={ this.props.name } ></label>
            </div>
   }

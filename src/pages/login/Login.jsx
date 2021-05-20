@@ -1,13 +1,14 @@
 import React from "react";
 import axios from 'axios';
 import './login.css';
+import api from '../../assets/api'
 
 import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
 import Input from "../../components/input_field/Input"
 
 // const LOGIN_URL = "https://somewhere.com/api/login";
-const LOGIN_URL = 'http://localhost:8000/api/login';
+const LOGIN_URL = 'http://127.0.0.1:8000/login';
 
 // Main app
 class Login extends React.Component {
@@ -17,7 +18,6 @@ class Login extends React.Component {
       email: '',
       password: '',
       error: '',
-      loading: false,
       }
       // Bindings
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,32 +33,44 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({ loading: true });
-		axios.post(LOGIN_URL, {
-			email: this.state.email,
-			password: this.state.password
-		})
-		.then((response) => {
-		  this.setState({ loading: false });
-			this.setState({ error: '' });
-		})
-		//Error when provided e-mail not exists in database
-		.catch((error) => {
-			this.setState({ loading: false });
-			if (error.response) {
-        const status = error.response.status;
-  			if (status === 401) {
-  				this.setState({ error: 'Username or password not recognised.' });
-  			}
-      }
-		});
-  }
+    // console.log(this.state.password);
+    api().get('/sanctum/csrf-cookie')
+    .then(response => {
+      console.log(response);
+      console.log({
+  			email: this.state.email,
+  			password: this.state.password
+  		});
+      api().post("/login", {
+  			email: this.state.email,
+  			password: this.state.password
+  		})
+  		.then((response) => {
+        console.log(response);
+  		  // this.setState({ loading: false });
+  			// this.setState({ error: '' });
+  		})
+  		//Error when provided e-mail not exists in database
+  		.catch((error) => {
+        console.log(error);
+  			if (error.response) {
+          const status = error.response.status;
+          console.log(status);
+    			if (status === 401) {
+    				this.setState({ error: 'Username or password not recognised.' });
+    			}
+        }
+  		});
+    });
+
+
+  };
 
   render() {
     return <div className='Modal'>
               <form onSubmit= { this.handleSubmit }>
-                <Input type='text' name='username' onChange={this.handleChange} placeholder='username' />
-                <Input type='password' name='password' onChange={this.handleChange} placeholder='password' />
+                <Input type='text' name='email' value={this.state.email} onChange={this.handleChange} placeholder='email' />
+                <Input type='password' name='password' value={this.state.password} onChange={this.handleChange} placeholder='password' />
                 <input className="" type='submit' value='Login' />
               </form>
                 <a href='#'>Forgot your password?</a>
