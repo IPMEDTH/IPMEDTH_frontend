@@ -34,14 +34,19 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     // console.log(this.state.password);
-    api().get('/sanctum/csrf-cookie')
+    // axios.defaults.withCredentials = true;
+    axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie', {withCredentials: true})
     .then(response => {
+      // let cookies = document.cookie.split("=");
+      // console.log(cookies);
+      // let token = cookies[1];
+      // console.log(token);
       console.log(response);
       console.log({
   			email: this.state.email,
   			password: this.state.password
   		});
-      api().post("/login", {
+      axios.post("http://127.0.0.1:8000/login", {withCredentials: true}, {
   			email: this.state.email,
   			password: this.state.password
   		})
@@ -50,14 +55,13 @@ class Login extends React.Component {
   		  // this.setState({ loading: false });
   			// this.setState({ error: '' });
   		})
-  	// 	//Error when provided e-mail not exists in database
-  	// 	.catch((error) => {
-    //     console.log(error);
-  	// 		if (error.response) {
-    //       const status = error.response.status;
-    //       console.log(status);
-    //     }
-  	// 	});
+  		.catch((error) => {
+        console.log(error);
+  			if (error.response) {
+          const status = error.response.status;
+          console.log(status);
+        }
+  		});
     });
 
 

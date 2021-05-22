@@ -9,6 +9,7 @@ export default function api() {
       'X-XSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
     }
   })
+  // console.log($('meta[name="x-xsrf-token"]').attr('content'));
 
   return api
 }

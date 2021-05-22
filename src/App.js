@@ -27,7 +27,6 @@ class App extends Component {
   render() {
     return (
       <>
-      <meta name="csrf-token" content="{{ csrf_token() }}" />
       {/*<meta name="xsrf-token" content="{{ xsrf_token() }}" />*/}
 
       <Router history={history}>
