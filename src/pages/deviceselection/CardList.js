@@ -22,10 +22,9 @@ class CardList extends React.Component {
       const data = res.data
       console.log(data)
       const devices = data.map(u =>
-        <Card title={u.naam}
-              desc={u.beschrijving}
+        <Card title={u.name}
               id={u.id}
-              img={UrlService.DeviceImages(u.img)}
+              img={u.image_url}
               cardClicked={this.cardClicked}
               key={u.id}
         />

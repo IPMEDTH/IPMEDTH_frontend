@@ -7,13 +7,29 @@ import Footer from "../../components/footer/Footer"
 import { Redirect } from "react-router-dom";
 
 class DeviceSelectionPage extends React.Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      redirect: null
+    };
+  }
+  
   cardClicked = (id) => {
     console.log(`Gekozen apparaat: ${id}`);
+    window.localStorage.setItem('device', 'lasercutter');
+    var lasercutter = window.localStorage.getItem('device');
+    console.log(lasercutter);
+    this.setState({
+      redirect: "/reserveren/reserveren"
+    })
   }
 
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />
+    }
     return(
       <section className="deviceselection">
         <Header />
@@ -29,7 +45,7 @@ class DeviceSelectionPage extends React.Component {
           <section className="container opties">
 
             <CardList cardClicked = {this.cardClicked} />
-            
+
           </section>
         </article>
 
