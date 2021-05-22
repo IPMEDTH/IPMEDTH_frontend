@@ -35,7 +35,8 @@ class Login extends React.Component {
     e.preventDefault();
     // console.log(this.state.password);
     axios.defaults.withCredentials = true;
-    axios.get('http://localhost:8000/sanctum/csrf-cookie')
+    // axios.get('http://localhost:8000/sanctum/csrf-cookie')
+    axios.get('http://api.ipmedth.meulen.dev/sanctum/csrf-cookie')
     .then(response => {
       // let cookies = document.cookie.split("=");
       // console.log(cookies); // []
@@ -47,27 +48,29 @@ class Login extends React.Component {
   			email: this.state.email,
   			password: this.state.password
   		});
-      axios.post("http://localhost:8000/login", {
-  			email: this.state.email,
-  			password: this.state.password
-  		})
-  		.then((response) => {
-        console.log(response);
-        if (response.data.error) {
-          console.log(response.data.error);
-        } else {
-          console.log("success");
-        }
-  		  // this.setState({ loading: false });
-  			// this.setState({ error: '' });
-  		})
-  		.catch((error) => {
-        console.log(error);
-  			if (error.response) {
-          const status = error.response.status;
-          console.log(status);
-        }
-  		});
+
+    //   // axios.post("http://localhost:8000/login", {
+    //   axios.post("http://api.ipmedth.meulen.dev/login", {
+  	// 		email: this.state.email,
+  	// 		password: this.state.password
+  	// 	})
+  	// 	.then((response) => {
+    //     console.log(response);
+    //     if (response.data.error) {
+    //       console.log(response.data.error);
+    //     } else {
+    //       console.log("success");
+    //     }
+  	// 	  // this.setState({ loading: false });
+  	// 		// this.setState({ error: '' });
+  	// 	})
+  	// 	.catch((error) => {
+    //     console.log(error);
+  	// 		if (error.response) {
+    //       const status = error.response.status;
+    //       console.log(status);
+    //     }
+  	// 	});
     });
 
 
