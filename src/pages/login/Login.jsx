@@ -34,19 +34,20 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     // console.log(this.state.password);
-    // axios.defaults.withCredentials = true;
-    axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie', {withCredentials: true})
+    axios.defaults.withCredentials = true;
+    axios.get('http://localhost:8000/sanctum/csrf-cookie')
     .then(response => {
       // let cookies = document.cookie.split("=");
-      // console.log(cookies);
+      // console.log(cookies); // []
       // let token = cookies[1];
-      // console.log(token);
+      // console.log(token); // undefined
+      // console.log(response.headers); // Object { "cache-control": "no-cache, private" }
       console.log(response);
       console.log({
   			email: this.state.email,
   			password: this.state.password
   		});
-      axios.post("http://127.0.0.1:8000/login", {withCredentials: true}, {
+      axios.post("http://localhost:8000/login", {withCredentials: true}, {
   			email: this.state.email,
   			password: this.state.password
   		})
