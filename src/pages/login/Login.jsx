@@ -47,12 +47,17 @@ class Login extends React.Component {
   			email: this.state.email,
   			password: this.state.password
   		});
-      axios.post("http://localhost:8000/login", {withCredentials: true}, {
+      axios.post("http://localhost:8000/login", {
   			email: this.state.email,
   			password: this.state.password
   		})
   		.then((response) => {
         console.log(response);
+        if (response.data.error) {
+          console.log(response.data.error);
+        } else {
+          console.log("success");
+        }
   		  // this.setState({ loading: false });
   			// this.setState({ error: '' });
   		})
