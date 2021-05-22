@@ -23,18 +23,16 @@
   margin-bottom: 40px;
 }
 
-.pretest {
+.deviceselection {
   font-family: 'Muli', sans-serif;
   height: 100vh;
   position: relative;
-  background-position: top center;
 }
 
-.opties {
+.cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  margin: 40px;
 
   &__link{
     text-decoration: none;
@@ -53,17 +51,30 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding: 30px 40px;
       transition: opacity .2s ease;
       min-height: 60px;
+      position: relative;
+      text-align: center;
+
+      &__image {
+        max-width: 11rem;
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+      }
 
       &:hover {
         opacity: 0.9;
       }
 
       p {
-        margin: 0;
-        padding: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.7);
+        font-family: 'Muli', sans-serif;
       }
     }
 

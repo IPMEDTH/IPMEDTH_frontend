@@ -2,10 +2,34 @@ import React from "react";
 import './DeviceSelection.scss';
 
 import Header from "../../components/header/Header"
+import CardList from "../../pages/deviceselection/CardList";
 import Footer from "../../components/footer/Footer"
+import { Redirect } from "react-router-dom";
 
 class DeviceSelectionPage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      redirect: null
+    };
+  }
+  
+  cardClicked = (id) => {
+    console.log(`Gekozen apparaat: ${id}`);
+    window.localStorage.setItem('device', 'lasercutter');
+    var lasercutter = window.localStorage.getItem('device');
+    console.log(lasercutter);
+    this.setState({
+      redirect: "/reserveren/reserveren"
+    })
+  }
+
+
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />
+    }
     return(
       <section className="deviceselection">
         <Header />
@@ -19,30 +43,8 @@ class DeviceSelectionPage extends React.Component {
             </p>
           </section>
           <section className="container opties">
-          
-            <article className="optie">
-              <section className="optie__knop" onClick = {this.onLasercutterClicked}>
-                <p>Lasersnijder</p>
-              </section>
-            </article>
 
-            <article className="optie">
-              <section className="optie__knop" onClick = {this.on3dPrinterClicked}>
-                <p>3D printer</p>
-              </section>
-            </article>
-
-            <article className="optie">
-              <section className="optie__knop" onClick = {this.onWoodWorkingClicked}>
-                <p>Houtbewerkingslokaal</p>
-              </section>
-            </article>
-
-            <article className="optie">
-              <section className="optie__knop" onClick = {this.onWorkplaceClicked}>
-                <p>Werkplek</p>
-              </section>
-            </article>
+            <CardList cardClicked = {this.cardClicked} />
 
           </section>
         </article>
