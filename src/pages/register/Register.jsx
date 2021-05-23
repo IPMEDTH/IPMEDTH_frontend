@@ -12,6 +12,11 @@ import Input from "../../components/input_field/Input"
 const REGISTER_URL = 'http://localhost:8000/api/register';
 const LOGIN_URL = 'http://localhost:8000/api/login';
 
+
+let checkPasswordMatch = (password, conf_password) => {
+  return (password == conf_password);
+}
+
 class Register extends React.Component {
   constructor() {
     super();
@@ -19,6 +24,7 @@ class Register extends React.Component {
       username: '',
       email: '',
       password: '',
+      conf_password: '',
       error: '',
       redirect: false,
       loading: false,
@@ -39,6 +45,10 @@ class Register extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.setState({ loading: true });
+    if (!checkPasswordMatch(this.state.password, this.state.conf_password)) {
+      console.log("password does not match");
+      return;
+    }
     axios.post(REGISTER_URL, {
         username:this.state.username,
         email: this.state.email,
@@ -82,6 +92,7 @@ class Register extends React.Component {
                   <Input type='text' name='username' onChange={this.handleChange} placeholder='username' />
                   <Input type='text' name='email' onChange={this.handleChange} placeholder='e-mail' />
                   <Input type='password' name='password' onChange={this.handleChange} placeholder='password' />
+                  <Input type='password' name='conf_password' onChange={this.handleChange} placeholder='password' />
                   <input className="" type='submit' value='Register' />
                 </form>
                   <a href='#'>Forgot your password?</a>
