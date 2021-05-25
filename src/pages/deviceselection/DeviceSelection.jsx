@@ -14,14 +14,14 @@ class DeviceSelectionPage extends React.Component {
       redirect: null
     };
   }
-  
+
   cardClicked = (id) => {
     console.log(`Gekozen apparaat: ${id}`);
-    window.localStorage.setItem('device', 'lasercutter');
+    window.localStorage.setItem('device', `${id}`);
     var lasercutter = window.localStorage.getItem('device');
     console.log(lasercutter);
     this.setState({
-      redirect: "/reserveren/reserveren"
+      redirect: "/reservation/"
     })
   }
 
