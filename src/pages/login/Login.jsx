@@ -7,8 +7,8 @@ import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
 import Input from "../../components/input_field/Input"
 
-// const LOGIN_URL = "https://somewhere.com/api/login";
-const LOGIN_URL = 'http://127.0.0.1:8000/login';
+const LOGIN_URL = 'http://api.ipmedth.meulen.dev/login';
+// const LOGIN_URL = 'http://127.0.0.1:8000/login';
 
 // Main app
 class Login extends React.Component {
@@ -17,7 +17,6 @@ class Login extends React.Component {
     this.state = {
       email: '',
       password: '',
-      error: '',
       }
       // Bindings
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -49,28 +48,28 @@ class Login extends React.Component {
   			password: this.state.password
   		});
 
-    //   // axios.post("http://localhost:8000/login", {
-    //   axios.post("http://api.ipmedth.meulen.dev/login", {
-  	// 		email: this.state.email,
-  	// 		password: this.state.password
-  	// 	})
-  	// 	.then((response) => {
-    //     console.log(response);
-    //     if (response.data.error) {
-    //       console.log(response.data.error);
-    //     } else {
-    //       console.log("success");
-    //     }
-  	// 	  // this.setState({ loading: false });
-  	// 		// this.setState({ error: '' });
-  	// 	})
-  	// 	.catch((error) => {
-    //     console.log(error);
-  	// 		if (error.response) {
-    //       const status = error.response.status;
-    //       console.log(status);
-    //     }
-  	// 	});
+      // axios.post("http://localhost:8000/login", {
+      axios.post(LOGIN_URL, {
+  			email: this.state.email,
+  			password: this.state.password
+  		})
+  		.then((response) => {
+        console.log(response);
+        if (response.data.error) {
+          console.log(response.data.error);
+        } else {
+          console.log("success");
+        }
+  		  // this.setState({ loading: false });
+  			// this.setState({ error: '' });
+  		})
+  		.catch((error) => {
+        console.log(error);
+  			if (error.response) {
+          const status = error.response.status;
+          console.log(status);
+        }
+  		});
     });
 
 

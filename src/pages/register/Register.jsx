@@ -9,8 +9,8 @@ import Input from "../../components/input_field/Input"
 
 // const REGISTER_URL = "https://somewhere.com/api/register";
 // const LOGIN_URL = "https://somewhere.com/api/login";
-const REGISTER_URL = 'http://localhost:8000/api/register';
-const LOGIN_URL = 'http://localhost:8000/api/login';
+const REGISTER_URL = 'http://api.ipmedth.meulen.dev/register';
+const LOGIN_URL = 'http://api.ipmedth.meulen.dev/login';
 
 
 let checkPasswordMatch = (password, conf_password) => {
@@ -25,9 +25,7 @@ class Register extends React.Component {
       email: '',
       password: '',
       conf_password: '',
-      error: '',
       redirect: false,
-      loading: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,7 +42,7 @@ class Register extends React.Component {
 //Function that registers a user & logs in after registration
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({ loading: true });
+    axios.defaults.withCredentials = true;
     if (!checkPasswordMatch(this.state.password, this.state.conf_password)) {
       console.log("password does not match");
       return;
@@ -60,23 +58,23 @@ class Register extends React.Component {
         email: this.state.email,
         password: this.state.password
       })
-      .then((response) => {
-  		  this.setState({ loading: false });
-  			this.setState({ error: '' });
-        this.setState({ redirect: true });
-      })
+      // .then((response) => {
+  		//   this.setState({ loading: false });
+  		// 	this.setState({ error: '' });
+      //   this.setState({ redirect: true });
+      // })
     })
 		//Error when provided e-mail or username that already exists in database
     .catch((error) => {
-      this.setState({ loading: false });
+      console.log(error);
       if (error.response) {
         const status = error.response.status;
-  			if (status === 401) {
-  				this.setState({ error: 'Username or password not recognised.' });
-  			}
+        console.log(status);
       }
     });
   }
+  // status 419: no reason phrase
+  // Cookie “laravel_session” has been rejected for invalid domain.
 
   render(){
     const { redirect } = this.state;
