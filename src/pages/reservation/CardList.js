@@ -8,9 +8,6 @@ var deviceid = window.localStorage.getItem('device');
 
 class CardList extends React.Component {
 
-  cardClicked = (id) => {
-    this.props.cardClicked(id);
-  }
 
   constructor(props) {
     super(props);
@@ -24,10 +21,9 @@ class CardList extends React.Component {
       const data = res.data
       console.log(data)
       const device = data.map(u =>
-        <Card title={u.naam}
+        <Card title={u.name}
           id={u.id}
-          img={u.image_link}
-          cardClicked={this.cardClicked}
+          img={u.image_url}
           key={u.id}
         />
       )
@@ -47,7 +43,7 @@ class CardList extends React.Component {
 
   render() {
     return (
-      <section className="cards">
+      <section className="reservation__cards">
         {this.state.device}
       </section>
     );

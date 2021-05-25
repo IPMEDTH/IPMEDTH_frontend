@@ -45,7 +45,7 @@ class CardList extends React.Component {
 
   render() {
     return (
-      <section className="cards">
+      <section className="deviceselection__cards">
         {this.state.devices}
       </section>
     );

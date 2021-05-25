@@ -10,14 +10,14 @@ import Footer from "../../components/footer/Footer"
 class ReservationPage extends React.Component {
   render() {
     return(
-      <section className="deviceselection">
+      <section className="reservation">
         <Header />
 
-        <article className="choice__content">
+        <article className="reservation__choice__content">
           <section>
-            <h1 className="choice__subtitle">Wanneer wil je aan de slag?</h1>
+            <h1 className="reservation__choice__subtitle">Wanneer wil je aan de slag?</h1>
           </section>
-          <section className="container opties">
+          <section className="reservation__container">
             <CardList />
           </section>
         </article>
