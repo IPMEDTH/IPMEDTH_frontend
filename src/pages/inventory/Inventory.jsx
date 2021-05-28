@@ -9,7 +9,6 @@ import Footer from "../../components/footer/Footer"
 import MaterialList from "../../components/material/MaterialList"
 
 // const MATERIALS_URL = 'http://localhost:8000/api/materials';
-const MATERIALS_URL = 'http://localhost:8000/api/materials';
 
 class Inventory extends React.Component {
   constructor (){
@@ -21,24 +20,9 @@ class Inventory extends React.Component {
     this.ChildComponent = null;
   }
 
-  // This function gets called when the render() function gets called.
   componentDidMount = () =>{
-    //Make the API GET request
-    axios.get(MATERIALS_URL)
+    axios.get(UrlService.Materials())
     .then((response) => {
-
-      // this.setState({materials: Object.values(response.data)});
-      // const data = response.data;
-      // this.setState({materials: data.map(item => ({
-      //   name: item.name,
-      //   description: item.description,
-      //   amount: item.amount,
-      //   unit: item.unit,
-      //   added_by: item.added_by,
-      //   img_url: item.img_url
-      // }))});
-
-      // let object = await import("../../components/material/Material")
       this.ChildComponent = <MaterialList materials={response.data} />;
       this.setState({dataIsReturned: true});
       console.log(this.ChildComponent);
@@ -46,6 +30,7 @@ class Inventory extends React.Component {
     })
     .catch((error) => {
       console.log(error)
+      this.setState({dataIsReturned: false});
     })
   };
 
@@ -58,8 +43,7 @@ class Inventory extends React.Component {
             <h2 className="inventory__content__header__title"> MATERIALEN</h2>
             <p className="inventory__content__header__text"> Hier bevind een actueel overzicht van alle materialen aanwezig in The Space die gebruikt mogen worden. </p>
           </header>
-
-          {this.dataIsReturned!==null ? this.ChildComponent : <h1> Loading... </h1>}
+          {this.state.dataIsReturned!==false ? this.ChildComponent : <h2> Loading... </h2>}
         </main>
         <Footer />
       </div>
