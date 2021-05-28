@@ -1,12 +1,13 @@
 import React from "react";
 import './reservation.scss';
-import unchecked from '../../images/checkbox_unchecked.png';
-import checked from '../../images/checkbox_checked.png';
 import triangle from '../../images/triangle_arrow.png';
 
-import Header from "../../components/header/Header"
-import CardList from "../../pages/reservation/CardList";
-import Footer from "../../components/footer/Footer"
+import Header from "../../components/header/Header";
+import CardList from "./CardList";
+import PersonList from "./PersonList";
+import Footer from "../../components/footer/Footer";
+
+import DatePicker from "./DatePicker";
 
 var state = "closed";
 
@@ -14,25 +15,28 @@ class ReservationPage extends React.Component {
 
   onHelpClicked = () => {
     var element = document.getElementById("js--reservation__hulp");
+    var checkbox = document.getElementById("js--checkbox");
     element.classList.toggle('active');
 
-    if (state == "closed") {
+    if (state === "closed") {
       state = "open";
-      document.getElementById("js--reservation__triangle").animate([{transform: 'rotate(0deg)'}], {duration: 500});
+      checkbox.checked = true;
+      document.getElementById("js--reservation__triangle").animate([{transform: 'rotate(0deg)'}], {duration: 300});
 
-      var delayInMilliseconds = 490; //1 second
+      var delayInMilliseconds = 275; //1 second
       setTimeout(function() {
         document.getElementById("js--reservation__triangle").style.transform = "rotate(0deg)";
       }, delayInMilliseconds);
     }
-    else if (state == "open") {
+    else if (state === "open") {
       state = "closed";
-      document.getElementById("js--reservation__triangle").animate([{transform: 'rotate(90deg)'}], {duration: 500});
+      checkbox.checked = false;
+      document.getElementById("js--reservation__triangle").animate([{transform: 'rotate(90deg)'}], {duration: 300});
 
-      var delayInMilliseconds = 490; //1 second
+      var delayInMilliseconds2 = 275; //1 second
       setTimeout(function() {
         document.getElementById("js--reservation__triangle").style.transform = "rotate(90deg)";
-      }, delayInMilliseconds);
+      }, delayInMilliseconds2);
     }
 
   }
@@ -50,14 +54,20 @@ class ReservationPage extends React.Component {
             <CardList />
 
             <h2>Datum/tijd selectie</h2>
+
+            <DatePicker />
           </section>
           <section className="reservation__hulp">
             <section className="reservation__hulp__container" onClick={this.onHelpClicked}>
-              <img id="js--reservation__checkbox" className="reservation__hulp__image__one" src={unchecked} alt="checkbox" />
+              <label className="reservation__hulp__container__checkbox">
+                <input id="js--checkbox" type="checkbox" />
+                <span className="checkmark"></span>
+              </label>
               <p>Verwacht je hulp nodig te hebben?</p>
               <img id="js--reservation__triangle" className="reservation__hulp__image__two" src={triangle} alt="checkbox" />
               <section id="js--reservation__hulp" className="reservation__dropdown reservation__dropdown--animated">
-                Test
+                <h1 className="h1text">Informatie (komt nu nog foutmelding van database)</h1>
+                <PersonList />
               </section>
             </section>
           </section>

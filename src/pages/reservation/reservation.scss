@@ -4,7 +4,7 @@
 .reservation__choice__subtitle{
   max-width: 768px;
   padding: 0 40px;
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 800;
   color: $color_blue;
   margin: 0 auto;
@@ -34,8 +34,8 @@
       background-color: $color_blue;
       border-radius: 0.5rem;
       color: #ececec;
-      -webkit-box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
-      box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
+      //-webkit-box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
+      //box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -76,12 +76,12 @@
 .reservation__container {
     max-width: 768px;
     margin: 0 auto;
-    margin-bottom: 2vh;
     padding: 0 40px;
 }
 
 .reservation__hulp {
   padding: 0 40px;
+  margin-top: 2vh;
   &__container {
     cursor: pointer;
     max-width: 768px;
@@ -121,8 +121,66 @@
   }
 }
 
-.reservation__hulp__image__one {
-  margin-left: 10px;
+.reservation__hulp__container__checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 35px;
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.reservation__hulp__container__checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 35px;
+  width: 35px;
+  background-color: #eee;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.reservation__hulp__container__checkbox input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.reservation__hulp__container__checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.reservation__hulp__container__checkbox .checkmark:after {
+  left: 11px;
+  top: 5px;
+  width: 10px;
+  height: 15px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .reservation__hulp__image__two {
@@ -135,7 +193,7 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background: #ccc;
+  background: #C4C4C4;
   transform-origin: top;
   transform: perspective(1000px) rotateX(-90deg);
   transition: 0.5s;
@@ -149,4 +207,8 @@ section.active {
     max-width: 768px;
     margin: 0 auto;
     padding: 0 40px;
+}
+
+.h1text {
+  font-size: 25px;
 }
