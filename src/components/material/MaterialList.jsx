@@ -8,7 +8,7 @@ class MaterialList extends React.Component {
 
   render() {
     return(
-      <div>
+      <>
       {this.props.materials.map((item)=>(
         <Material
           name={item.name}
@@ -17,9 +17,10 @@ class MaterialList extends React.Component {
           unit={item.unit}
           added_by={item.added_by}
           img_url={item.img_url}
+          key={item.id}
         />
       ))}
-      </div>
+      </>
     )
   }
 

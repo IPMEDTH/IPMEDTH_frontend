@@ -3,15 +3,14 @@ import React from "react";
 class Material extends React.Component {
   render() {
     return(
-      <>
-        <p> test</p>
-        <p> {this.props.name}</p>
-        <p> {this.props.description}</p>
-        <p> {this.props.amount}</p>
-        <p> {this.props.unit}</p>
-        <p> {this.props.added_by}</p>
-        <p> {this.props.img_url}</p>
-       </>
+      <section className="inventory__content-item">
+        <article className="inventory__content-item__info">
+          <h3 className="inventory__content-item__info__title"> {this.props.name}</h3>
+          <p className="inventory__content-item__info__amount"> {this.props.amount} {this.props.unit}</p>
+          <p className="inventory__content-item__info__description"> {this.props.description}</p>
+        </article>
+        <img className="inventory__content-item__info__image" src={this.props.img_url} alt="THIS IS A MATERIAL AAAAAA"></img>
+      </section>
     )
   }
 
