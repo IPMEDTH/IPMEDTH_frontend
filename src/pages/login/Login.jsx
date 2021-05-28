@@ -1,14 +1,17 @@
 import React from "react";
 import axios from 'axios';
 import './login.css';
-import api from '../../assets/api'
+import api from '../../assets/api';
 
 import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
 import Input from "../../components/input_field/Input"
 
-const LOGIN_URL = 'http://api.ipmedth.meulen.dev/login';
-// const LOGIN_URL = 'http://127.0.0.1:8000/login';
+// const LOGIN_URL = 'http://api.ipmedth.meulen.dev/login';
+const LOGIN_URL = 'http://localhost:8000/login';
+
+// const COOKIE_URL = 'http://api.ipmedth.meulen.dev/sanctum/csrf-cookie';
+const COOKIE_URL = 'http://localhost:8000/sanctum/csrf-cookie';
 
 // Main app
 class Login extends React.Component {
@@ -35,7 +38,7 @@ class Login extends React.Component {
     // console.log(this.state.password);
     axios.defaults.withCredentials = true;
     // axios.get('http://localhost:8000/sanctum/csrf-cookie')
-    axios.get('http://api.ipmedth.meulen.dev/sanctum/csrf-cookie')
+    axios.get(COOKIE_URL)
     .then(response => {
       // let cookies = document.cookie.split("=");
       // console.log(cookies); // []
