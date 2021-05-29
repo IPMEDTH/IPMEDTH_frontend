@@ -52,19 +52,24 @@ class Inventory extends React.Component {
 
   searchForMaterials = (term) => {
     console.log("searching for: " + term);
+    if (term!=='') {
+      axios.get(SEARCH_URL + term)
+      .then((response) => {
+        this.ChildComponent = <MaterialList materials={response.data} />;
+        this.setState({dataIsReturned: true});
+        console.log(this.ChildComponent);
 
-    axios.get(SEARCH_URL + term)
-    .then((response) => {
-      this.ChildComponent = <MaterialList materials={response.data} />;
-      this.setState({dataIsReturned: true});
-      console.log(this.ChildComponent);
-
-    })
-    .catch((error) => {
-      console.log(error)
-      this.setState({dataIsReturned: false});
-    })
+      })
+      .catch((error) => {
+        console.log(error)
+        this.setState({dataIsReturned: false});
+      })
+    } else {
+      this.getMaterialsData();
+    }
   }
+
+
 
   componentDidMount = () =>{
     this.getMaterialsData();
