@@ -10,7 +10,7 @@ import MaterialList from "../../components/material/MaterialList"
 import SearchBar from '../../components/searchbar/SearchBar';
 
 // const MATERIALS_URL = 'http://localhost:8000/api/materials';
-const SEARCH_URL = 'http://localhost:8000/api/getmaterials/';
+// const SEARCH_URL = 'http://localhost:8000/api/getmaterials/';
 
 class Inventory extends React.Component {
   constructor (){
@@ -28,7 +28,7 @@ class Inventory extends React.Component {
     .then((response) => {
       this.ChildComponent = <MaterialList materials={response.data} />;
       this.setState({dataIsReturned: true});
-      console.log(this.ChildComponent);
+      console.log(response);
 
     })
     .catch((error) => {
@@ -39,7 +39,6 @@ class Inventory extends React.Component {
 
   updateInput = (event) => {
 		const name = event.target.name;
-    // console.log(name + " " + event.target.value);
 		this.setState({
 			[name]: event.target.value
 		});
@@ -53,11 +52,11 @@ class Inventory extends React.Component {
   searchForMaterials = (term) => {
     console.log("searching for: " + term);
     if (term!=='') {
-      axios.get(SEARCH_URL + term)
+      axios.get(UrlService.Material(term))
       .then((response) => {
         this.ChildComponent = <MaterialList materials={response.data} />;
         this.setState({dataIsReturned: true});
-        console.log(this.ChildComponent);
+        console.log(response);
 
       })
       .catch((error) => {
@@ -66,10 +65,9 @@ class Inventory extends React.Component {
       })
     } else {
       this.getMaterialsData();
+      console.log("No term: getting normal data");
     }
   }
-
-
 
   componentDidMount = () =>{
     this.getMaterialsData();
