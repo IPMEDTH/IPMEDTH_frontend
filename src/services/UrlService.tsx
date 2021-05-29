@@ -4,6 +4,7 @@ class UrlService {
     static Devices() { return apiDomain + 'api/locations/'; }
     static DeviceImages(filename) { return apiDomain + 'img/devices/' + filename; }
     static Materials() { return apiDomain + 'api/materials'}
+    static Material(term) { return apiDomain + 'api/materials/' + term; }
 }
 
 export default UrlService;

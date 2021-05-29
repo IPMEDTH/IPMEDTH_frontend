@@ -10,6 +10,7 @@ import MaterialList from "../../components/material/MaterialList"
 import SearchBar from '../../components/searchbar/SearchBar';
 
 // const MATERIALS_URL = 'http://localhost:8000/api/materials';
+const SEARCH_URL = 'http://localhost:8000/api/getmaterials/';
 
 class Inventory extends React.Component {
   constructor (){
@@ -51,6 +52,18 @@ class Inventory extends React.Component {
 
   searchForMaterials = (term) => {
     console.log("searching for: " + term);
+
+    axios.get(SEARCH_URL + term)
+    .then((response) => {
+      this.ChildComponent = <MaterialList materials={response.data} />;
+      this.setState({dataIsReturned: true});
+      console.log(this.ChildComponent);
+
+    })
+    .catch((error) => {
+      console.log(error)
+      this.setState({dataIsReturned: false});
+    })
   }
 
   componentDidMount = () =>{
