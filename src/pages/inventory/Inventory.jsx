@@ -2,11 +2,13 @@ import React from "react";
 import './inventory.css';
 import axios from 'axios';
 import UrlService from "../../services/UrlService";
+import Modal from 'react-modal';
 
 import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
 // import Material from "../../components/material/Material";
 import MaterialList from "../../components/material/MaterialList"
+import AddMaterial from "../../components/addmaterial/AddMaterial"
 import SearchBar from '../../components/searchbar/SearchBar';
 
 // const MATERIALS_URL = 'http://localhost:8000/api/materials';
@@ -19,8 +21,19 @@ class Inventory extends React.Component {
     this.state = {
       dataIsReturned: false,
       search_term: '',
+      showModal: false,
     }
     this.ChildComponent = '';
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  handleOpenModal () {
+    this.setState({ showModal: true });
+  }
+
+  handleCloseModal () {
+    this.setState({ showModal: false });
   }
 
   getMaterialsData = () => {
@@ -88,6 +101,19 @@ class Inventory extends React.Component {
             onChange={this.updateInput}
             onCheck={this.onCheck}
           />
+          <AddMaterial
+            onClick={this.handleOpenModal}
+            />
+          <Modal
+            isOpen={this.state.showModal}
+            contentLabel="onRequestClose Example"
+            onRequestClose={this.handleCloseModal}
+            shouldCloseOnOverlayClick={true}
+            ariaHideApp={false}
+           >
+
+
+          </Modal>
           {this.state.dataIsReturned!==false ? this.ChildComponent : <h2> Loading... </h2>}
         </main>
         <Footer />
