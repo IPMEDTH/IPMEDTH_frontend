@@ -11,15 +11,18 @@ import {
 function DatePicker() {
 
   const [selectedDate, setSelectedDate] = React.useState(
-    new Date("2021-05-28T12:00")
+    null
   )
+
+  const [isOpen, setIsOpen] = React.useState(false);
 
   const handleDateChange = (date) => {
     setSelectedDate(date)
   }
 
   function disableDays(date) {
-    return date.getDay() === 0 || date.getDay() === 1 || date.getDay() === 2 || date.getDay() === 3 || date.getDay() === 5 || date.getDay() === 6 || date.getDay() === 6;
+    console.log(date.getDay() === 0)
+    return date.getDay() === 0 || date.getDay() === 1 || date.getDay() === 2 || date.getDay() === 3 || date.getDay() === 5 || date.getDay() === 6;
   }
   const today = new Date();
 
@@ -39,8 +42,22 @@ function DatePicker() {
             value={selectedDate}
             onChange={handleDateChange}
             KeyboardButtonProps={{
-            'aria-label': 'change date',
+              onFocus: e => {
+                setIsOpen(true);
+              }
             }}
+            PopoverProps={{
+              disableRestoreFocus: true,
+              onClose: () => {
+                setIsOpen(false);
+              }
+            }}
+            InputProps={{
+              onFocus: () => {
+                setIsOpen(true);
+              }
+            }}
+            open={isOpen}
           />
         </Grid>
       </MuiPickersUtilsProvider>
