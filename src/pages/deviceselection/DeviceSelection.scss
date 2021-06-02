@@ -1,8 +1,8 @@
 @import '../../assets/scss/var';
 @import '../../assets/scss/default';
 
-.choice__subtitle{
-  max-width: 1020px;
+.deviceselection__choice__subtitle{
+  max-width: 768px;
   padding: 0 40px;
   font-size: 24px;
   font-weight: 800;
@@ -12,14 +12,14 @@
   margin-bottom: 20px;
 }
 
-.choice__text {
+.deviceselection__choice__text {
   padding: 0 40px;
   font-size: 1em;
   font-weight: 400;
   margin: 0 auto;
   color: $color_grey;
   line-height: 1.3;
-  max-width: 1020px;
+  max-width: 768px;
   margin-bottom: 40px;
 }
 
@@ -29,7 +29,7 @@
   position: relative;
 }
 
-.cards {
+.deviceselection__cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
@@ -38,7 +38,7 @@
     text-decoration: none;
   }
 
-  .optie {
+  .deviceselection__optie {
 
     &__knop {
       cursor: pointer;
@@ -85,8 +85,8 @@
   }
 }
 
-.container {
-    max-width: 1020px;
+.deviceselection__container {
+    max-width: 768px;
     margin: 0 auto;
     padding: 0 40px;
 }

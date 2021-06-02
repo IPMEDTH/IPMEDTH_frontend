@@ -14,14 +14,14 @@ class DeviceSelectionPage extends React.Component {
       redirect: null
     };
   }
-  
+
   cardClicked = (id) => {
     console.log(`Gekozen apparaat: ${id}`);
-    window.localStorage.setItem('device', 'lasercutter');
+    window.localStorage.setItem('device', `${id}`);
     var lasercutter = window.localStorage.getItem('device');
     console.log(lasercutter);
     this.setState({
-      redirect: "/reserveren/reserveren"
+      redirect: "/reservation/"
     })
   }
 
@@ -34,15 +34,15 @@ class DeviceSelectionPage extends React.Component {
       <section className="deviceselection">
         <Header />
 
-        <article className="choice__content">
+        <article className="deviceselection__choice__content">
           <section>
-            <h1 className="choice__subtitle">Van welk apparaat wilt u gebruik maken?</h1>
-            <p className="choice__text">
+            <h1 className="deviceselection__choice__subtitle">Van welk apparaat wilt u gebruik maken?</h1>
+            <p className="deviceselection__choice__text">
               Bij het reserveren van een plek in het houtbewerkingslokaal valt dit onder een apparaat en werkplek, hierbij is het dus niet nodig voor u om ook een werkplek te reserveren.
               Bij andere apparaten zoals een lasersnijder of 3D printer krijgt u de keuze of u er ook een werkplek bij wilt.
             </p>
           </section>
-          <section className="container opties">
+          <section className="deviceselection__container">
 
             <CardList cardClicked = {this.cardClicked} />
 
