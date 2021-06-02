@@ -4,9 +4,11 @@ import Grid from '@material-ui/core/Grid'
 import DateFnsUtils from '@date-io/date-fns'
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
   KeyboardDatePicker
 } from '@material-ui/pickers'
+
+import TimePicker1 from "./TimePicker1"
+import TimePicker2 from "./TimePicker2"
 
 function DatePicker() {
 
@@ -14,14 +16,14 @@ function DatePicker() {
     null
   )
 
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    window.localStorage.setItem('timedate', date);
+  };
+
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const handleDateChange = (date) => {
-    setSelectedDate(date)
-  }
-
   function disableDays(date) {
-    console.log(date.getDay() === 0)
     return date.getDay() === 0 || date.getDay() === 1 || date.getDay() === 2 || date.getDay() === 3 || date.getDay() === 5 || date.getDay() === 6;
   }
   const today = new Date();
@@ -29,7 +31,7 @@ function DatePicker() {
   return (
     <section className="reservation__datepicker">
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <Grid container justify='start'>
+        <Grid container justify='space-between'>
           <KeyboardDatePicker
             disableToolbar
             variant="inline"
@@ -59,6 +61,8 @@ function DatePicker() {
             }}
             open={isOpen}
           />
+          <TimePicker1 />
+          <TimePicker2 />
         </Grid>
       </MuiPickersUtilsProvider>
     </section>
