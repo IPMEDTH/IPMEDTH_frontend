@@ -112,6 +112,7 @@ class Inventory extends React.Component {
             ariaHideApp={false}
            >
 
+          {/*form*/}
 
           </Modal>
           {this.state.dataIsReturned!==false ? this.ChildComponent : <h2> Loading... </h2>}

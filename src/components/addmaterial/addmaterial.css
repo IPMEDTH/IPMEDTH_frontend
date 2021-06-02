@@ -11,20 +11,16 @@
   box-shadow: 2px 2px 2px #eee;
   border-radius: 3px;
   border: 3px solid #003469;
-  cursor: pointer;
-}
-.addmaterial__info {
-  display: flex;
-  align-items: center;
-}
-.addmaterial__info__title {
-  margin: 0 auto;
-  text-align: center;
-}
-.addmaterial__info__image {
-  height: 100%;
-  width: 100%;
-  fill: #469615;
-}
+  cursor: pointer; }
+  .addmaterial__info {
+    display: flex;
+    align-items: center; }
+    .addmaterial__info__title {
+      margin: 0 auto;
+      text-align: center; }
+    .addmaterial__info__image {
+      height: 100%;
+      width: 100%;
+      fill: #469615; }
 
 /*# sourceMappingURL=addmaterial.css.map */
