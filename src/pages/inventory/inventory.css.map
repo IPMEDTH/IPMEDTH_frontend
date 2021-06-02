@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"inventory.css"}
+{"version":3,"sourceRoot":"","sources":["inventory.scss","../../assets/scss/var.scss"],"names":[],"mappings":"AAGE;EACE;EACA;EACA;EACA;;AAGA;EACE;EACA;EACA,eCHQ;;ADMV;EACI;EACA;;AAGJ;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAKE;EACE;;AAGF;EACE;EACA","file":"inventory.css"}
