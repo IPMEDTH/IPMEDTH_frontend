@@ -8,10 +8,10 @@ class Card extends React.Component {
 
   render() {
     return (
-      <article className="card__container">
-        <article className="optie">
-          <section className="optie__knop" onClick={this.onCardClicked}>
-            <img className="optie__knop__image" src={this.props.img} alt={this.props.title} />
+      <article className="deviceselection__card__container">
+        <article className="deviceselection__optie">
+          <section className="deviceselection__optie__knop" onClick={this.onCardClicked}>
+            <img className="deviceselection__optie__knop__image" src={this.props.img} alt={this.props.title} />
             <p>{this.props.title || "Apparaat"}</p>
           </section>
         </article>
