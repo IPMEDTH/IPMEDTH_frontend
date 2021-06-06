@@ -9,6 +9,7 @@ import Footer from "../../components/footer/Footer"
 // import Material from "../../components/material/Material";
 import MaterialList from "../../components/material/MaterialList"
 import AddMaterial from "../../components/addmaterial/AddMaterial"
+import AddMaterialForm from "../../components/addmaterialform/AddMaterialForm"
 import SearchBar from '../../components/searchbar/SearchBar';
 
 // const MATERIALS_URL = 'http://localhost:8000/api/materials';
@@ -112,7 +113,8 @@ class Inventory extends React.Component {
             ariaHideApp={false}
            >
 
-          {/*form*/}
+          <AddMaterialForm
+            submitForm={this.submitMaterialForm}/>
 
           </Modal>
           {this.state.dataIsReturned!==false ? this.ChildComponent : <h2> Loading... </h2>}
