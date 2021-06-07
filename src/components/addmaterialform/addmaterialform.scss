@@ -14,7 +14,7 @@
   }
 
   &__form{
-    width: 400px;
+    // width: 400px;
 
     &__label{
     }
@@ -77,6 +77,7 @@
       width: max-content !important;
       transform: translate(-50%, -50%) !important;
       padding: 0 !important;
+      width: 400px !important;
     }
   }
 }

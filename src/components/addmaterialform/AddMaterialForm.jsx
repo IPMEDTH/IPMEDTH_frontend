@@ -27,12 +27,11 @@ class AddMaterialForm extends React.Component {
     )
   }
 
-  onChange = (e) =>{
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(e.target.value);
   }
 
-  submitForm = (e) =>{
+  submitForm = (e) => {
     e.preventDefault();
     if (this.checkIfFormFilled()) {
       const { name, description, amount, unit, location } = this.state;
@@ -41,8 +40,11 @@ class AddMaterialForm extends React.Component {
       axios.get(UrlService.getCookie())
       .then(response => {
         axios.post(UrlService.PostMaterial(), { name, description, amount, unit, location })
-          .then((result) => {
-            console.log(result);
+          .then((response) => {
+            if (response.status == 200) {
+              // document.getElementById('materialsform').style.display = "none";
+              // document.getElementById('materialsform-success').style.display = "block";
+            }
           })
           .catch((error) => {
             console.log(error)
@@ -59,7 +61,7 @@ class AddMaterialForm extends React.Component {
       <>
         <h2 className="addmaterial__title"> MATERIAAL TOEVOEGEN...</h2>
         <div className="addmaterial__titlebar"></div>
-        <form className="addmaterial__form" method="POST">
+        <form id="materialsform" className="addmaterial__form" method="POST">
           <label className="addmaterial__form__label" htmlFor="name">
             <input className="addmaterial__form__input" placeholder="Naam" type="text" name="name"   onChange={this.onChange} required autoComplete='false'/>
           </label>
@@ -80,6 +82,11 @@ class AddMaterialForm extends React.Component {
             <button className="addmaterial__form__buttons__submit" type="submit" value="submit" onClick={this.submitForm}></button>
           </section>
         </form>
+
+        {/*<section id="materialsform-success" className="addmaterial__form__success">
+          <p className="addmaterial__form__success__text"> Uw materiaal is aan de voorraad toegevoegd! </p>
+          <div className="addmaterial__form__success__close" onClick={this.props.closeModal}></div>
+        </section>*/}
       </>
     )
   }
