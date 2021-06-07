@@ -3,6 +3,8 @@ import UrlService from "../../services/UrlService";
 import axios from 'axios';
 import './addmaterialform.css';
 
+const COOKIE_URL = 'http://localhost:8000/sanctum/csrf-cookie';
+
 class AddMaterialForm extends React.Component {
   constructor() {
     super();
@@ -13,19 +15,27 @@ class AddMaterialForm extends React.Component {
       unit: '',
     };
   }
-
   onChange = (e) =>{
     this.setState({ [e.target.name]: e.target.value });
   }
 
   submitForm = (e) =>{
+
     e.preventDefault();
     const { name, description, amount, unit } = this.state;
 
-    axios.post('http://localhost:8000/api/postmaterial', { name, description, amount, unit })
-      .then((result) => {
-        console.log(result);
-      });
+    axios.get(COOKIE_URL)
+    .then(response => {
+      axios.defaults.headers['x-csrf-token'] = response.data.csrf_token;
+      console.log(response);
+      axios.post('http://localhost:8000/api/postmaterial', { name, description, amount, unit })
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    })
   }
 
   render() {
