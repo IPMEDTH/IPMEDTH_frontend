@@ -24,10 +24,9 @@ class AddMaterialForm extends React.Component {
     e.preventDefault();
     const { name, description, amount, unit } = this.state;
 
+    axios.defaults.withCredentials = true;
     axios.get(COOKIE_URL)
     .then(response => {
-      axios.defaults.headers['x-csrf-token'] = response.data.csrf_token;
-      console.log(response);
       axios.post('http://localhost:8000/api/postmaterial', { name, description, amount, unit })
         .then((result) => {
           console.log(result);
