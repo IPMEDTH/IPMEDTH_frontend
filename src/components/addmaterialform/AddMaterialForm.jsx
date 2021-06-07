@@ -13,6 +13,7 @@ class AddMaterialForm extends React.Component {
       description: '',
       amount: '',
       unit: '',
+      location: '',
     };
   }
   onChange = (e) =>{
@@ -22,12 +23,12 @@ class AddMaterialForm extends React.Component {
   submitForm = (e) =>{
 
     e.preventDefault();
-    const { name, description, amount, unit } = this.state;
+    const { name, description, amount, unit, location } = this.state;
 
     axios.defaults.withCredentials = true;
     axios.get(UrlService.getCookie())
     .then(response => {
-      axios.post(UrlService.PostMaterial(), { name, description, amount, unit })
+      axios.post(UrlService.PostMaterial(), { name, description, amount, unit, location })
         .then((result) => {
           console.log(result);
         })
@@ -41,6 +42,7 @@ class AddMaterialForm extends React.Component {
     return(
       <>
         <h2 className="addmaterial__title"> MATERIAAL TOEVOEGEN...</h2>
+        <div className="addmaterial__titlebar"></div>
         <form className="addmaterial__form" method="POST">
           <label className="addmaterial__form__label" htmlFor="name">
             <input className="addmaterial__form__input" placeholder="Naam" type="text" name="name"   onChange={this.onChange} />
@@ -53,6 +55,9 @@ class AddMaterialForm extends React.Component {
           </label>
           <label className="addmaterial__form__label" htmlFor="unit">
             <input className="addmaterial__form__input" placeholder="Eenheid" type="text" name="unit"   onChange={this.onChange} />
+          </label>
+          <label className="addmaterial__form__label" htmlFor="location">
+            <input className="addmaterial__form__input" placeholder="Waar ligt het?" type="text" name="location"   onChange={this.onChange} />
           </label>
           <section className="addmaterial__form__buttons">
             <div className="addmaterial__form__buttons__close" onClick={this.props.closeModal}></div>

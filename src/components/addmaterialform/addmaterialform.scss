@@ -3,7 +3,14 @@
 .addmaterial{
   &__title{
     text-align: center;
-    margin: $default-gap/2 0;
+    margin: $default-gap/2 0 $default-gap/4 0;
+
+    &bar{
+      width: 30%;
+      height: 2px;
+      background-color: $colour_space_yellow;
+      margin: 0 auto;
+    }
   }
 
   &__form{
@@ -17,6 +24,19 @@
       margin: $default-gap/2;
       width: (400-$default-gap);
       box-sizing: border-box;
+      border-radius: 2px;
+      border-top: none;
+          // border-top-color: currentcolor;
+          // border-top-width: medium;
+      border-right: none;
+          // border-right-color: currentcolor;
+          // border-right-width: medium;
+      border-color: #d2d2d2;
+      border-bottom-style: solid;
+      border-width: 2px;
+      padding: 6px 15px;
+      font-size: 1rem;
+      border-left-style: solid;
     }
 
     &__buttons{
