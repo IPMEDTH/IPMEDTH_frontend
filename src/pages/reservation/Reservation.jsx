@@ -15,7 +15,6 @@ class ReservationPage extends React.Component {
 
   onHelpClicked = () => {
     var element = document.getElementById("js--reservation__hulp");
-    var help = document.getElementById("js--help");
     var checkbox = document.getElementById("js--checkbox");
     element.classList.toggle('active');
 
