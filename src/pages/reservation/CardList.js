@@ -19,9 +19,13 @@ class CardList extends React.Component {
   getDeviceData() {
     axios.get(UrlService.DeviceMenu(deviceid), {}).then(res => {
       const data = res.data
-      console.log(data)
-      const device = data.map(u =>
+      var list = [];
+      list.push(data);
+      console.log(list);
+      const device = list.map(u =>
         <Card title={u.name}
+          description={u.description}
+          amount={u.amount}
           id={u.id}
           img={u.image_url}
           key={u.id}

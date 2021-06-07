@@ -22,6 +22,7 @@ class ReservationPage extends React.Component {
       state = "open";
       checkbox.checked = true;
       document.getElementById("js--reservation__triangle").animate([{transform: 'rotate(0deg)'}], {duration: 300});
+      document.getElementById("js--help").style.marginBottom = "23vh";
 
       var delayInMilliseconds = 275; //1 second
       setTimeout(function() {
@@ -32,6 +33,7 @@ class ReservationPage extends React.Component {
       state = "closed";
       checkbox.checked = false;
       document.getElementById("js--reservation__triangle").animate([{transform: 'rotate(90deg)'}], {duration: 300});
+      document.getElementById("js--help").style.marginBottom = "0";
 
       var delayInMilliseconds2 = 275; //1 second
       setTimeout(function() {
@@ -57,7 +59,7 @@ class ReservationPage extends React.Component {
 
             <DatePicker />
           </section>
-          <section className="reservation__hulp">
+          <section id="js--help" className="reservation__hulp">
             <section className="reservation__hulp__container" onClick={this.onHelpClicked}>
               <label className="reservation__hulp__container__checkbox">
                 <input id="js--checkbox" type="checkbox" />
@@ -66,7 +68,6 @@ class ReservationPage extends React.Component {
               <p>Verwacht je hulp nodig te hebben?</p>
               <img id="js--reservation__triangle" className="reservation__hulp__image__two" src={triangle} alt="checkbox" />
               <section id="js--reservation__hulp" className="reservation__dropdown reservation__dropdown--animated">
-                <h1 className="h1text">Informatie (komt nu nog foutmelding van database)</h1>
                 <PersonList />
               </section>
             </section>

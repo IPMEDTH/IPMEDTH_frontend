@@ -10,7 +10,20 @@ import {
 import TimePicker1 from "./TimePicker1"
 import TimePicker2 from "./TimePicker2"
 
+function getWindowDimensions() {
+  const { innerWidth: width} = window;
+  return {
+    width
+  };
+}
+
 function DatePicker() {
+  const { width } = getWindowDimensions();
+  if (width < 768) {
+    var justify = 'space-around';
+  } else {
+    justify = 'space-between';
+  }
 
   const [selectedDate, setSelectedDate] = React.useState(
     null
@@ -31,7 +44,7 @@ function DatePicker() {
   return (
     <section className="reservation__datepicker">
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <Grid container justify='space-between'>
+        <Grid container justify={justify}>
           <KeyboardDatePicker
             disableToolbar
             variant="inline"
