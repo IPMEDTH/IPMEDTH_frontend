@@ -22,7 +22,7 @@ function DatePicker() {
   if (width < 768) {
     var justify = 'space-around';
   } else {
-    var justify = 'space-between';
+    justify = 'space-between';
   }
 
   const [selectedDate, setSelectedDate] = React.useState(
