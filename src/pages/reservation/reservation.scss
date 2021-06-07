@@ -16,6 +16,10 @@
   font-family: 'Muli', sans-serif;
   height: 100vh;
   position: relative;
+
+  &__card__container {
+    background-color: #fff;
+  }
 }
 
 .reservation__cards {
@@ -31,23 +35,29 @@
 
     &__knop {
       cursor: default;
-      background-color: $color_blue;
+      background-color: #eee;
       border-radius: 0.5rem;
       color: #ececec;
-      //-webkit-box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
-      //box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      min-height: 60px;
+      -webkit-box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
+      box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
+      display: grid;
+      grid-template-columns: auto 1fr 1fr;
+      grid-template-rows: auto;
+      grid-template-areas: "image text text";
+      min-height: 100px;
       position: relative;
       text-align: center;
 
       &__image {
-        max-width: 11rem;
+        max-width: 18rem;
         border-top-left-radius: 0.5rem;
-        border-top-right-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+
+        &--person {
+          width: 15rem;
+          border-top-left-radius: 0.5rem;
+          border-bottom-left-radius: 0.5rem;
+        }
       }
 
       &:hover {
@@ -55,14 +65,51 @@
       }
 
       p {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        grid-area: text;
         border-radius: 5px;
         padding: 5px;
-        background-color: rgba(0, 0, 0, 0.7);
+        text-align: left;
+        color: black;
         font-family: 'Muli', sans-serif;
+      }
+
+      &__title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      &__description {
+        margin-top: 35px;
+        font-size: 18px;
+      }
+
+      &__places {
+        margin-top: 115px;
+        font-size: 18px;
+      }
+
+      &__name {
+        position: absolute;
+        top: 8%;
+        left: 14%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
+      }
+
+      &__knowledge {
+        position: absolute;
+        top: 25%;
+        left: 17.5%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
+      }
+
+      &__available {
+        position: absolute;
+        top: 45%;
+        left: 24.4%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
       }
     }
 
@@ -209,6 +256,29 @@ section.active {
     padding: 0 40px;
 }
 
-.h1text {
-  font-size: 25px;
+@media (max-width: $bp_mobile){
+  .reservation__cards {
+    grid-template-columns: 1fr;
+
+    .reservation__optie {
+      &__knop {
+        &__image {
+          max-width: 12rem;
+        }
+
+        &__title {
+          font-size: 18px;
+        }
+
+        &__description {
+          font-size: 15px;
+        }
+
+        &__places {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
 }

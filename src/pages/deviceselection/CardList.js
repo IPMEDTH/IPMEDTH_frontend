@@ -23,6 +23,8 @@ class CardList extends React.Component {
       console.log(data)
       const devices = data.map(u =>
         <Card title={u.name}
+              description={u.description}
+              amount={u.amount}
               id={u.id}
               img={u.image_url}
               cardClicked={this.cardClicked}
