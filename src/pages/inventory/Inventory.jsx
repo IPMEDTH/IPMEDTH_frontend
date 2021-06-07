@@ -113,7 +113,7 @@ class Inventory extends React.Component {
             ariaHideApp={false}
            >
 
-          <AddMaterialForm />
+          <AddMaterialForm closeModal={this.handleCloseModal}/>
 
           </Modal>
           {this.state.dataIsReturned!==false ? this.ChildComponent : <h2> Loading... </h2>}

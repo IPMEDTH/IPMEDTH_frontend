@@ -40,21 +40,24 @@ class AddMaterialForm extends React.Component {
   render() {
     return(
       <>
+        <h2 className="addmaterial__title"> MATERIAAL TOEVOEGEN...</h2>
         <form className="addmaterial__form" method="POST">
-          <label className="addmaterial__form__label" htmlFor="name">Naam
-            <input className="addmaterial__form__input" placeholder="placeholder" type="text" name="name"   onChange={this.onChange} />
+          <label className="addmaterial__form__label" htmlFor="name">
+            <input className="addmaterial__form__input" placeholder="Naam" type="text" name="name"   onChange={this.onChange} />
           </label>
-          <label className="addmaterial__form__label" htmlFor="description">Omschrijving
-            <input className="addmaterial__form__input" placeholder="placeholder" type="text" name="description"   onChange={this.onChange} />
+          <label className="addmaterial__form__label" htmlFor="description">
+            <input className="addmaterial__form__input" placeholder="Omschrijving" type="text" name="description"   onChange={this.onChange} />
           </label>
-          <label className="addmaterial__form__label" htmlFor="amount">Hoeveelheid
-            <input className="addmaterial__form__input" placeholder="placeholder" type="number" name="amount"  defaultValue="1" onChange={this.onChange} />
+          <label className="addmaterial__form__label" htmlFor="amount">
+            <input className="addmaterial__form__input" placeholder="Hoeveelheid" type="number" name="amount"  onChange={this.onChange} />
           </label>
-          <label className="addmaterial__form__label" htmlFor="unit">Eenheid
-            <input className="addmaterial__form__input" placeholder="placeholder" type="text" name="unit"   onChange={this.onChange} />
+          <label className="addmaterial__form__label" htmlFor="unit">
+            <input className="addmaterial__form__input" placeholder="Eenheid" type="text" name="unit"   onChange={this.onChange} />
           </label>
-          <button className="addmaterial__form__submit" type="submit" value="submit" onClick={this.submitForm}> Voeg Materiaal Toe &#10151;</button>
-          <button className="addmaterial__form__close">Close</button>
+          <section className="addmaterial__form__buttons">
+            <div className="addmaterial__form__buttons__close" onClick={this.props.closeModal}></div>
+            <button className="addmaterial__form__buttons__submit" type="submit" value="submit" onClick={this.submitForm}></button>
+          </section>
         </form>
       </>
     )
