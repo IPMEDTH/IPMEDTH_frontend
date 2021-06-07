@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAKI,yBAAQ;EACN,aAAa,ECIL,IAAI;ADDd,yBAAQ;EACN,OAAO,EAAE,KAAK",
+"sources": ["addmaterialform.scss","../../assets/scss/var.scss"],
 "names": [],
 "file": "addmaterialform.css"
 }

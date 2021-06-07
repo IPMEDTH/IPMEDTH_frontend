@@ -1,8 +1,15 @@
 @import '../../assets/scss/var';
 
-.foobar {
+.addmaterial{
+  &__form{
+
+    &__label{
+      margin-bottom: $default-gap;
+    }
+
+    &__input{
+      display: block;
+    }
+  }
 
 }
-
-
-   

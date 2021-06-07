@@ -1,5 +1,5 @@
 let apiDomain = 'https://api.ipmedth.meulen.dev/'
-let apiLocal = 'http://localhost:8000'
+let apiLocal = 'http://localhost:8000/'
 
 class UrlService {
     static Devices() { return apiDomain + 'api/locations/'; }

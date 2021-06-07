@@ -113,8 +113,7 @@ class Inventory extends React.Component {
             ariaHideApp={false}
            >
 
-          <AddMaterialForm
-            submitForm={this.submitMaterialForm}/>
+          <AddMaterialForm />
 
           </Modal>
           {this.state.dataIsReturned!==false ? this.ChildComponent : <h2> Loading... </h2>}
