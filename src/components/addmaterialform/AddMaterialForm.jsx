@@ -36,7 +36,7 @@ class AddMaterialForm extends React.Component {
     e.preventDefault();
     if (this.checkIfFormFilled() && !this.state.isLoading) {
       const { name, description, amount, unit, location } = this.state;
-      this.state.isLoading = true;
+      this.setState({ isLoading: true });
 
       axios.defaults.withCredentials = true;
       axios.get(UrlService.getCookie())
@@ -45,7 +45,7 @@ class AddMaterialForm extends React.Component {
           .then((response) => {
             // TODO: ADD LOADING COMPONENT TO PREVENT USER FROM TAPPING SEND MORE THAN ONCE
             if (response.status === 200) {
-              this.state.isLoading = false; // quick fix for above TODO
+              this.setState({ isLoading: false }); // quick fix for above TODO
               this.props.showSuccessComponent(true);
             }
           })
