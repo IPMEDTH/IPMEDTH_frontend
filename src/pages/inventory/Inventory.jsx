@@ -25,7 +25,7 @@ class Inventory extends React.Component {
       search_term: '',
       showModal: false,
       // CloseOnOverlayClick: true,
-      showSuccessComponent: false,
+      showSuccessComponent: true,
     }
     this.ChildComponent = '';
     this.AddMaterialForm = <AddMaterialForm showSuccessComponent={this.handleShowSuccessComponent} closeModal={this.handleCloseModal} />;

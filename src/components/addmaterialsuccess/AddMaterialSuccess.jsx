@@ -12,11 +12,11 @@ class AddMaterialSuccess extends React.Component {
 
   render() {
     return(
-      <section id="materialsform-success" className="addmaterial__form__success">
+      <section className="addmaterial__success">
         <h2 className="addmaterial__title"> MATERIAAL TOEVOEGEN...</h2>
         <div className="addmaterial__titlebar"></div>
-        <p className="addmaterial__form__success__text"> Uw materiaal is aan de voorraad toegevoegd! </p>
-        <div className="addmaterial__form__success__close" onClick={this.props.closeModal}></div>
+        <p className="addmaterial__success__text"> Uw materiaal is aan de voorraad toegevoegd! </p>
+        <div className="addmaterial__success__close" onClick={this.props.closeModal}></div>
       </section>
     )
   }

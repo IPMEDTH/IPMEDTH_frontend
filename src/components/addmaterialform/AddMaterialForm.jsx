@@ -14,7 +14,7 @@ class AddMaterialForm extends React.Component {
       amount: '',
       unit: '',
       location: '',
-      // showConfirmContent: false,
+      isLoading: false,
     };
   }
 
@@ -34,20 +34,18 @@ class AddMaterialForm extends React.Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    if (this.checkIfFormFilled()) {
+    if (this.checkIfFormFilled() && !this.state.isLoading) {
       const { name, description, amount, unit, location } = this.state;
+      this.state.isLoading = true;
 
       axios.defaults.withCredentials = true;
       axios.get(UrlService.getCookie())
       .then(response => {
         axios.post(UrlService.PostMaterial(), { name, description, amount, unit, location })
           .then((response) => {
+            // TODO: ADD LOADING COMPONENT TO PREVENT USER FROM TAPPING SEND MORE THAN ONCE
             if (response.status === 200) {
-              // document.getElementById('materialsform').style.display = "none";
-              // document.getElementById('materialsform-success').style.display = "block";
-              // switch modal function through props
-              // this.props.handleCloseOnOverlayClick(false);
-              // this.state.showConfirmContent = true;
+              this.state.isLoading = false; // quick fix for above TODO
               this.props.showSuccessComponent(true);
             }
           })
@@ -66,7 +64,7 @@ class AddMaterialForm extends React.Component {
       <>
         <h2 className="addmaterial__title"> MATERIAAL TOEVOEGEN...</h2>
         <div className="addmaterial__titlebar"></div>
-        <form id="materialsform" className="addmaterial__form" method="POST">
+        <form className="addmaterial__form" method="POST">
           <label className="addmaterial__form__label" htmlFor="name">
             <input className="addmaterial__form__input" placeholder="Naam" type="text" name="name"   onChange={this.onChange} required autoComplete='false'/>
           </label>
