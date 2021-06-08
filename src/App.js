@@ -10,6 +10,7 @@ import Inventory from "./pages/inventory/Inventory";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import DeviceSelectionPage from "./pages/deviceselection/DeviceSelection";
+import ReservationPage from "./pages/reservation/Reservation";
 
 const guestRoutes: Array<GuestRouteInterface> = [
   { path: "/", component: IndexPage, exact: true },
@@ -17,8 +18,8 @@ const guestRoutes: Array<GuestRouteInterface> = [
   { path: "/deviceselection", component: DeviceSelectionPage, exact: true },
   { path: "/login", component: Login, exact: true },
   { path: "/register", component: Register, exact: true },
-  {/*}{ path: "/reservation", component: None, exact: true },
-  { path: "/personnel", component: None, exact: true },
+  { path: "/reservation", component: ReservationPage, exact: true },
+  {/* path: "/personnel", component: None, exact: true },
   { path: "/usr-reservations", component: None, exact: true },
   { path: "/material-history", component: None, exact: true },*/},
 ];

@@ -4,11 +4,10 @@ import Card from "./Card";
 import axios from "axios";
 import UrlService from "../../services/UrlService";
 
+var deviceid = window.localStorage.getItem('device');
+
 class CardList extends React.Component {
 
-  cardClicked = (id) => {
-    this.props.cardClicked(id);
-  }
 
   constructor(props) {
     super(props);
@@ -17,23 +16,24 @@ class CardList extends React.Component {
     };
   }
 
-  getDevicesData() {
-    axios.get(UrlService.Devices("devices"), {}).then(res => {
+  getDeviceData() {
+    axios.get(UrlService.DeviceMenu(deviceid), {}).then(res => {
       const data = res.data
-      console.log(data)
-      const devices = data.map(u =>
+      var list = [];
+      list.push(data);
+      console.log(list);
+      const device = list.map(u =>
         <Card title={u.name}
-              description={u.description}
-              amount={u.amount}
-              id={u.id}
-              img={u.image_url}
-              cardClicked={this.cardClicked}
-              key={u.id}
+          description={u.description}
+          amount={u.amount}
+          id={u.id}
+          img={u.image_url}
+          key={u.id}
         />
       )
 
       this.setState({
-        devices
+        device
       })
     })
     .catch((error) => {
@@ -42,13 +42,13 @@ class CardList extends React.Component {
   }
 
   componentDidMount() {
-    this.getDevicesData();
+    this.getDeviceData();
   }
 
   render() {
     return (
-      <section className="deviceselection__cards">
-        {this.state.devices}
+      <section className="reservation__cards">
+        {this.state.device}
       </section>
     );
   }
