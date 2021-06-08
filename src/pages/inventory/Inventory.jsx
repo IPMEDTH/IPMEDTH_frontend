@@ -10,6 +10,7 @@ import Footer from "../../components/footer/Footer"
 import MaterialList from "../../components/material/MaterialList"
 import AddMaterial from "../../components/addmaterial/AddMaterial"
 import AddMaterialForm from "../../components/addmaterialform/AddMaterialForm"
+import AddMaterialSuccess from "../../components/addmaterialsuccess/AddMaterialSuccess"
 import SearchBar from '../../components/searchbar/SearchBar';
 
 // const MATERIALS_URL = 'http://localhost:8000/api/materials';
@@ -23,19 +24,36 @@ class Inventory extends React.Component {
       dataIsReturned: false,
       search_term: '',
       showModal: false,
+      // CloseOnOverlayClick: true,
+      showSuccessComponent: false,
     }
     this.ChildComponent = '';
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.AddMaterialForm = <AddMaterialForm showSuccessComponent={this.handleShowSuccessComponent} closeModal={this.handleCloseModal} />;
+    this.AddMaterialSuccess = <AddMaterialSuccess showSuccessComponent={this.handleShowSuccessComponent} closeModal={this.handleCloseModal} />;
+
+    // this.handleOpenModal = this.handleOpenModal.bind(this);
+    // this.handleCloseModal = this.handleCloseModal.bind(this);
+    // this.handleShowSuccessComponent = this.handleShowSuccessComponent.bind(this);
   }
 
-  handleOpenModal () {
-    this.setState({ showModal: true });
+  handleOpenModal = () => {
+    this.setState({ showModal: true })
   }
 
-  handleCloseModal () {
-    this.setState({ showModal: false });
+  handleCloseModal = () => {
+    this.setState({ showModal: false,
+    showSuccessComponent: false })
+    // this.setState({ showSuccessComponent: false })
   }
+
+  handleShowSuccessComponent = (bool) => {
+    this.setState({ showSuccessComponent: bool });
+  }
+  // handleCloseOnOverlayClick={this.handleCloseOnOverlayClick}
+
+  // switchModal = () => {
+  //
+  // }
 
   getMaterialsData = () => {
     axios.get(UrlService.Materials())
@@ -107,14 +125,16 @@ class Inventory extends React.Component {
             />
           <Modal
             isOpen={this.state.showModal}
-            contentLabel="onRequestClose Example"
             onRequestClose={this.handleCloseModal}
-            shouldCloseOnOverlayClick={true}
+            shouldCloseOnOverlayClick={this.state.CloseOnOverlayClick}
             ariaHideApp={false}
            >
 
-          <AddMaterialForm closeModal={this.handleCloseModal}/>
-
+           {this.state.showSuccessComponent===false ?
+              this.AddMaterialForm
+              :
+              this.AddMaterialSuccess
+            }
           </Modal>
           {this.state.dataIsReturned!==false ? this.ChildComponent : <h2> Loading... </h2>}
         </main>

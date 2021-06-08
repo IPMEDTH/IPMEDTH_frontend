@@ -14,6 +14,7 @@ class AddMaterialForm extends React.Component {
       amount: '',
       unit: '',
       location: '',
+      // showConfirmContent: false,
     };
   }
 
@@ -41,9 +42,13 @@ class AddMaterialForm extends React.Component {
       .then(response => {
         axios.post(UrlService.PostMaterial(), { name, description, amount, unit, location })
           .then((response) => {
-            if (response.status == 200) {
+            if (response.status === 200) {
               // document.getElementById('materialsform').style.display = "none";
               // document.getElementById('materialsform-success').style.display = "block";
+              // switch modal function through props
+              // this.props.handleCloseOnOverlayClick(false);
+              // this.state.showConfirmContent = true;
+              this.props.showSuccessComponent(true);
             }
           })
           .catch((error) => {
@@ -82,11 +87,6 @@ class AddMaterialForm extends React.Component {
             <button className="addmaterial__form__buttons__submit" type="submit" value="submit" onClick={this.submitForm}></button>
           </section>
         </form>
-
-        {/*<section id="materialsform-success" className="addmaterial__form__success">
-          <p className="addmaterial__form__success__text"> Uw materiaal is aan de voorraad toegevoegd! </p>
-          <div className="addmaterial__form__success__close" onClick={this.props.closeModal}></div>
-        </section>*/}
       </>
     )
   }
