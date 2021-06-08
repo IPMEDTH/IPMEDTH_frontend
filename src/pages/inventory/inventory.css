@@ -31,6 +31,7 @@
 .inventory__content-item__info__image {
   height: 100%;
   width: 100%;
+  border-radius: 0 3px 3px 0;
 }
 
 /*# sourceMappingURL=inventory.css.map */
