@@ -1,8 +1,8 @@
 @import '../../assets/scss/var';
 @import '../../assets/scss/default';
 
-.choice__subtitle{
-  max-width: 1020px;
+.deviceselection__choice__subtitle{
+  max-width: 768px;
   padding: 0 40px;
   font-size: 24px;
   font-weight: 800;
@@ -12,58 +12,82 @@
   margin-bottom: 20px;
 }
 
-.choice__text {
+.deviceselection__choice__text {
   padding: 0 40px;
   font-size: 1em;
   font-weight: 400;
   margin: 0 auto;
   color: $color_grey;
   line-height: 1.3;
-  max-width: 1020px;
+  max-width: 768px;
   margin-bottom: 40px;
 }
 
-.pretest {
+.deviceselection {
   font-family: 'Muli', sans-serif;
   height: 100vh;
   position: relative;
-  background-position: top center;
 }
 
-.opties {
+.deviceselection__cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  margin: 40px;
 
   &__link{
     text-decoration: none;
   }
 
-  .optie {
+  .deviceselection__optie {
 
     &__knop {
       cursor: pointer;
-      background-color: $color_blue;
+      background-color: #eee;
       border-radius: 0.5rem;
       color: #ececec;
       -webkit-box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
       box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 30px 40px;
+      display: grid;
+      grid-template-columns: auto 1fr 1fr;
+      grid-template-rows: auto;
+      grid-template-areas: "image text text";
       transition: opacity .2s ease;
       min-height: 60px;
+      position: relative;
+      text-align: center;
+
+      &__image {
+        grid-area: image;
+        max-width: 11rem;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+      }
 
       &:hover {
-        opacity: 0.9;
+        opacity: 0.8;
       }
 
       p {
-        margin: 0;
-        padding: 0;
+        grid-area: text;
+        border-radius: 5px;
+        padding: 5px;
+        text-align: left;
+        color: black;
+        font-family: 'Muli', sans-serif;
+      }
+
+      &__title {
+        font-weight: bold;
+      }
+
+      &__description {
+        margin-top: 25px;
+        font-size: 15px;
+      }
+
+      &__places {
+        margin-top: 100px;
+        font-size: 15px;
       }
     }
 
@@ -74,8 +98,31 @@
   }
 }
 
-.container {
-    max-width: 1020px;
+.deviceselection__container {
+    max-width: 768px;
     margin: 0 auto;
     padding: 0 40px;
+}
+
+@media (max-width: $bp_mobile){
+  .deviceselection__cards {
+    grid-template-columns: 1fr;
+
+    .deviceselection__optie {
+      &__knop {
+        &__title {
+          font-size: 13px;
+        }
+
+        &__description {
+          font-size: 12px;
+        }
+
+        &__places {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
 }

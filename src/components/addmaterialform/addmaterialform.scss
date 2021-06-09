@@ -1,0 +1,83 @@
+@import '../../assets/scss/var';
+
+.addmaterial{
+  &__title{
+    text-align: center;
+    margin: $default-gap/2 0 $default-gap/4 0;
+
+    &bar{
+      width: 30%;
+      height: 2px;
+      background-color: $colour_space_yellow;
+      margin: 0 auto;
+    }
+  }
+
+  &__form{
+    // width: 400px;
+
+    &__label{
+    }
+
+    &__input{
+      display: block;
+      margin: $default-gap/2;
+      width: (400-$default-gap);
+      box-sizing: border-box;
+      border-radius: 2px;
+      border-top: none;
+          // border-top-color: currentcolor;
+          // border-top-width: medium;
+      border-right: none;
+          // border-right-color: currentcolor;
+          // border-right-width: medium;
+      border-color: #d2d2d2;
+      border-bottom-style: solid;
+      border-width: 2px;
+      padding: 6px 15px;
+      font-size: 1rem;
+      border-left-style: solid;
+    }
+
+    &__buttons{
+      display: flex;
+      width: 100%;
+
+      &__submit{
+        background: url('../../images/done_black_24dp.svg') no-repeat;
+        background-size: contain;
+        background-position: center;
+        cursor: pointer;
+        border: none;
+        width: 50%;
+        height: 50px;
+
+      }
+
+      &__close{
+        background: url('../../images/close_black_24dp.svg') no-repeat;
+        background-size: contain;
+        background-position: center;
+        cursor: pointer;
+        border: none;
+        width: 50%;
+        height: 50px;
+      }
+
+    }
+  }
+
+}
+
+.ReactModal{
+  &__Content{
+    &--after-open{
+      position: relative !important;
+      inset: 50% !important;
+      width: max-content !important;
+      transform: translate(-50%, -50%) !important;
+      padding: 0 !important;
+      width: 400px !important;
+    }
+  }
+}
