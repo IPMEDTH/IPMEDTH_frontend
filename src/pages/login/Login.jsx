@@ -1,17 +1,16 @@
 import React from "react";
 import axios from 'axios';
 import './login.css';
-import api from '../../assets/api';
 
-import Header from "../../components/header/Header"
-import Footer from "../../components/footer/Footer"
+// import Header from "../../components/header/Header"
+// import Footer from "../../components/footer/Footer"
 import Input from "../../components/input_field/Input"
 
-// const LOGIN_URL = 'http://api.ipmedth.meulen.dev/login';
-const LOGIN_URL = 'http://localhost:8000/login';
+const LOGIN_URL = 'http://api.ipmedth.meulen.dev/login';
+// const LOGIN_URL = 'http://localhost:8000/login';
 
-// const COOKIE_URL = 'http://api.ipmedth.meulen.dev/sanctum/csrf-cookie';
-const COOKIE_URL = 'http://localhost:8000/sanctum/csrf-cookie';
+const COOKIE_URL = 'http://api.ipmedth.meulen.dev/sanctum/csrf-cookie';
+// const COOKIE_URL = 'http://localhost:8000/sanctum/csrf-cookie';
 
 // Main app
 class Login extends React.Component {
@@ -85,7 +84,6 @@ class Login extends React.Component {
                 <Input type='password' name='password' value={this.state.password} onChange={this.handleChange} placeholder='password' />
                 <input className="" type='submit' value='Login' />
               </form>
-                <a href='#'>Forgot your password?</a>
            </div>
   }
 }

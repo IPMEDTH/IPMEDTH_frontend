@@ -1,10 +1,9 @@
 import React from "react";
-import { NavLink, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import './register.css';
 
-import Header from "../../components/header/Header"
-import Footer from "../../components/footer/Footer"
+// import Header from "../../components/header/Header"
+// import Footer from "../../components/footer/Footer"
 import Input from "../../components/input_field/Input"
 
 // const REGISTER_URL = "https://somewhere.com/api/register";
@@ -14,7 +13,7 @@ const LOGIN_URL = 'http://api.ipmedth.meulen.dev/login';
 
 
 let checkPasswordMatch = (password, conf_password) => {
-  return (password == conf_password);
+  return (password === conf_password);
 }
 
 class Register extends React.Component {
@@ -77,12 +76,6 @@ class Register extends React.Component {
   // Cookie “laravel_session” has been rejected for invalid domain.
 
   render(){
-    const { redirect } = this.state;
-
-    // Redirects to dashboard after registration
-    if (redirect) {
-      return <Redirect to="/"/>
-    }
 
     return (
       <section className='Modal'>
@@ -93,7 +86,6 @@ class Register extends React.Component {
                   <Input type='password' name='conf_password' onChange={this.handleChange} placeholder='password' />
                   <input className="" type='submit' value='Register' />
                 </form>
-                  <a href='#'>Forgot your password?</a>
       </section>
     );
   };
