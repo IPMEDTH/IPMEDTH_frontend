@@ -246,6 +246,33 @@
   transition: 0.5s;
 }
 
+.reservation__confirm {
+  padding: 0 40px;
+  margin: 0 auto;
+  margin-top: 2vh;
+  max-width: 768px;
+
+  &__button__submit {
+    width: 100%;
+    cursor: pointer;
+    padding: 0 46%;
+    background-color: $color_blue;
+    border-radius: 0.5rem;
+    color: #ececec;
+    -webkit-box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    min-height: 60px;
+    position: relative;
+    text-align: center;
+    font-family: 'Muli', sans-serif;
+    font-size: 15px;
+  }
+}
+
 section.active {
   transform: perspective(1000px) rotateX(0deg);
 }

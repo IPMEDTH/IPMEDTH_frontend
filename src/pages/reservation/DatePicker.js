@@ -31,7 +31,10 @@ function DatePicker() {
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+    var dateFormat = require("dateformat");
+    date = dateFormat(date, "yyyy-mm-dd");
     window.localStorage.setItem('timedate', date);
+    console.log("datum: " + date);
   };
 
   const [isOpen, setIsOpen] = React.useState(false);
