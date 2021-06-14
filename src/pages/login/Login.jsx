@@ -1,18 +1,12 @@
 import React from "react";
 import axios from 'axios';
+import UrlService from "../../services/UrlService";
 import './login.css';
 
 // import Header from "../../components/header/Header"
 // import Footer from "../../components/footer/Footer"
 import Input from "../../components/input_field/Input"
 
-const LOGIN_URL = 'http://api.ipmedth.meulen.dev/login';
-// const LOGIN_URL = 'http://localhost:8000/login';
-
-const COOKIE_URL = 'http://api.ipmedth.meulen.dev/sanctum/csrf-cookie';
-// const COOKIE_URL = 'http://localhost:8000/sanctum/csrf-cookie';
-
-// Main app
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -34,24 +28,16 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // console.log(this.state.password);
     axios.defaults.withCredentials = true;
-    // axios.get('http://localhost:8000/sanctum/csrf-cookie')
-    axios.get(COOKIE_URL)
+    axios.get(UrlService.getCookie())
     .then(response => {
-      // let cookies = document.cookie.split("=");
-      // console.log(cookies); // []
-      // let token = cookies[1];
-      // console.log(token); // undefined
-      // console.log(response.headers); // Object { "cache-control": "no-cache, private" }
       console.log(response);
       console.log({
   			email: this.state.email,
   			password: this.state.password
   		});
 
-      // axios.post("http://localhost:8000/login", {
-      axios.post(LOGIN_URL, {
+      axios.post(UrlService.login(), {
   			email: this.state.email,
   			password: this.state.password
   		})
@@ -63,7 +49,6 @@ class Login extends React.Component {
           console.log("success");
         }
   		  // this.setState({ loading: false });
-  			// this.setState({ error: '' });
   		})
   		.catch((error) => {
         console.log(error);

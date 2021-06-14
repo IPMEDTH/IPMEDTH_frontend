@@ -1,29 +1,25 @@
 import React from "react";
 import axios from 'axios';
+import UrlService from "../../services/UrlService";
 import './register.css';
 
 // import Header from "../../components/header/Header"
 // import Footer from "../../components/footer/Footer"
 import Input from "../../components/input_field/Input"
 
-// const REGISTER_URL = "https://somewhere.com/api/register";
-// const LOGIN_URL = "https://somewhere.com/api/login";
-const REGISTER_URL = 'http://api.ipmedth.meulen.dev/register';
-const LOGIN_URL = 'http://api.ipmedth.meulen.dev/login';
 
-
-let checkPasswordMatch = (password, conf_password) => {
-  return (password === conf_password);
+let checkPasswordMatch = (password, password_confirmation) => {
+  return (password === password_confirmation);
 }
 
 class Register extends React.Component {
   constructor() {
     super();
     this.state = {
-      username: '',
+      name: '',
       email: '',
       password: '',
-      conf_password: '',
+      password_confirmation: '',
       redirect: false,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -42,50 +38,50 @@ class Register extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     axios.defaults.withCredentials = true;
-    if (!checkPasswordMatch(this.state.password, this.state.conf_password)) {
+    if (!checkPasswordMatch(this.state.password, this.state.password_confirmation)) {
       console.log("password does not match");
       return;
     }
-    axios.post(REGISTER_URL, {
-        username:this.state.username,
-        email: this.state.email,
-        password: this.state.password,
+    axios.get(UrlService.getCookie())
+    .then(response => {
+      axios.post(UrlService.register(), {
+          name: this.state.name,
+          email: this.state.email,
+          password: this.state.password,
+          password_confirmation: this.state.password_confirmation,
+        })
+      .then((response) => {
+        axios.post(UrlService.login(), {
+          email: this.state.email,
+          password: this.state.password
+        })
+        // .then((response) => {
+    		//   this.setState({ loading: false });
+    		// 	this.setState({ error: '' });
+        //   this.setState({ redirect: true });
+        // })
       })
-    .then((response) => {
-      this.setState({ error: '' });
-      axios.post(LOGIN_URL, {
-        email: this.state.email,
-        password: this.state.password
-      })
-      // .then((response) => {
-  		//   this.setState({ loading: false });
-  		// 	this.setState({ error: '' });
-      //   this.setState({ redirect: true });
-      // })
+      .catch((error) => {
+        console.log(error);
+        if (error.response) {
+          const status = error.response.status;
+          console.log(status);
+        }
+      });
     })
-		//Error when provided e-mail or username that already exists in database
-    .catch((error) => {
-      console.log(error);
-      if (error.response) {
-        const status = error.response.status;
-        console.log(status);
-      }
-    });
   }
-  // status 419: no reason phrase
-  // Cookie “laravel_session” has been rejected for invalid domain.
 
   render(){
 
     return (
       <section className='Modal'>
-                <form onSubmit= { this.handleSubmit }>
-                  <Input type='text' name='username' onChange={this.handleChange} placeholder='username' />
-                  <Input type='text' name='email' onChange={this.handleChange} placeholder='e-mail' />
-                  <Input type='password' name='password' onChange={this.handleChange} placeholder='password' />
-                  <Input type='password' name='conf_password' onChange={this.handleChange} placeholder='password' />
-                  <input className="" type='submit' value='Register' />
-                </form>
+        <form onSubmit= { this.handleSubmit }>
+          <Input type='text' name='name' onChange={this.handleChange} placeholder='name' />
+          <Input type='text' name='email' onChange={this.handleChange} placeholder='e-mail' />
+          <Input type='password' name='password' onChange={this.handleChange} placeholder='password' />
+          <Input type='password' name='password_confirmation' onChange={this.handleChange} placeholder='password' />
+          <input className="" type='submit' value='Register' />
+        </form>
       </section>
     );
   };
