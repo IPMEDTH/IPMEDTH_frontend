@@ -19,7 +19,7 @@ function getWindowDimensions() {
 
 function DatePicker() {
   const { width } = getWindowDimensions();
-  if (width < 768) {
+  if (width < 1024) {
     var justify = 'space-around';
   } else {
     justify = 'space-between';

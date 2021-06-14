@@ -18,8 +18,9 @@ class PersonList extends React.Component {
 
   getHelperData() {
     axios.get(UrlService.HelpMenu(deviceid), {}).then(res => {
-      const data = res.data
-      console.log(data)
+      const data = res.data.helpers
+      console.log(data);
+      window.localStorage.setItem('helpers_amount', data.length);
       const helper = data.map(u =>
         <Person title={u.name}
           knowledge={u.knowlegde}

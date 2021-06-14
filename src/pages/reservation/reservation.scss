@@ -89,26 +89,24 @@
       }
 
       &__name {
-        position: absolute;
-        top: 8%;
-        left: 14%;
-        transform: translate(-50%, -50%);
+        position: relative;
+        top: 130px;
+        margin-left: 0px;
+        text-align: left;
         font-size: 18px;
       }
 
       &__knowledge {
-        position: absolute;
-        top: 25%;
-        left: 17.5%;
-        transform: translate(-50%, -50%);
+        position: relative;
+        top: 180px;
+        margin-left: 0px;
         font-size: 18px;
       }
 
       &__available {
-        position: absolute;
-        top: 45%;
-        left: 24.4%;
-        transform: translate(-50%, -50%);
+        position: relative;
+        top: 250px;
+        margin-left: 0px;
         font-size: 18px;
       }
     }
@@ -240,10 +238,16 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background: #C4C4C4;
+  background: #white;
   transform-origin: top;
   transform: perspective(1000px) rotateX(-90deg);
   transition: 0.5s;
+
+  > h1 {
+    margin: 20px;
+    font-size: 15px;
+    color: black;
+  }
 }
 
 .reservation__confirm {
@@ -283,14 +287,16 @@ section.active {
     padding: 0 40px;
 }
 
-@media (max-width: $bp_mobile){
+@media (max-width: $bp_tablet){
   .reservation__cards {
-    grid-template-columns: 1fr;
-
     .reservation__optie {
       &__knop {
         &__image {
-          max-width: 12rem;
+          max-width: 18rem;
+
+          &--person {
+            width: 16rem;
+          }
         }
 
         &__title {
@@ -304,8 +310,67 @@ section.active {
         &__places {
           font-size: 15px;
         }
+
+        &__name {
+          top: 140px;
+          font-size: 18px;
+        }
+
+        &__knowledge {
+          top: 220px;
+          font-size: 18px;
+        }
+
+        &__available {
+          top: 340px;
+          font-size: 18px;
+        }
       }
     }
   }
+}
 
+@media (max-width: $bp_mobile){
+  .reservation__cards {
+    grid-template-columns: 1fr;
+
+    .reservation__optie {
+      &__knop {
+        &__image {
+          max-width: 12rem;
+
+          &--person {
+            width: 11rem;
+          }
+        }
+
+        &__title {
+          font-size: 18px;
+        }
+
+        &__description {
+          font-size: 15px;
+        }
+
+        &__places {
+          font-size: 15px;
+        }
+
+        &__name {
+          top: 90px;
+          font-size: 18px;
+        }
+
+        &__knowledge {
+          top: 140px;
+          font-size: 18px;
+        }
+
+        &__available {
+          top: 210px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
 }

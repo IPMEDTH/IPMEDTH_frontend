@@ -41,7 +41,11 @@ class ReservationPage extends React.Component {
       this.setState({ help: true });
       checkbox.checked = true;
       document.getElementById("js--reservation__triangle").animate([{transform: 'rotate(0deg)'}], {duration: 300});
-      document.getElementById("js--help").style.marginBottom = "23vh";
+      var helpers_amount = window.localStorage.getItem('helpers_amount');
+      var marginBot = helpers_amount * 31;
+      marginBot = marginBot + "vh";
+      console.log(marginBot);
+      document.getElementById("js--help").style.marginBottom = marginBot;
 
       var delayInMilliseconds = 275; //1 second
       setTimeout(function() {
@@ -76,30 +80,13 @@ class ReservationPage extends React.Component {
   fillReservation = (e) => {
     console.log("Stuur naar database: ");
     var location = window.localStorage.getItem('device');
-    console.log("location: " + this.state.location);
-    this.setState({ location: `${location}` });
-
-
     var timedate = window.localStorage.getItem('timedate');
-    this.setState({ date: `${timedate}` });
-    console.log("date: " + this.state.date);
-
     var timestart = window.localStorage.getItem('timestart');
-    this.setState({ start: `${timestart}` });
-    console.log("start: " + this.state.start);
-
     var timeend = window.localStorage.getItem('timeend');
-    this.setState({ end: `${timeend}` });
-    console.log("end: " + this.state.end);
-
-    console.log("help: " + this.state.help);
-
-    this.submitReservation(e);
-
+    this.setState({ location: `${location}`, date: `${timedate}`, start: `${timestart}`, end: `${timeend}` }, () => {this.submitReservation(e)});
   }
 
   submitReservation = (e) => {
-    console.log("location check: " + this.state.location);
     e.preventDefault();
     console.log(this.checkIfFormFilled());
     if (this.checkIfFormFilled() && !this.state.isLoading) {
@@ -155,6 +142,7 @@ class ReservationPage extends React.Component {
               <p>Verwacht je hulp nodig te hebben?</p>
               <img id="js--reservation__triangle" className="reservation__hulp__image__two" src={triangle} alt="checkbox" />
               <section id="js--reservation__hulp" className="reservation__dropdown reservation__dropdown--animated">
+                <h1>Wij zijn er om je te helpen!</h1>
                 <PersonList />
               </section>
             </section>
