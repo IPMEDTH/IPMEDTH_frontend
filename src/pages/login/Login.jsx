@@ -63,13 +63,14 @@ class Login extends React.Component {
   };
 
   render() {
-    return <div className='Modal'>
-              <form onSubmit= { this.handleSubmit }>
+    return <section className='login'>
+              <h2> LOGIN </h2>
+              <form className="login__form" onSubmit= { this.handleSubmit }>
                 <Input type='text' name='email' value={this.state.email} onChange={this.handleChange} placeholder='email' />
                 <Input type='password' name='password' value={this.state.password} onChange={this.handleChange} placeholder='password' />
-                <input className="" type='submit' value='Login' />
+                <input className="login__form__submit" type='submit' value='Login' />
               </form>
-           </div>
+           </section>
   }
 }
 
