@@ -64,7 +64,8 @@ class Login extends React.Component {
 
   render() {
     return <section className='login'>
-              <h2> LOGIN </h2>
+              <h2 className="login__title"> INLOGGEN </h2>
+              <div className="titlebar"></div>
               <form className="login__form" onSubmit= { this.handleSubmit }>
                 <Input type='text' name='email' value={this.state.email} onChange={this.handleChange} placeholder='email' />
                 <Input type='password' name='password' value={this.state.password} onChange={this.handleChange} placeholder='password' />

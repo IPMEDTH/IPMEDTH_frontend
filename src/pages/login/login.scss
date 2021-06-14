@@ -7,6 +7,10 @@
   transform: translate(-50%, -50%);
   height: min-content;
 
+  &__title{
+    text-align: center;
+  }
+
   &__form{
     width: inherit;
     display: flex;
@@ -22,6 +26,7 @@
       border-radius: 50%;
       margin: $default-gap auto;
       box-shadow: 2px 2px 5px #c8c1c1;
+      font-weight: bold;
     }
   }
 }

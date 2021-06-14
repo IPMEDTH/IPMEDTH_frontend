@@ -74,13 +74,15 @@ class Register extends React.Component {
   render(){
 
     return (
-      <section className='Modal'>
-        <form onSubmit= { this.handleSubmit }>
+      <section className='register'>
+        <h2 className="login__title"> REGISTREREN </h2>
+        <div className="titlebar"></div>
+        <form className="register__form" onSubmit= { this.handleSubmit }>
           <Input type='text' name='name' onChange={this.handleChange} placeholder='name' />
           <Input type='text' name='email' onChange={this.handleChange} placeholder='e-mail' />
           <Input type='password' name='password' onChange={this.handleChange} placeholder='password' />
-          <Input type='password' name='password_confirmation' onChange={this.handleChange} placeholder='password' />
-          <input className="" type='submit' value='Register' />
+          <Input type='password' name='password_confirmation' onChange={this.handleChange} placeholder='confirm password' />
+          <input className="register__form__submit" type='submit' value='Register' />
         </form>
       </section>
     );
