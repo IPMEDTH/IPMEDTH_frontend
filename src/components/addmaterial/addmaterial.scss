@@ -26,11 +26,10 @@
     }
 
     &__image{
-      height: 100%;
+      height: inherit;
       width: 100%;
-      fill: #469615;
+      // fill: #469615;
     }
 
   }
 }
-  

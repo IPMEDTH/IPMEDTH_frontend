@@ -19,8 +19,7 @@
       margin: 0 auto;
       text-align: center; }
     .addmaterial__info__image {
-      height: 100%;
-      width: 100%;
-      fill: #469615; }
+      height: inherit;
+      width: 100%; }
 
 /*# sourceMappingURL=addmaterial.css.map */

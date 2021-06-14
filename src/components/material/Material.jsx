@@ -9,7 +9,9 @@ class Material extends React.Component {
           <p className="inventory__content-item__info__amount"> {this.props.amount} {this.props.unit}</p>
           <p className="inventory__content-item__info__description"> {this.props.description}</p>
         </article>
-        <img className="inventory__content-item__info__image" src={this.props.img_url} alt="THIS IS A MATERIAL AAAAAA"></img>
+        <figure className="inventory__content-item__info__figure">
+          <img className="inventory__content-item__info__figure__image" src={this.props.img_url} alt="THIS IS A MATERIAL AAAAAA"></img>
+        </figure>
       </section>
     )
   }
