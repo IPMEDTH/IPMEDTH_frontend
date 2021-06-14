@@ -15,8 +15,8 @@ class DeviceSelectionPage extends React.Component {
     };
   }
 
-  cardClicked = (id) => {
-    console.log(`Gekozen apparaat: ${id}`);
+  cardClicked = (id, title) => {
+    window.localStorage.setItem('location', `${title}`);
     window.localStorage.setItem('device', `${id}`);
     var lasercutter = window.localStorage.getItem('device');
     console.log(lasercutter);

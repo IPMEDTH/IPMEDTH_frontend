@@ -17,6 +17,7 @@ class CardList extends React.Component {
   }
 
   getDeviceData() {
+    deviceid = window.localStorage.getItem('device');
     axios.get(UrlService.DeviceMenu(deviceid), {}).then(res => {
       const data = res.data
       var list = [];

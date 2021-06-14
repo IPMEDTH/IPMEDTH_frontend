@@ -6,8 +6,8 @@ import UrlService from "../../services/UrlService";
 
 class CardList extends React.Component {
 
-  cardClicked = (id) => {
-    this.props.cardClicked(id);
+  cardClicked = (id, title) => {
+    this.props.cardClicked(id, title);
   }
 
   constructor(props) {
