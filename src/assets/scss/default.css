@@ -1,23 +1,24 @@
 html, body, * {
   margin: 0;
   padding: 0;
-  font-family: "Source Sans Pro", sans-serif;
-}
+  font-family: "Source Sans Pro", sans-serif; }
 
 h1, h2, h3, h4 {
-  font-family: "Lato", sans-serif;
-}
+  font-family: "Lato", sans-serif; }
 
 .container {
   max-width: 1020px;
   margin: 0 auto;
-  padding: 0 40px;
-}
+  padding: 0 40px; }
+
+.titlebar {
+  width: 30%;
+  height: 2px;
+  background-color: #EBC408;
+  margin: 0 auto 25px auto; }
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: 0 20px;
-  }
-}
+    padding: 0 20px; } }
 
 /*# sourceMappingURL=default.css.map */

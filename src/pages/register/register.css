@@ -1,3 +1,23 @@
-
+.register {
+  width: 400px;
+  inset: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: min-content; }
+  .register__form {
+    width: inherit;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    box-sizing: border-box; }
+    .register__form__submit {
+      cursor: pointer;
+      height: 100px;
+      width: 100px;
+      border: solid 3px green;
+      border-radius: 50%;
+      margin: 50px auto;
+      font-weight: bold;
+      box-shadow: 2px 2px 5px #c8c1c1; }
 
 /*# sourceMappingURL=register.css.map */
