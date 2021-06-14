@@ -1,21 +1,49 @@
 @import '../../assets/scss/var';
 
+.login{
+  width: 400px;
+  inset: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: min-content;
 
+  &__title{
+    text-align: center;
+  }
+
+  &__form{
+    width: inherit;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    box-sizing: border-box;
+
+    &__submit{
+      cursor: pointer;
+      height: 100px;
+      width: 100px;
+      border: solid 3px green;
+      border-radius: 50%;
+      margin: $default-gap auto;
+      box-shadow: 2px 2px 5px #c8c1c1;
+      font-weight: bold;
+    }
+  }
+}
 
 @media (min-width: $bp_mobile){
-  .index{
+  .login{
   }
 }
 
 @media (min-width: $bp_tablet){
 
-  .index{
+  .login{
   }
 }
 
 @media (min-width: $bp_laptop){
 
-  .index{
+  .login{
   }
 }
- 

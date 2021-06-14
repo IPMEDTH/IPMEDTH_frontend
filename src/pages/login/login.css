@@ -1,3 +1,25 @@
-
+.login {
+  width: 400px;
+  inset: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: min-content; }
+  .login__title {
+    text-align: center; }
+  .login__form {
+    width: inherit;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    box-sizing: border-box; }
+    .login__form__submit {
+      cursor: pointer;
+      height: 100px;
+      width: 100px;
+      border: solid 3px green;
+      border-radius: 50%;
+      margin: 50px auto;
+      box-shadow: 2px 2px 5px #c8c1c1;
+      font-weight: bold; }
 
 /*# sourceMappingURL=login.css.map */
