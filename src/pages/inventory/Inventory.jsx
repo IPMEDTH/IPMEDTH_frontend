@@ -1,5 +1,5 @@
 import React from "react";
-import './inventory.css';
+import './inventory.scss';
 import axios from 'axios';
 import UrlService from "../../services/UrlService";
 import Modal from 'react-modal';

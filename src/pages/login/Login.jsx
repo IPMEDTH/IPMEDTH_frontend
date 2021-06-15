@@ -1,7 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import UrlService from "../../services/UrlService";
-import './login.css';
+import './login.scss';
 
 // import Header from "../../components/header/Header"
 // import Footer from "../../components/footer/Footer"

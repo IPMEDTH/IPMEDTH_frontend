@@ -1,5 +1,5 @@
 import React from "react";
-import './input.css';
+import './input.scss';
 
 // Generic input field
 class Input extends React.Component {
