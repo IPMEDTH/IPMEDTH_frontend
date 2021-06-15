@@ -1,5 +1,5 @@
 import React from "react";
-import './addmaterial.css';
+import './addmaterial.scss';
 import icon from '../../images/add_black_24dp.svg';
 
 class AddMaterial extends React.Component {

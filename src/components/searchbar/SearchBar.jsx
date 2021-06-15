@@ -1,5 +1,5 @@
 import React from 'react';
-import './searchbar.css';
+import './searchbar.scss';
 
 class SearchBar extends React.Component {
   render() {
@@ -7,12 +7,12 @@ class SearchBar extends React.Component {
       <form onSubmit={this.props.onCheck}
             className="searchbar__form">
         <input
-         className="searchbar__form__input"
-         key="random1"
-         name={this.props.name}
-         value={this.props.input}
-         placeholder={"Search material"}
-         onChange={this.props.onChange}
+          className="searchbar__form__input"
+          key="random1"
+          name={this.props.name}
+          value={this.props.input}
+          placeholder={"Search material"}
+          onChange={this.props.onChange}
         />
       </form>
     );

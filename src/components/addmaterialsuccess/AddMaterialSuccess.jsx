@@ -1,5 +1,5 @@
 import React from "react";
-import './addmaterialsuccess.css';
+import './addmaterialsuccess.scss';
 
 // const COOKIE_URL = 'http://localhost:8000/sanctum/csrf-cookie';
 

@@ -1,7 +1,7 @@
 import React from "react";
 import UrlService from "../../services/UrlService";
 import axios from 'axios';
-import './addmaterialform.css';
+import './addmaterialform.scss';
 
 // const COOKIE_URL = 'http://localhost:8000/sanctum/csrf-cookie';
 
