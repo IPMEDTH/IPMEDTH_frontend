@@ -12,7 +12,7 @@ import Register from "./pages/register/Register";
 import DeviceSelectionPage from "./pages/deviceselection/DeviceSelection";
 import ReservationPage from "./pages/reservation/Reservation";
 
-const guestRoutes: Array<GuestRouteInterface> = [
+const guestRoutes = [
   { path: "/", component: IndexPage, exact: true },
   { path: "/inventory", component: Inventory, exact: true },
   { path: "/deviceselection", component: DeviceSelectionPage, exact: true },
