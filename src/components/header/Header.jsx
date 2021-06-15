@@ -6,15 +6,15 @@ import './Header.scss';
 class Header extends React.Component {
     render() {
 
-      return(
-          <header className="header">
-              <Link to="/">
-                  <figure className="header__figure">
-                      <img src={logo} alt="Logo van The Space"/>
-                  </figure>
-              </Link>
-          </header>
-      );
+    return(
+        <header className="header">
+            <Link to="/">
+                <figure className="header__figure">
+                    <img src={logo} alt="Logo van The Space"/>
+                </figure>
+            </Link>
+        </header>
+    );
     }
 }
 
