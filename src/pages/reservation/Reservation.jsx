@@ -13,6 +13,8 @@ import Footer from "../../components/footer/Footer";
 import DatePicker from "./DatePicker";
 
 var state = "closed";
+var valueHelpers = "Wij zijn er om je te helpen!"
+
 
 class ReservationPage extends React.Component {
 
@@ -35,6 +37,11 @@ class ReservationPage extends React.Component {
     var element = document.getElementById("js--reservation__hulp");
     var checkbox = document.getElementById("js--checkbox");
     element.classList.toggle('active');
+    console.log(element.classList.value);
+    console.log(state);
+    if (element.classList.value.includes("active") && state === "open") {
+      state = "closed";
+    }
 
     if (state === "closed") {
       state = "open";
@@ -44,6 +51,12 @@ class ReservationPage extends React.Component {
       var helpers_amount = window.localStorage.getItem('helpers_amount');
       var marginBot = helpers_amount * 31;
       marginBot = marginBot + "vh";
+      if (helpers_amount === "0") {
+        valueHelpers = "Helaas zal er op dit moment niemand zijn om te helpen.";
+        marginBot = "10vh";
+      } else {
+        valueHelpers = "Wij zijn er om je te helpen!";
+      }
       console.log(marginBot);
       document.getElementById("js--help").style.marginBottom = marginBot;
 
@@ -120,7 +133,7 @@ class ReservationPage extends React.Component {
     }
     return(
       <section className="reservation">
-        <Header />
+        <Header onClick={this.onHelpClicked} />
 
         <article className="reservation__choice__content">
           <section>
@@ -142,7 +155,7 @@ class ReservationPage extends React.Component {
               <p>Verwacht je hulp nodig te hebben?</p>
               <img id="js--reservation__triangle" className="reservation__hulp__image__two" src={triangle} alt="checkbox" />
               <section id="js--reservation__hulp" className="reservation__dropdown reservation__dropdown--animated">
-                <h1>Wij zijn er om je te helpen!</h1>
+                <h1>{valueHelpers}</h1>
                 <PersonList />
               </section>
             </section>
