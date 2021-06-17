@@ -7,7 +7,7 @@ class Footer extends React.Component {
       return(
           <footer className="footer">
             <section className="footer__text">
-              <p>Text van footer</p>
+              <p>&copy; {new Date().getFullYear()} | The Space</p>
             </section>
           </footer>
       );
