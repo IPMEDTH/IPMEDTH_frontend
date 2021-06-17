@@ -1,5 +1,5 @@
-// let apiDomain = 'https://api.ipmedth.meulen.dev/'
-let apiDomain = 'http://localhost/'
+let apiDomain = 'https://api.ipmedth.meulen.dev/'
+// let apiDomain = 'http://localhost/'
 
 class UrlService {
     static getCookie() { return apiDomain + 'sanctum/csrf-cookie' }
