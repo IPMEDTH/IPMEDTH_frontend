@@ -75,6 +75,11 @@ class Register extends React.Component {
       .catch((error) => {
         this.setState({ loading: false });
         if (error.response) {
+          if (error.status === 500 ) {
+            if(error.response.data.exception === "Swift_TransportException") {
+              this.setState({ error: "Er is een probleem met de mailserver, maar je account is wel aangemaakt!" });
+            }
+          }
           if (error.response.data.errors.email[0] === "The email has already been taken") {
             this.setState({ error: "Dit emailadres is al in gebruik!" });
           } else {
