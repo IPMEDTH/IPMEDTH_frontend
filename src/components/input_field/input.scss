@@ -1,8 +1,27 @@
 @import '../../assets/scss/var';
 
-.input{
-  &__field{
-    width: 70%;
-    margin: 5px 50px;
+.input {
+  position: relative;
+  margin-top: 16px;
+  // color: blue;
+
+  &__label {
+    font-weight: 400;
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    background-color: white;
+    color: #02356a;
+    padding: 0 8px;
+  }
+
+  &__field {
+    display: block;
+    padding: 10px;
+    border: 2px solid gray;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
   }
 }

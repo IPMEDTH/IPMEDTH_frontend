@@ -1,49 +1,74 @@
+@use 'sass:math';
+
 @import '../../assets/scss/var';
 
-.login{
-  width: 400px;
-  inset: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  height: min-content;
+.login {
 
-  &__title{
-    text-align: center;
-  }
-
-  &__form{
-    width: inherit;
+  &__content{
+    width: 400px;
+    margin: 1em auto;
     display: flex;
     flex-flow: column;
     justify-content: center;
-    box-sizing: border-box;
 
-    &__submit{
-      cursor: pointer;
-      height: 100px;
-      width: 100px;
-      border: solid 3px green;
-      border-radius: 50%;
-      margin: $default-gap auto;
-      box-shadow: 2px 2px 5px #c8c1c1;
+    &__title{
+      text-align: center;
+
+      &::after {
+        width: 25%;
+        content: "";
+        display: block;
+        height: 2px;
+        background-color: $colour_space_yellow;
+        margin: 0.2em auto 0;
+      }
+    }
+
+    &__form{
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      margin: 16px 16px 0;
+
+      &__submit{
+        cursor: pointer;
+        height: 100px;
+        width: 100px;
+        border: solid 3px green;
+        border-radius: 50%;
+        margin: math.div($default-gap, 2) auto;
+        box-shadow: 2px 2px 5px #c8c1c1;
+        font-weight: bold;
+      }
+    }
+
+    &__register {
       font-weight: bold;
+    }
+
+    &__register, &__forgotpassword {
+      text-align: center;
+      font-size: large;
+      text-decoration: none;
+      color: $color_blue;
+      margin: 4px auto;
     }
   }
 }
 
-@media (min-width: $bp_mobile){
-  .login{
-  }
-}
+// @media (min-width: $bp_mobile){
+//   .login{
+//   }
+// }
 
-@media (min-width: $bp_tablet){
+// @media (min-width: $bp_tablet){
 
-  .login{
-  }
-}
+//   .login{
+//   }
+// }
 
-@media (min-width: $bp_laptop){
+// @media (min-width: $bp_laptop){
 
-  .login{
-  }
-}
+//   .login{
+//   }
+// }
