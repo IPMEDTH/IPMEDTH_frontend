@@ -19,6 +19,14 @@
             width: 100%;
         }
     }
+
+    .loginIcon {
+      color: white;
+      font-size: 2em;
+      position: absolute;
+      top: 0.5em;
+      right: 0.5em;
+    }
 }
 
 @media screen and (max-width: $bp_tablet) {

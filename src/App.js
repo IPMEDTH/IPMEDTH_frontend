@@ -28,9 +28,6 @@ console.log("w3 validated?");
 class App extends Component {
   render() {
     return (
-      <>
-      {/*<meta name="xsrf-token" content="{{ xsrf_token() }}" />*/}
-
       <Router history={history}>
         <Switch>
           {guestRoutes.map((route, key) => {
@@ -45,7 +42,6 @@ class App extends Component {
           })}
         </Switch>
       </Router>
-      </>
     );
   }
 }

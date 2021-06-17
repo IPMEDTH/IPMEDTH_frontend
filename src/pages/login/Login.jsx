@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import UrlService from "../../services/UrlService";
 import './login.scss';
 
-// import Header from "../../components/header/Header"
-// import Footer from "../../components/footer/Footer"
+import Header from "../../components/header/Header"
+import Footer from "../../components/footer/Footer"
 import Input from "../../components/input_field/Input"
 
 class Login extends React.Component {
@@ -13,8 +14,8 @@ class Login extends React.Component {
     this.state = {
       email: '',
       password: '',
-      }
-      // Bindings
+    }
+    // Bindings
     this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
   }
@@ -63,15 +64,41 @@ class Login extends React.Component {
   };
 
   render() {
-    return <section className='login'>
-              <h2 className="login__title"> INLOGGEN </h2>
-              <div className="titlebar"></div>
-              <form className="login__form" onSubmit= { this.handleSubmit }>
-                <Input type='text' name='email' value={this.state.email} onChange={this.handleChange} placeholder='email' />
-                <Input type='password' name='password' value={this.state.password} onChange={this.handleChange} placeholder='password' />
-                <input className="login__form__submit" type='submit' value='Login' />
-              </form>
-           </section>
+    return (
+      <section className='login'>
+        <Header />
+        <main className="login__content">
+          <h2 className="login__content__title">INLOGGEN</h2>
+          {/* <div className="titlebar"></div> */}
+          <form className="login__content__form" onSubmit= {this.handleSubmit}>
+            <Input
+              type='text'
+              name='email'
+              value={this.state.email}
+              onChange={this.handleChange}
+              label="E-mailadres"
+              placeholder='jantje@voorbeeld.nl'
+            />
+            <Input
+              type='password'
+              name='password'
+              value={this.state.password}
+              onChange={this.handleChange}
+              label="Wachtwoord"
+              placeholder='Kaas1234'
+            />
+            <input
+              className="login__content__form__submit"
+              type='submit'
+              value='Login'
+            />
+          </form>
+          <Link className="login__content__register" to="/register"> Maak nieuw account aan</Link>
+          <Link className="login__content__forgotpassword" to="/forgotpassword">Wachtwoord vergeten?</Link>
+        </main>
+        <Footer />
+      </section>
+    )
   }
 }
 
