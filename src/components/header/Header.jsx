@@ -4,7 +4,7 @@ import logo from '../../images/logo.png';
 import './Header.scss';
 
 class Header extends React.Component {
-    render() {
+  render() {
 
     return(
         <header className="header">
@@ -15,7 +15,7 @@ class Header extends React.Component {
             </Link>
         </header>
     );
-    }
+  }
 }
 
 export default Header;

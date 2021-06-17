@@ -1,6 +1,20 @@
 @import '../../assets/scss/var';
 @import '../../assets/scss/default';
 
+.header__return {
+  text-decoration: none;
+  :hover {
+    text-decoration: underline;
+  }
+}
+
+.header__back {
+  color: $color_blue;
+  font-size: 25px;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
 .deviceselection__choice__subtitle{
   max-width: 768px;
   padding: 0 40px;
