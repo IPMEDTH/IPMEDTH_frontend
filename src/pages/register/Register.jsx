@@ -62,7 +62,7 @@ class Register extends React.Component {
         password: this.state.password,
         password_confirmation: this.state.password_confirmation,
       })
-      .then((response) => {
+      .then(response => {
         this.setState({ loading: false });
         if(response.status === 201) {
           this.setState({ error: '' });

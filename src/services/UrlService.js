@@ -5,6 +5,8 @@ class UrlService {
     static getCookie() { return apiDomain + 'sanctum/csrf-cookie' }
     static login() { return apiDomain + 'login' }
     static register() { return apiDomain + 'register' }
+    static logout() { return apiDomain + 'logout' }
+    static getUser() { return apiDomain + 'api/user' }
     static Devices() { return apiDomain + 'api/locations'; }
     static DeviceImages(filename) { return apiDomain + 'img/devices/' + filename; }
     static DeviceMenu(id) { return apiDomain + 'api/locations/' + id; }

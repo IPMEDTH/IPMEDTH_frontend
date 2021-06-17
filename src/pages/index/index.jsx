@@ -26,7 +26,7 @@ class IndexPage extends React.Component {
                 <NavLink exact className="index__content__selection-item" to="/inventory">
                   <h3 className="index__content__selection-item__title"> Materiaal Voorraad </h3>
                 </NavLink>
-                <NavLink exact className="index__content__selection-item" to="#">
+                {/* <NavLink exact className="index__content__selection-item" to="#">
                   <h3 className="index__content__selection-item__title"> Wie zijn er aanwezig? </h3>
                 </NavLink>
                 <NavLink exact className="index__content__selection-item" to="#">
@@ -34,7 +34,7 @@ class IndexPage extends React.Component {
                 </NavLink>
                 <NavLink exact className="index__content__selection-item" to="#">
                   <h3 className="index__content__selection-item__title"> Materiaal History </h3>
-                </NavLink>
+                </NavLink> */}
             </article>
           </div>
         </main>

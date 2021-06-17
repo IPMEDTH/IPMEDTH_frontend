@@ -6,6 +6,10 @@
   background-size: cover;
   min-height: 350px;
 
+  &__hidden {
+    display: none;
+  }
+
     &__figure {
         margin: 0;
         padding: 0;

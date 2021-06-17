@@ -30,32 +30,31 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     axios.defaults.withCredentials = true;
-    axios.get(UrlService.getCookie())
-    .then(response => {
-      console.log(response);
-      console.log({
-  			email: this.state.email,
-  			password: this.state.password
-  		});
 
+    axios.get(UrlService.getCookie())
+    .then(() => {
       axios.post(UrlService.login(), {
   			email: this.state.email,
   			password: this.state.password
   		})
-  		.then((response) => {
-        console.log(response);
-        if (response.data.error) {
-          console.log(response.data.error);
-        } else {
-          console.log("success");
+  		.then(response => {
+        this.setState({ loading: false });
+        if(response.data.error === "Already authenticated.") {
+          this.setState({error: 'Er is al een andere gebruiker ingelogd'})
+        } else
+        if(response.data.two_factor === false) {
+          this.setState({ error: '' });
+          this.props.history.push('/');
         }
-  		  // this.setState({ loading: false });
   		})
   		.catch((error) => {
-        console.log(error);
-  			if (error.response) {
-          const status = error.response.status;
-          console.log(status);
+        this.setState({ loading: false });
+        if (error.response) {
+          if (error.response.data.errors.email[0] === "These credentials do not match our records.") {
+            this.setState({ error: "E-mailadres of wachtwoord onjuist" });
+          } else {
+            this.setState({ error: error.response.data.message });
+          }
         }
   		});
     });
@@ -69,7 +68,6 @@ class Login extends React.Component {
         <Header />
         <main className="login__content">
           <h2 className="login__content__title">INLOGGEN</h2>
-          {/* <div className="titlebar"></div> */}
           <form className="login__content__form" onSubmit= {this.handleSubmit}>
             <Input
               type='text'
@@ -87,6 +85,7 @@ class Login extends React.Component {
               label="Wachtwoord"
               placeholder='Kaas1234'
             />
+            <div className="error">{this.state.error}</div>
             <input
               className="login__content__form__submit"
               type='submit'
@@ -94,7 +93,7 @@ class Login extends React.Component {
             />
           </form>
           <Link className="login__content__register" to="/register"> Maak nieuw account aan</Link>
-          <Link className="login__content__forgotpassword" to="/forgotpassword">Wachtwoord vergeten?</Link>
+          {/* <Link className="login__content__forgotpassword" to="/forgotpassword">Wachtwoord vergeten?</Link> */}
         </main>
         <Footer />
       </section>
