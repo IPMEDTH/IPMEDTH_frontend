@@ -5,6 +5,7 @@ import UrlService from "../../services/UrlService";
 import Modal from 'react-modal';
 
 import Header from "../../components/header/Header"
+import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer"
 // import Material from "../../components/material/Material";
 import MaterialList from "../../components/material/MaterialList"
@@ -109,6 +110,9 @@ class Inventory extends React.Component {
     return(
       <div className="inventory__content">
         <Header />
+        <Link className="header__return" to="/">
+          <p className="header__back">&larr; Ga terug naar vorige pagina</p>
+        </Link>
         <main className="inventory__content__wrapper">
           <header className="inventory__content__header">
             <h2 className="inventory__content__header__title"> MATERIALEN</h2>

@@ -1,7 +1,8 @@
 import React from "react";
 import './DeviceSelection.scss';
 
-import Header from "../../components/header/Header"
+import Header from "../../components/header/Header";
+import { Link } from "react-router-dom";
 import CardList from "../../pages/deviceselection/CardList";
 import Footer from "../../components/footer/Footer"
 import { Redirect } from "react-router-dom";
@@ -33,6 +34,9 @@ class DeviceSelectionPage extends React.Component {
     return(
       <section className="deviceselection">
         <Header />
+        <Link className="header__return" to="/">
+          <p className="header__back">&larr; Ga terug naar vorige pagina</p>
+        </Link>
 
         <article className="deviceselection__choice__content">
           <section>

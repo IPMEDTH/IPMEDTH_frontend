@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Redirect } from "react-router-dom";
 
 import Header from "../../components/header/Header";
+import { Link } from "react-router-dom";
 import CardList from "./CardList";
 import PersonList from "./PersonList";
 import Footer from "../../components/footer/Footer";
@@ -134,6 +135,9 @@ class ReservationPage extends React.Component {
     return(
       <section className="reservation">
         <Header onClick={this.onHelpClicked} />
+        <Link className="header__return" to="/deviceselection">
+          <p className="header__back">&larr; Ga terug naar vorige pagina</p>
+        </Link>
 
         <article className="reservation__choice__content">
           <section>
