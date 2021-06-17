@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Icon } from '@material-ui/core';
 import logo from '../../images/logo.png';
 import './Header.scss';
 
 class Header extends React.Component {
-    render() {
+  render() {
 
     return(
         <header className="header">
@@ -13,9 +14,12 @@ class Header extends React.Component {
                     <img src={logo} alt="Logo van The Space"/>
                 </figure>
             </Link>
+            <Link to="login">
+              <Icon className="loginIcon">login</Icon>
+            </Link>
         </header>
     );
-    }
+  }
 }
 
 export default Header;
