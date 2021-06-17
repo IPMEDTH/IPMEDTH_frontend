@@ -4,14 +4,14 @@
 
 .login {
 
-  &__content{
+  &__content {
     width: 400px;
     margin: 1em auto;
     display: flex;
     flex-flow: column;
     justify-content: center;
 
-    &__title{
+    &__title {
       text-align: center;
 
       &::after {
@@ -24,13 +24,13 @@
       }
     }
 
-    &__form{
+    &__form {
       display: flex;
       flex-flow: column;
       justify-content: center;
       margin: 16px 16px 0;
 
-      &__submit{
+      &__submit {
         cursor: pointer;
         height: 100px;
         width: 100px;
@@ -56,19 +56,17 @@
   }
 }
 
-// @media (min-width: $bp_mobile){
-//   .login{
+// @media (min-width: $bp_mobile) {
+//   .login {
 //   }
 // }
 
-// @media (min-width: $bp_tablet){
-
-//   .login{
+// @media (min-width: $bp_tablet) {
+//   .login {
 //   }
 // }
 
-// @media (min-width: $bp_laptop){
-
-//   .login{
+// @media (min-width: $bp_laptop) {
+//   .login {
 //   }
 // }

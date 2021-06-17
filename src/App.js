@@ -23,8 +23,6 @@ const guestRoutes = [
   { path: "/material-history", component: None, exact: true },*/},
 ];
 
-console.log("w3 validated?");
-
 class App extends Component {
   render() {
     return (
