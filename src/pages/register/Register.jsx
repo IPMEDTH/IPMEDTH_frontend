@@ -45,27 +45,23 @@ class Register extends React.Component {
     axios.get(UrlService.getCookie())
     .then(response => {
       axios.post(UrlService.register(), {
-          name: this.state.name,
-          email: this.state.email,
-          password: this.state.password,
-          password_confirmation: this.state.password_confirmation,
-        })
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+        password_confirmation: this.state.password_confirmation,
+      })
       .then((response) => {
-        axios.post(UrlService.login(), {
-          email: this.state.email,
-          password: this.state.password
-        })
-        // .then((response) => {
-    		//   this.setState({ loading: false });
-    		// 	this.setState({ error: '' });
-        //   this.setState({ redirect: true });
-        // })
+        console.log(response)
+        this.setState({ loading: false });
+        this.setState({ error: '' });
+        this.setState({ redirect: true });
       })
       .catch((error) => {
         console.log(error);
         if (error.response) {
           const status = error.response.status;
           console.log(status);
+          this.setState({ error: status });
         }
       });
     })
@@ -78,10 +74,10 @@ class Register extends React.Component {
         <h2 className="login__title"> REGISTREREN </h2>
         <div className="titlebar"></div>
         <form className="register__form" onSubmit= { this.handleSubmit }>
-          <Input type='text' name='name' onChange={this.handleChange} placeholder='name' />
-          <Input type='text' name='email' onChange={this.handleChange} placeholder='e-mail' />
-          <Input type='password' name='password' onChange={this.handleChange} placeholder='password' />
-          <Input type='password' name='password_confirmation' onChange={this.handleChange} placeholder='confirm password' />
+          <Input type='text' name='name' onChange={this.handleChange} placeholder='Naam' />
+          <Input type='text' name='email' onChange={this.handleChange} placeholder='E-mailadres' />
+          <Input type='password' name='password' onChange={this.handleChange} placeholder='Wachtwoord' />
+          <Input type='password' name='password_confirmation' onChange={this.handleChange} placeholder='Bevestig wachtwoord' />
           <input className="register__form__submit" type='submit' value='Register' />
         </form>
       </section>
