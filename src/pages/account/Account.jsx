@@ -48,7 +48,7 @@ class Account extends React.Component {
         <Header />
         <main className="login__content">
           <h2 className="login__content__title">INLOGGEN</h2>
-          <pre>{ JSON.stringify(this.props.user)}</pre>
+          <pre>{ JSON.stringify(this.props.user, null, 4)}</pre>
           <button onClick={this.handleLogout}>Log uit</button>
         </main>
         <Footer />
