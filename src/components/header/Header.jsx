@@ -6,7 +6,7 @@ import logo from '../../images/logo.png';
 import './Header.scss';
 import axios from "axios";
 import UrlService from "../../services/UrlService";
-import { changeUser, CHANGE_USER } from "../../redux/actions";
+import { changeUser } from "../../redux/actions";
 
 class Header extends React.Component {
 

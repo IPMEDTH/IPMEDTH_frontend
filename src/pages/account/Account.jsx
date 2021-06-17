@@ -1,12 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import axios from 'axios';
 import UrlService from "../../services/UrlService";
 import './account.scss';
 
 import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
-import { DragHandle } from "@material-ui/icons";
 import { connect } from "react-redux";
 import { changeUser } from "../../redux/actions";
 
