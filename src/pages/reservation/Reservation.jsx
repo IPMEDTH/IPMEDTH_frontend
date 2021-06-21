@@ -94,19 +94,20 @@ class ReservationPage extends React.Component {
 
   fillReservation = (e) => {
     console.log("Stuur naar database: ");
-    var userid = this.state.user.id;
+    var user_id = this.state.user.id;
+    console.log("USER ID: " + user_id);
     var location = window.localStorage.getItem('device');
     var timedate = window.localStorage.getItem('timedate');
     var timestart = window.localStorage.getItem('timestart');
     var timeend = window.localStorage.getItem('timeend');
-    this.setState({ user_id: `${userid}`,location: `${location}`, date: `${timedate}`, start: `${timestart}`, end: `${timeend}` }, () => {this.submitReservation(e)});
+    this.setState({ user_id: `${user_id}`,location: `${location}`, date: `${timedate}`, start: `${timestart}`, end: `${timeend}` }, () => {this.submitReservation(e)});
   }
 
   submitReservation = (e) => {
     e.preventDefault();
     console.log(this.checkIfFormFilled());
     if (this.checkIfFormFilled() && !this.state.isLoading) {
-      const { location, date, start, end, help } = this.state;
+      const { user_id, location, date, start, end, help } = this.state;
       this.setState({ isLoading: true });
 
       axios.defaults.withCredentials = true;
