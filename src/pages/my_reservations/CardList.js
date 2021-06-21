@@ -5,7 +5,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import UrlService from "../../services/UrlService";
 
-var deviceid = window.localStorage.getItem('device');
+//var deviceid = window.localStorage.getItem('device');
 
 class CardList extends React.Component {
 
