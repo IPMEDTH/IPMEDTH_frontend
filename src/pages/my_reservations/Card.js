@@ -1,6 +1,26 @@
 import React from "react";
+import axios from "axios";
+
+import UrlService from "../../services/UrlService";
 
 class Card extends React.Component {
+
+  getTitleData() {
+    var deviceid = this.props.id;
+    axios.get(UrlService.DeviceMenu(deviceid), {}).then(res => {
+      const data = res.data
+      var list = [];
+      list.push(data);
+      console.log(list);
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
+  componentDidMount() {
+    this.getTitleData();
+  }
 
   render() {
     return (
