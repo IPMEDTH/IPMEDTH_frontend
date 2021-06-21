@@ -3,12 +3,14 @@ import axios from "axios";
 
 import UrlService from "../../services/UrlService";
 
+var data;
+
 class Card extends React.Component {
 
   getTitleData() {
     var deviceid = this.props.id;
     axios.get(UrlService.DeviceMenu(deviceid), {}).then(res => {
-      const data = res.data.name;
+      data = res.data.name;
 
       console.log(data);
     })
