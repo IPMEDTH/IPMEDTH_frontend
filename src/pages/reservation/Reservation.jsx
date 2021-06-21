@@ -110,7 +110,7 @@ class ReservationPage extends React.Component {
       axios.defaults.withCredentials = true;
       axios.get(UrlService.getCookie())
       .then(response => {
-        axios.post(UrlService.PostReservation(), { location, date, start, end, help })
+        axios.post(UrlService.Reservations(), { location, date, start, end, help })
           .then((response) => {
             // TODO: ADD LOADING COMPONENT TO PREVENT USER FROM TAPPING SEND MORE THAN ONCE
             if (response.status === 200) {
@@ -134,7 +134,7 @@ class ReservationPage extends React.Component {
     }
     return(
       <section className="reservation">
-        <Header onClick={this.onHelpClicked} />
+        <Header />
         <Link className="header__return" to="/deviceselection">
           <p className="header__back">&larr; Ga terug naar vorige pagina</p>
         </Link>

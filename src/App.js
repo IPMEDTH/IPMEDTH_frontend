@@ -10,6 +10,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import DeviceSelectionPage from "./pages/deviceselection/DeviceSelection";
 import ReservationPage from "./pages/reservation/Reservation";
+import MyReservationPage from "./pages/my_reservations/MyReservation";
 import Account from './pages/account/Account';
 
 const guestRoutes = [
@@ -19,6 +20,7 @@ const guestRoutes = [
   { path: "/login", component: Login, exact: true },
   { path: "/register", component: Register, exact: true },
   { path: "/reservation", component: ReservationPage, exact: true },
+  { path: "/my_reservations", component: MyReservationPage, exact: true },
   { path: "/account", component: Account, exact: true},
   {/* path: "/personnel", component: None, exact: true },
   { path: "/usr-reservations", component: None, exact: true },

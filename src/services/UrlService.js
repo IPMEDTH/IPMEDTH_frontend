@@ -12,6 +12,7 @@ class UrlService {
     static DeviceMenu(id) { return apiDomain + 'api/locations/' + id; }
     static HelpMenu(id) { return apiDomain + 'api/locations/' + id; }
     static Materials() { return apiDomain + 'api/materials'}
+    static ReservationMenu(userid) { return apiDomain + 'api/reservations/user/' + userid}
     static Material(term) { return apiDomain + 'api/materials/search/' + term; }
     static PostMaterial() { return apiDomain + 'api/materials' }
     static PostReservation() { return apiDomain + 'api/reservations' }
