@@ -1,7 +1,4 @@
 import React from "react";
-import axios from "axios";
-
-import UrlService from "../../services/UrlService";
 
 class Card extends React.Component {
 
