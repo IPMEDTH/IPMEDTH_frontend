@@ -1,13 +1,4 @@
-import { CHANGE_ISLOGGEDIN, CHANGE_USER, CHANGE_LOCATIONS } from "./actions.js";
-
-export const isLoggedIn = (state = false, action) => {
-    switch (action.type) {
-        case CHANGE_ISLOGGEDIN:
-            return action.payload;
-        default:
-            return state;
-    }
-};
+import { CHANGE_USER, CHANGE_LOCATIONS } from "./actions.js";
 
 export const user = (state = {}, action) => {
     switch (action.type) {

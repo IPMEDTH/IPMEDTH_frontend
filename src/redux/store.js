@@ -1,5 +1,5 @@
 import { combineReducers, createStore } from "redux";
-import { isLoggedIn, user, locations } from "./reducers";
+import { user, locations } from "./reducers";
 
 const loadState = () => {
     try {
@@ -25,7 +25,6 @@ const saveState = (state) => {
 const persistedState = loadState();
 export const store = createStore(
     combineReducers({
-        isLoggedIn,
         user,
         locations
     }),
