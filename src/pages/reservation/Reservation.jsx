@@ -94,13 +94,17 @@ class ReservationPage extends React.Component {
 
   fillReservation = (e) => {
     console.log("Stuur naar database: ");
-    var user_id = this.state.user.id;
-    console.log("USER ID: " + user_id);
-    var location = window.localStorage.getItem('device');
-    var timedate = window.localStorage.getItem('timedate');
-    var timestart = window.localStorage.getItem('timestart');
-    var timeend = window.localStorage.getItem('timeend');
-    this.setState({ user_id: `${user_id}`,location: `${location}`, date: `${timedate}`, start: `${timestart}`, end: `${timeend}` }, () => {this.submitReservation(e)});
+    if (this.props.user !== '') {
+      var user_id = this.state.user.id;
+      console.log("USER ID: " + user_id);
+      var location = window.localStorage.getItem('device');
+      var timedate = window.localStorage.getItem('timedate');
+      var timestart = window.localStorage.getItem('timestart');
+      var timeend = window.localStorage.getItem('timeend');
+      this.setState({ user_id: `${user_id}`,location: `${location}`, date: `${timedate}`, start: `${timestart}`, end: `${timeend}` }, () => {this.submitReservation(e)});
+    } else {
+      console.log("Niet ingelogd!");
+    }
   }
 
   submitReservation = (e) => {
