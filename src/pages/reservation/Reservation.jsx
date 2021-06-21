@@ -3,6 +3,7 @@ import './reservation.scss';
 import triangle from '../../images/triangle_arrow.png';
 import UrlService from "../../services/UrlService";
 import axios from 'axios';
+import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import Header from "../../components/header/Header";
@@ -93,11 +94,12 @@ class ReservationPage extends React.Component {
 
   fillReservation = (e) => {
     console.log("Stuur naar database: ");
+    var userid = this.state.user.id;
     var location = window.localStorage.getItem('device');
     var timedate = window.localStorage.getItem('timedate');
     var timestart = window.localStorage.getItem('timestart');
     var timeend = window.localStorage.getItem('timeend');
-    this.setState({ location: `${location}`, date: `${timedate}`, start: `${timestart}`, end: `${timeend}` }, () => {this.submitReservation(e)});
+    this.setState({ user_id: `${userid}`,location: `${location}`, date: `${timedate}`, start: `${timestart}`, end: `${timeend}` }, () => {this.submitReservation(e)});
   }
 
   submitReservation = (e) => {
@@ -110,7 +112,7 @@ class ReservationPage extends React.Component {
       axios.defaults.withCredentials = true;
       axios.get(UrlService.getCookie())
       .then(response => {
-        axios.post(UrlService.Reservations(), { location, date, start, end, help })
+        axios.post(UrlService.Reservations(), { user_id, location, date, start, end, help })
           .then((response) => {
             // TODO: ADD LOADING COMPONENT TO PREVENT USER FROM TAPPING SEND MORE THAN ONCE
             if (response.status === 200) {
@@ -175,4 +177,10 @@ class ReservationPage extends React.Component {
   }
 }
 
-export default ReservationPage;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(ReservationPage);
