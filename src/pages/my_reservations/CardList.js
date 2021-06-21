@@ -15,6 +15,7 @@ class CardList extends React.Component {
     this.state = {
         Elements: []
     };
+    this.getTitleData = this.getTitleData.bind(this);
   }
 
   getReservationData() {
@@ -51,6 +52,7 @@ class CardList extends React.Component {
   }
 
   getTitleData(deviceid) {
+    console.log("test");
     axios.get(UrlService.DeviceMenu(deviceid), {}).then(res => {
       var title = res.data.name;
       return title;
