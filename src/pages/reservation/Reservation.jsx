@@ -94,6 +94,7 @@ class ReservationPage extends React.Component {
 
   fillReservation = (e) => {
     console.log("Stuur naar database: ");
+    console.log(this.props.user);
     if (this.props.user !== '') {
       var user_id = this.state.user.id;
       console.log("USER ID: " + user_id);
