@@ -15,7 +15,7 @@ class UrlService {
     static ReservationMenu(userid) { return apiDomain + 'api/reservations/user/' + userid}
     static Material(term) { return apiDomain + 'api/materials/search/' + term; }
     static PostMaterial() { return apiDomain + 'api/materials' }
-    static PostReservation() { return apiDomain + 'api/reservations' }
+    static Reservations() { return apiDomain + 'api/reservations' }
 }
 
 export default UrlService;
