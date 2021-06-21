@@ -8,10 +8,9 @@ class Card extends React.Component {
   getTitleData() {
     var deviceid = this.props.id;
     axios.get(UrlService.DeviceMenu(deviceid), {}).then(res => {
-      const data = res.data
-      var list = [];
-      list.push(data);
-      console.log(list);
+      const data = res.data.name;
+
+      console.log(data);
     })
     .catch((error) => {
       console.log(error)
@@ -28,7 +27,7 @@ class Card extends React.Component {
         <article className="reservation__optie">
           <section className="reservation__optie__knop">
             <img className="reservation__optie__knop__image" src={this.props.img} alt={this.props.title} />
-            <p className="reservation__optie__knop__title">{this.props.title || "Apparaat"}</p>
+            <p className="reservation__optie__knop__title">{data || "Apparaat"}</p>
             <p className="reservation__optie__knop__description">Datum: {this.props.date || "Datum"}</p>
             <p className="reservation__optie__knop__starttime">Tijd: {this.props.starttime || "Tijd"} tot {this.props.endtime || "Tijd"}</p>
           </section>
