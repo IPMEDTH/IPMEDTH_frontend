@@ -6,6 +6,10 @@
   background-size: cover;
   min-height: 350px;
 
+  &__hidden {
+    display: none;
+  }
+
     &__figure {
         margin: 0;
         padding: 0;
@@ -18,6 +22,14 @@
             max-width: 100px;
             width: 100%;
         }
+    }
+
+    .loginIcon {
+      color: white;
+      font-size: 2em;
+      position: absolute;
+      top: 0.5em;
+      right: 0.5em;
     }
 }
 

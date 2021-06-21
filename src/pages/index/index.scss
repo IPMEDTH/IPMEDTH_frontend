@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 @import '../../assets/scss/var';
 
 .index{
@@ -7,7 +9,7 @@
 
     &__header{
       text-align: center;
-      margin-top: $default-gap/2;
+      margin-top: math.div($default-gap, 2);
       margin-bottom: $default-gap;
     }
 
@@ -46,19 +48,19 @@
 
 }
 
-@media (min-width: $bp_mobile){
-  .index{
-  }
-}
+// @media (min-width: $bp_mobile){
+//   .index{
+//   }
+// }
 
-@media (min-width: $bp_tablet){
+// @media (min-width: $bp_tablet){
 
-  .index{
-  }
-}
+//   .index{
+//   }
+// }
 
-@media (min-width: $bp_laptop){
+// @media (min-width: $bp_laptop){
 
-  .index{
-  }
-}
+//   .index{
+//   }
+// }

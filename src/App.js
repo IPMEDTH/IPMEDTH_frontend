@@ -11,6 +11,7 @@ import Register from "./pages/register/Register";
 import DeviceSelectionPage from "./pages/deviceselection/DeviceSelection";
 import ReservationPage from "./pages/reservation/Reservation";
 import MyReservationPage from "./pages/my_reservations/MyReservation";
+import Account from './pages/account/Account';
 
 const guestRoutes = [
   { path: "/", component: IndexPage, exact: true },
@@ -20,19 +21,15 @@ const guestRoutes = [
   { path: "/register", component: Register, exact: true },
   { path: "/reservation", component: ReservationPage, exact: true },
   { path: "/my_reservations", component: MyReservationPage, exact: true },
+  { path: "/account", component: Account, exact: true},
   {/* path: "/personnel", component: None, exact: true },
   { path: "/usr-reservations", component: None, exact: true },
   { path: "/material-history", component: None, exact: true },*/},
 ];
 
-console.log("w3 validated?");
-
 class App extends Component {
   render() {
     return (
-      <>
-      {/*<meta name="xsrf-token" content="{{ xsrf_token() }}" />*/}
-
       <Router history={history}>
         <Switch>
           {guestRoutes.map((route, key) => {
@@ -47,7 +44,6 @@ class App extends Component {
           })}
         </Switch>
       </Router>
-      </>
     );
   }
 }

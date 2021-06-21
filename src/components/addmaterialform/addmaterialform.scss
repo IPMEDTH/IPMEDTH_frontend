@@ -1,9 +1,11 @@
+@use 'sass:math';
+
 @import '../../assets/scss/var';
 
 .addmaterial{
   &__title{
     text-align: center;
-    margin: $default-gap/2 0 $default-gap/4 0;
+    margin: math.div($default-gap, 2) 0 math.div($default-gap, 4) 0;
 
     &bar{
       width: 30%;
@@ -21,7 +23,7 @@
 
     &__input{
       display: block;
-      margin: $default-gap/2;
+      margin: math.div($default-gap, 2);
       width: (400-$default-gap);
       box-sizing: border-box;
       border-radius: 2px;
