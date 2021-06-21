@@ -1,8 +1,5 @@
 import React from "react";
 import './my_reservation.scss';
-import triangle from '../../images/triangle_arrow.png';
-import UrlService from "../../services/UrlService";
-import axios from 'axios';
 import { Redirect } from "react-router-dom";
 
 import Header from "../../components/header/Header";
