@@ -29,7 +29,7 @@ class IndexPage extends React.Component {
                 <NavLink exact className="index__content__selection-item" to="#">
                   <h3 className="index__content__selection-item__title"> Wie zijn er aanwezig? </h3>
                 </NavLink>
-                <NavLink exact className="index__content__selection-item" to="#">
+                <NavLink exact className="index__content__selection-item" to="/my_reservations">
                   <h3 className="index__content__selection-item__title"> Jouw Reserveringen </h3>
                 </NavLink>
                 <NavLink exact className="index__content__selection-item" to="#">
