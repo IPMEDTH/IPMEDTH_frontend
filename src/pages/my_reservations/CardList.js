@@ -28,7 +28,7 @@ class CardList extends React.Component {
         list.push(data);
         console.log(list);
         const reservation = data.map(u =>
-          <Card title={u.name}
+          <Card title={this.getTitleData(u.id)}
             date={u.date}
             starttime={u.start_time}
             endtime={u.end_time}
@@ -48,6 +48,16 @@ class CardList extends React.Component {
     } else {
       console.log("niet ingelogd!");
     }
+  }
+
+  getTitleData(deviceid) {
+    axios.get(UrlService.DeviceMenu(deviceid), {}).then(res => {
+      var title = res.data.name;
+      return title;
+    })
+    .catch((error) => {
+      console.log(error)
+    })
   }
 
   componentDidMount() {
