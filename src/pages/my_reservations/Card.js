@@ -2,14 +2,6 @@ import React from "react";
 
 class Card extends React.Component {
 
-  getTestData() {
-    console.log("TITEL: " + this.props.title);
-  }
-
-  componentDidMount() {
-    this.getTestData();
-  }
-
   render() {
     return (
       <article className="reservation__card__container">
