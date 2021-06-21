@@ -52,9 +52,9 @@ class CardList extends React.Component {
   }
 
   getTitleData(deviceid) {
-    console.log("test");
     axios.get(UrlService.DeviceMenu(deviceid), {}).then(res => {
       var title = res.data.name;
+      console.log(title);
       return title;
     })
     .catch((error) => {
