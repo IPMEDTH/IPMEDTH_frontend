@@ -12,10 +12,11 @@ class UrlService {
     static DeviceMenu(id) { return apiDomain + 'api/locations/' + id; }
     static HelpMenu(id) { return apiDomain + 'api/locations/' + id; }
     static Materials() { return apiDomain + 'api/materials'}
-    static ReservationMenu(userid) { return apiDomain + 'api/reservations/user/' + userid}
+    static ReservationMenu(userid) { return apiDomain + 'api/reservations/user/' + userid; }
     static Material(term) { return apiDomain + 'api/materials/search/' + term; }
     static PostMaterial() { return apiDomain + 'api/materials' }
     static Reservations() { return apiDomain + 'api/reservations' }
+    static DeleteReservations() { return apiDomain + 'api/reservations/' + id; }
 }
 
 export default UrlService;
