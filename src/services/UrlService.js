@@ -16,7 +16,7 @@ class UrlService {
     static Material(term) { return apiDomain + 'api/materials/search/' + term; }
     static PostMaterial() { return apiDomain + 'api/materials' }
     static Reservations() { return apiDomain + 'api/reservations' }
-    static DeleteReservations() { return apiDomain + 'api/reservations/' + id; }
+    static DeleteReservations(id) { return apiDomain + 'api/reservations/' + id; }
 }
 
 export default UrlService;
