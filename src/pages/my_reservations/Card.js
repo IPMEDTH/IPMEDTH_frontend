@@ -6,8 +6,6 @@ import UrlService from "../../services/UrlService";
 class Card extends React.Component {
 
   onCancelClicked = () => {
-    this.props.cardClicked(this.props.id, this.props.title);
-
     axios.delete(UrlService.Reservations(this.props.id), {}).then(res => {
       const data = res.data
       var list = [];
