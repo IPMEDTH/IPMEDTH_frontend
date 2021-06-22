@@ -124,6 +124,7 @@ class ReservationPage extends React.Component {
             // TODO: ADD LOADING COMPONENT TO PREVENT USER FROM TAPPING SEND MORE THAN ONCE
             if (response.status === 200) {
               this.setState({ isLoading: false, location: '', date: '', start: '', end: '' });
+              console.log("locatie: " + this.state.location);
               //this.setState({ isLoading: false }); // quick fix for above TODO
               this.setState({ redirect: "/" });
             }
