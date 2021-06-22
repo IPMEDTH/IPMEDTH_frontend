@@ -44,6 +44,7 @@ class Inventory extends React.Component {
   handleCloseModal = () => {
     this.setState({ showModal: false,
     showSuccessComponent: false })
+    this.getMaterialsData();  // update material list
     // this.setState({ showSuccessComponent: false })
   }
 
