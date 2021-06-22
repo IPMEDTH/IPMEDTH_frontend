@@ -111,7 +111,6 @@ class ReservationPage extends React.Component {
 
   submitReservation = (e) => {
     e.preventDefault();
-    console.log("locatie 2: " + this.state.location);
     console.log(this.checkIfFormFilled());
     if (this.checkIfFormFilled() && !this.state.isLoading) {
       const { user_id, location, date, start, end, help } = this.state;
@@ -129,7 +128,6 @@ class ReservationPage extends React.Component {
               window.localStorage.setItem('timedate', '');
               window.localStorage.setItem('timestart', '');
               window.localStorage.setItem('timeend', '');
-              console.log("locatie: " + this.state.location);
               //this.setState({ isLoading: false }); // quick fix for above TODO
               this.setState({ redirect: "/" });
             }

@@ -96,6 +96,16 @@
         margin-top: 90px;
         font-size: 18px;
       }
+
+      &__button {
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: red;
+        :hover {
+          cursor: pointer;
+        }
+      }
     }
 
     > p {
