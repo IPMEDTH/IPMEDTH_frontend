@@ -14,6 +14,7 @@ class AddMaterialForm extends React.Component {
       amount: '',
       unit: '',
       location: '',
+      image: '',
       isLoading: false,
     };
   }
@@ -30,18 +31,35 @@ class AddMaterialForm extends React.Component {
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+    if (e.target.name === "image") {
+      let files = e.target.files || e.dataTransfer.files;
+        if (!files.length)
+              return;
+        this.createImage(files[0]);
+    }
+  }
+
+  createImage = (file) => {
+    let reader = new FileReader();
+    reader.onload = (e) => {
+      this.setState({
+        image: e.target.result
+      })
+    };
+    reader.readAsDataURL(file);
   }
 
   submitForm = (e) => {
     e.preventDefault();
     if (this.checkIfFormFilled() && !this.state.isLoading) {
-      const { name, description, amount, unit, location } = this.state;
+      const { name, description, amount, unit, location, image } = this.state;
       this.setState({ isLoading: true });
+      console.log(this.state);
 
       axios.defaults.withCredentials = true;
       axios.get(UrlService.getCookie())
       .then(response => {
-        axios.post(UrlService.PostMaterial(), { name, description, amount, unit, location })
+        axios.post(UrlService.PostMaterial(), { name, description, amount, unit, location, image })
           .then((response) => {
             // TODO: ADD LOADING COMPONENT TO PREVENT USER FROM TAPPING SEND MORE THAN ONCE
             if (response.status === 200) {
@@ -51,6 +69,7 @@ class AddMaterialForm extends React.Component {
           })
           .catch((error) => {
             console.log(error)
+            this.setState({ isLoading: false });
           })
       })
     } else {
@@ -79,6 +98,9 @@ class AddMaterialForm extends React.Component {
           </label>
           <label className="addmaterial__form__label" htmlFor="location">
             <input className="addmaterial__form__input" placeholder="Waar ligt het?" type="text" name="location"   onChange={this.onChange} required autoComplete='false'/>
+          </label>
+          <label className="addmaterial__form__label" htmlFor="image">
+          <input className="addmaterial__form__input" placeholder="Hoe ziet het eruit?" type="file" name="image"   onChange={this.onChange} required autoComplete='false'/>
           </label>
           <section className="addmaterial__form__buttons">
             <div className="addmaterial__form__buttons__close" onClick={this.props.closeModal}></div>
