@@ -111,6 +111,7 @@ class ReservationPage extends React.Component {
 
   submitReservation = (e) => {
     e.preventDefault();
+    console.log("locatie 2: " + this.state.location);
     console.log(this.checkIfFormFilled());
     if (this.checkIfFormFilled() && !this.state.isLoading) {
       const { user_id, location, date, start, end, help } = this.state;
