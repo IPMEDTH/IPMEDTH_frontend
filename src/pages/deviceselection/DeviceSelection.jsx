@@ -2,6 +2,7 @@ import React from "react";
 import './DeviceSelection.scss';
 
 import Header from "../../components/header/Header";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import CardList from "../../pages/deviceselection/CardList";
 import Footer from "../../components/footer/Footer"
@@ -21,9 +22,14 @@ class DeviceSelectionPage extends React.Component {
     window.localStorage.setItem('device', `${id}`);
     var lasercutter = window.localStorage.getItem('device');
     console.log(lasercutter);
-    this.setState({
-      redirect: "/reservation/"
-    })
+    if (this.props.user !== '') {
+      this.setState({
+        redirect: "/reservation/"
+      })
+    } else {
+      alert("Om te reserveren moet je inloggen!");
+      this.setState({ redirect: "/login" });
+    }
   }
 
 
@@ -59,4 +65,10 @@ class DeviceSelectionPage extends React.Component {
   }
 }
 
-export default DeviceSelectionPage;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(DeviceSelectionPage);

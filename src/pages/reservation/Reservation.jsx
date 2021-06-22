@@ -104,6 +104,8 @@ class ReservationPage extends React.Component {
       this.setState({ user_id: `${user_id}`,location: `${location}`, date: `${timedate}`, start: `${timestart}`, end: `${timeend}` }, () => {this.submitReservation(e)});
     } else {
       console.log("Niet ingelogd!");
+      alert("Om te reserveren moet je inloggen!");
+      this.setState({ redirect: "/login" });
     }
   }
 
