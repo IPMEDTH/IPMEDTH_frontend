@@ -39,16 +39,20 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 Op dit moment is de applicatie nog niet waar we hem willen hebben, het volgende lijstje met features willen we graag voor de eindpresentatie nog werkend krijgen:
 
-- Zelf een profielfoto aan je account kunnen toevoegen
-- Je eigen accountgegevens kunnen aanpassen
-- Wachtwoordherstel via de e-mail
-- losse toegang voor de beheerdersrol
-- een beheerspagina waar de helper en beheerdersrollen toegewezen kunnen worden
-- Beheerspagina met alle toekomstige reserveringen
-- Bij het reserveren de gebruiker betere feedback geven of een locatie vol zit
-- Formulier om een materiaal als bijna op de markeren
+- Profielfoto toe kunnen voegen aan profiel.
+- Accountgegevens kunnen aanpassen.
+- Wachtwoordherstel via e-mail.
+- Losse toegang voor beheerdersrol.
+- Een beheerpagina waar apparaten, helpers en nieuwe beheerders toegevoegd kunnen worden.
+- Beheerpagina waar alle reserveringen kunnen worden gezien.
+- Beheerpagina om de historie van de materiaalvoorraden te weergeven.
+- Bij het reserveren aangeven of de reservering vol zit.
+- Formulier voor de gebruiker om de voorraad van een materiaal te melden.
+- Mogelijkheid om API key op te vragen via profiel.
 
 Dan willen we ook nog wat kleinere zaken regelen:
 - De CSS over de hele applicatie opschonen
 - De code opschonen waar nodig
 - Eventuele bugfixes die nog niet ontdekt zijn
+
+Daarnaast willen we alle features die er nog bij komen toevoegen in de gebruikershandleiding.
