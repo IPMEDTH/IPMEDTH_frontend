@@ -45,4 +45,10 @@ Op dit moment is de applicatie nog niet waar we hem willen hebben, het volgende 
 - losse toegang voor de beheerdersrol
 - een beheerspagina waar de helper en beheerdersrollen toegewezen kunnen worden
 - Beheerspagina met alle toekomstige reserveringen
+- Bij het reserveren de gebruiker betere feedback geven of een locatie vol zit
 - Formulier om een materiaal als bijna op de markeren
+
+Dan willen we ook nog wat kleinere zaken regelen:
+- De CSS over de hele applicatie opschonen
+- De code opschonen waar nodig
+- Eventuele bugfixes die nog niet ontdekt zijn
