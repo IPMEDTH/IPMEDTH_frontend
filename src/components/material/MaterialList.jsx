@@ -11,10 +11,12 @@ class MaterialList extends React.Component {
       <>
       {this.props.materials.map((item)=>(
         <Material
+          itemId={item.id}
           name={item.name}
           description={item.description}
           amount={item.amount}
           unit={item.unit}
+          location={item.location}
           added_by={item.added_by}
           img_url={item.img_url}
           key={item.id}
