@@ -54,7 +54,7 @@ function DatePicker() {
     var dateFormat = require("dateformat");
     date = dateFormat(date, "yyyy-mm-dd");
     window.localStorage.setItem('timedate', date);
-    console.log("datum: " + date);
+    //console.log("datum: " + date);
     getDeviceData();
   };
 
