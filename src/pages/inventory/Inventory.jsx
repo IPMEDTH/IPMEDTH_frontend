@@ -28,7 +28,7 @@ class Inventory extends React.Component {
       // CloseOnOverlayClick: true,
       showSuccessComponent: false,
     }
-    this.ChildComponent = '';
+    this.MaterialListComponent = '';
     this.AddMaterialForm = <AddMaterialForm showSuccessComponent={this.handleShowSuccessComponent} closeModal={this.handleCloseModal} />;
     this.AddMaterialSuccess = <AddMaterialSuccess showSuccessComponent={this.handleShowSuccessComponent} closeModal={this.handleCloseModal} />;
 
@@ -60,7 +60,7 @@ class Inventory extends React.Component {
   getMaterialsData = () => {
     axios.get(UrlService.Materials())
     .then((response) => {
-      this.ChildComponent = <MaterialList materials={response.data} />;
+      this.MaterialListComponent = <MaterialList materials={response.data} />;
       this.setState({dataIsReturned: true});
       console.log(response);
 
@@ -88,7 +88,7 @@ class Inventory extends React.Component {
     if (term!=='') {
       axios.get(UrlService.Material(term))
       .then((response) => {
-        this.ChildComponent = <MaterialList materials={response.data} />;
+        this.MaterialListComponent = <MaterialList materials={response.data} />;
         this.setState({dataIsReturned: true});
         console.log(response);
 
@@ -141,7 +141,7 @@ class Inventory extends React.Component {
               this.AddMaterialSuccess
             }
           </Modal>
-          {this.state.dataIsReturned!==false ? this.ChildComponent : <h2> Loading... </h2>}
+          {this.state.dataIsReturned!==false ? this.MaterialListComponent : <h2> Loading... </h2>}
         </main>
         <Footer />
       </div>
