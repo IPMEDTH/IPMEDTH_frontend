@@ -156,6 +156,7 @@ class ReservationPage extends React.Component {
               window.localStorage.setItem('timedate', '');
               window.localStorage.setItem('timestart', '');
               window.localStorage.setItem('timeend', '');
+              countReservations = 0;
               //this.setState({ isLoading: false }); // quick fix for above TODO
               this.setState({ redirect: "/" });
             }
