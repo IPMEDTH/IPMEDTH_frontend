@@ -6,6 +6,8 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker
 } from '@material-ui/pickers'
+import axios from "axios";
+import UrlService from "../../services/UrlService";
 
 import TimePicker1 from "./TimePicker1"
 import TimePicker2 from "./TimePicker2"
@@ -15,6 +17,17 @@ function getWindowDimensions() {
   return {
     width
   };
+}
+
+function getDeviceData() {
+  var deviceid = window.localStorage.getItem('device');
+  var date = window.localStorage.getItem('timedate');
+  axios.get(UrlService.GetReservationMenu(deviceid, date), {}).then(res => {
+    const data = res.data
+    var list = [];
+    list.push(data);
+    console.log(list);
+  });
 }
 
 function DatePicker() {
@@ -35,6 +48,7 @@ function DatePicker() {
     date = dateFormat(date, "yyyy-mm-dd");
     window.localStorage.setItem('timedate', date);
     console.log("datum: " + date);
+    getDeviceData();
   };
 
   const [isOpen, setIsOpen] = React.useState(false);
@@ -46,6 +60,9 @@ function DatePicker() {
 
   return (
     <section className="reservation__datepicker">
+      <section>
+        <h1> Kies een datum </h1>
+      </section>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Grid container justify={justify}>
           <KeyboardDatePicker
