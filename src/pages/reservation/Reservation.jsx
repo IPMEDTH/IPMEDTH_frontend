@@ -115,9 +115,10 @@ class ReservationPage extends React.Component {
     if (this.checkIfFormFilled() && !this.state.isLoading) {
       const { user_id, location, date, start, end, help } = this.state;
 
+      console.log("HIER HIER HIER");
+
       axios.get(UrlService.GetReservationMenu(location, date), {}).then(res => {
         const data = res.data;
-        console.log("HIER HIER HIER")
         console.log(data.length);
         if (data.length !== 0) {
           console.log(data);
@@ -128,7 +129,7 @@ class ReservationPage extends React.Component {
           //
         }
       });
-      
+
       this.setState({ isLoading: true });
 
       axios.defaults.withCredentials = true;
