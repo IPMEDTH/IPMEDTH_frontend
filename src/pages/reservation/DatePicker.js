@@ -26,9 +26,8 @@ function getDeviceData() {
   var date = window.localStorage.getItem('timedate');
   axios.get(UrlService.GetReservationMenu(deviceid, date), {}).then(res => {
     const data = res.data;
-    console.log(data.length);
     if (data.length !== 0) {
-      reservedTimes = "Er op deze dag zijn reserveringen van: "
+      reservedTimes = "Reserveringen op deze dag: "
       data.forEach((item, i) => {
         reservedTimes = reservedTimes + item.start_time + " tot " + item.end_time + ", ";
       });
