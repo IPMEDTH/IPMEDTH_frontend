@@ -15,7 +15,8 @@ import Footer from "../../components/footer/Footer";
 import DatePicker from "./DatePicker";
 
 var state = "closed";
-var valueHelpers = "Wij zijn er om je te helpen!"
+var valueHelpers = "Wij zijn er om je te helpen!";
+var countReservations = 0;
 
 
 class ReservationPage extends React.Component {
@@ -124,13 +125,22 @@ class ReservationPage extends React.Component {
           console.log(data);
           data.forEach((item, i) => {
             var reserved_start = item.start_time;
-            //var reserved_end = item.end_time;
+            var reserved_end = item.end_time;
             var calculated_reserved_start = parseInt(reserved_start.substring(0,2)) * 60 + parseInt(reserved_start.substring(3,5));
+            var calculated_reserved_end = parseInt(reserved_end.substring(0,2)) * 60 + parseInt(reserved_end.substring(3,5));
             console.log("daadwerkelijke starttijd: " + reserved_start);
-            console.log("berekende waarde: " + calculated_reserved_start);
+            console.log("berekende waarde start: " + calculated_reserved_start);
+            console.log("berekende waarde eind: " + calculated_reserved_end);
+            var calculated_selected_start_time = parseInt(start.substring(0,2)) * 60 + parseInt(start.substring(3,5));
+            var calculated_selected_end_time = parseInt(end.substring(0,2)) * 60 + parseInt(end.substring(3,5));
+            if ((calculated_selected_start_time <= calculated_reserved_start && calculated_selected_end_time > calculated_reserved_start) || (calculated_selected_start_time > calculated_reserved_start && calculated_selected_end_time < calculated_reserved_end) || (calculated_selected_start_time < calculated_reserved_end && calculated_selected_end_time > calculated_reserved_start)) {
+              console.log("Reservering in dit tijdslot, +1.");
+              countReservations += 1;
+            }
           });
+          console.log("aantal reserveringen binnen tijdslot: " + countReservations);
         } else {
-          //
+          console.log("Nog geen reserveringen binnen tijdslot.");
         }
       });
 
