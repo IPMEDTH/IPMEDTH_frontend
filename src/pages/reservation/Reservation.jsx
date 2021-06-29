@@ -122,9 +122,9 @@ class ReservationPage extends React.Component {
           console.log(data);
           data.forEach((item, i) => {
             var reserved_start = item.start_time;
-            var reserved_end = item.end_time;
+            //var reserved_end = item.end_time;
             var calculated_reserved_start = parseInt(reserved_start.substring(0,2)) * 60 + parseInt(reserved_start.substring(3,5));
-            console.log("daadwerkelijke tijd: " + reserved_start);
+            console.log("daadwerkelijke starttijd: " + reserved_start);
             console.log("berekende waarde: " + calculated_reserved_start);
           });
         } else {

@@ -14,7 +14,7 @@ function TimePicker2() {
   const handleDateChange = (date) => {
     setSelectedDate(date);
     window.localStorage.setItem('timeend', date);
-    var timedate = window.localStorage.getItem('timedate');
+    //var timedate = window.localStorage.getItem('timedate');
     var timestart = window.localStorage.getItem('timestart');
     var timeend = window.localStorage.getItem('timeend');
     timestart = timestart.substring(16,21);
