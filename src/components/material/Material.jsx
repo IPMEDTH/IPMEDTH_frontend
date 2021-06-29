@@ -33,14 +33,14 @@ class Material extends React.Component {
       <section className="inventory__content-item" onClick={this.toggleItem}>
         <article className="inventory__content-item__info">
           <h3 className="inventory__content-item__info__title"> {this.props.name}</h3>
-          <p className="inventory__content-item__info__amount"> {this.props.amount} {this.props.unit}</p>
           {this.state.showAttributes===false ?
              null
              :
              <>
-              <p className="inventory__content-item__info__description attributes"> {this.props.description}</p>
-              <p className="inventory__content-item__info__addedby attributes"> {this.props.added_by}</p>
-              <p className="inventory__content-item__info__location attributes"> {this.props.location}</p>
+               <p className="inventory__content-item__info__amount"> {this.props.amount} {this.props.unit}</p>
+               <p className="inventory__content-item__info__description attributes"> {this.props.description}</p>
+               {/*<p className="inventory__content-item__info__addedby attributes"> {this.props.added_by}</p>*/}
+               <p className="inventory__content-item__info__location attributes"> {this.props.location}</p>
             </>
            }
         </article>
