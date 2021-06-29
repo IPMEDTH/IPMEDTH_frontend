@@ -12,6 +12,8 @@ import UrlService from "../../services/UrlService";
 import TimePicker1 from "./TimePicker1"
 import TimePicker2 from "./TimePicker2"
 
+var reservedTimes = "Kies een datum";
+
 function getWindowDimensions() {
   const { innerWidth: width} = window;
   return {
@@ -23,10 +25,16 @@ function getDeviceData() {
   var deviceid = window.localStorage.getItem('device');
   var date = window.localStorage.getItem('timedate');
   axios.get(UrlService.GetReservationMenu(deviceid, date), {}).then(res => {
-    const data = res.data
-    var list = [];
-    list.push(data);
-    console.log(list);
+    const data = res.data;
+    console.log(data.length);
+    if (data.length !== 0) {
+      reservedTimes = "Er op deze dag zijn reserveringen van: "
+      data.forEach((item, i) => {
+        reservedTimes = reservedTimes + item.start_time + " tot " + item.end_time + ", ";
+      });
+    } else {
+      reservedTimes = "Er zijn op deze dag nog geen reserveringen";
+    }
   });
 }
 
@@ -61,7 +69,7 @@ function DatePicker() {
   return (
     <section className="reservation__datepicker">
       <section>
-        <h1> Kies een datum </h1>
+        <h1> {reservedTimes} </h1>
       </section>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Grid container justify={justify}>
