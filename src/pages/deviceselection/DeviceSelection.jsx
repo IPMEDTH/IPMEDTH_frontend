@@ -17,9 +17,10 @@ class DeviceSelectionPage extends React.Component {
     };
   }
 
-  cardClicked = (id, title) => {
+  cardClicked = (id, title, amount) => {
     window.localStorage.setItem('location', `${title}`);
     window.localStorage.setItem('device', `${id}`);
+    window.localStorage.setItem('places', `${amount}`);
     var lasercutter = window.localStorage.getItem('device');
     console.log(lasercutter);
     if (this.props.user !== '') {
