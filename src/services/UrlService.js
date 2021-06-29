@@ -1,9 +1,9 @@
-// let apiDomain = 'https://api.ipmedth.meulen.dev/'
+let apiDomain = 'https://api.ipmedth.meulen.dev/'
 // let apiDomain = 'http://localhost/'
-let apiDomain = 'http://localhost:8000/'
+// let apiDomain = 'http://localhost:8000/'
 
-// let apiStorage = apiDomain + "storage/public/"   // online
-let apiStorage = apiDomain + "storage/"             // local
+let apiStorage = apiDomain + "storage/public/"   // online
+// let apiStorage = apiDomain + "storage/"           // local
 
 class UrlService {
     static getCookie() { return apiDomain + 'sanctum/csrf-cookie' }

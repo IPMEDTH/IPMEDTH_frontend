@@ -25,6 +25,7 @@ class Material extends React.Component {
       case true:
         this.setState({showAttributes: false})
         break;
+      default:
     }
   }
 
