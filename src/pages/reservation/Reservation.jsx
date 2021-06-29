@@ -39,8 +39,8 @@ class ReservationPage extends React.Component {
     var element = document.getElementById("js--reservation__hulp");
     var checkbox = document.getElementById("js--checkbox");
     element.classList.toggle('active');
-    console.log(element.classList.value);
-    console.log(state);
+    //console.log(element.classList.value);
+    //console.log(state);
     if (element.classList.value.includes("active") && state === "open") {
       state = "closed";
     }
@@ -59,7 +59,7 @@ class ReservationPage extends React.Component {
       } else {
         valueHelpers = "Wij zijn er om je te helpen!";
       }
-      console.log(marginBot);
+      //console.log(marginBot);
       document.getElementById("js--help").style.marginBottom = marginBot;
 
       var delayInMilliseconds = 275; //1 second
@@ -93,10 +93,10 @@ class ReservationPage extends React.Component {
   }
 
   fillReservation = (e) => {
-    console.log("Stuur naar database: ");
+    //console.log("Stuur naar database: ");
     if (this.props.user !== '') {
       var user_id = this.props.user.id;
-      console.log("USER ID: " + user_id);
+      //console.log("USER ID: " + user_id);
       var location = window.localStorage.getItem('device');
       var timedate = window.localStorage.getItem('timedate');
       var timestart = window.localStorage.getItem('timestart');
@@ -123,7 +123,11 @@ class ReservationPage extends React.Component {
         if (data.length !== 0) {
           console.log(data);
           data.forEach((item, i) => {
-            //
+            var reserved_start = item.start_time;
+            var reserved_end = item.end_time;
+            var calculated_reserved_start = parseInt(reserved_start.substring(0,2)) * 60 + parseInt(reserved_start.substring(3,5));
+            console.log("daadwerkelijke tijd: " + reserved_start);
+            console.log("berekende waarde: " + calculated_reserved_start);
           });
         } else {
           //

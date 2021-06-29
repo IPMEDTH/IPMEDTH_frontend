@@ -21,10 +21,10 @@ function TimePicker2() {
     timeend = timeend.substring(16,21);
     window.localStorage.setItem('timestart', timestart);
     window.localStorage.setItem('timeend', timeend);
-    console.log("times");
-    console.log(timedate);
-    console.log(timestart);
-    console.log(timeend);
+    //console.log("times");
+    //console.log(timedate);
+    //console.log(timestart);
+    //console.log(timeend);
   };
 
   return (
