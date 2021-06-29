@@ -140,31 +140,36 @@ class ReservationPage extends React.Component {
         } else {
           console.log("Nog geen reserveringen binnen tijdslot.");
         }
+        var places_available = window.localStorage.getItem('places');
+        if (countReservations < places_available) {
+          this.setState({ isLoading: true });
+
+          axios.defaults.withCredentials = true;
+          axios.get(UrlService.getCookie())
+          .then(response => {
+            axios.post(UrlService.Reservations(), { user_id, location, date, start, end, help })
+              .then((response) => {
+                // TODO: ADD LOADING COMPONENT TO PREVENT USER FROM TAPPING SEND MORE THAN ONCE
+                if (response.status === 200) {
+                  this.setState({ isLoading: false, location: '', date: '', start: '', end: '' });
+                  window.localStorage.setItem('device', '');
+                  window.localStorage.setItem('timedate', '');
+                  window.localStorage.setItem('timestart', '');
+                  window.localStorage.setItem('timeend', '');
+                  countReservations = 0;
+                  //this.setState({ isLoading: false }); // quick fix for above TODO
+                  this.setState({ redirect: "/" });
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+              })
+          })
+        } else {
+          countReservations = 0;
+          alert("Whoops! Er zijn al te veel reserveringen binnen het gekozen tijdslot, verander de tijden en probeer opnieuw!");
+        }
       });
-
-      this.setState({ isLoading: true });
-
-      axios.defaults.withCredentials = true;
-      axios.get(UrlService.getCookie())
-      .then(response => {
-        axios.post(UrlService.Reservations(), { user_id, location, date, start, end, help })
-          .then((response) => {
-            // TODO: ADD LOADING COMPONENT TO PREVENT USER FROM TAPPING SEND MORE THAN ONCE
-            if (response.status === 200) {
-              this.setState({ isLoading: false, location: '', date: '', start: '', end: '' });
-              window.localStorage.setItem('device', '');
-              window.localStorage.setItem('timedate', '');
-              window.localStorage.setItem('timestart', '');
-              window.localStorage.setItem('timeend', '');
-              countReservations = 0;
-              //this.setState({ isLoading: false }); // quick fix for above TODO
-              this.setState({ redirect: "/" });
-            }
-          })
-          .catch((error) => {
-            console.log(error)
-          })
-      })
     } else {
       alert("Whoops! Je bent een veld vergeten in te vullen. \nVul a.u.b. voor verzenden alle velden in.");
     }

@@ -3,7 +3,7 @@ import React from "react";
 class Card extends React.Component {
 
   onCardClicked = () => {
-    this.props.cardClicked(this.props.id, this.props.title);
+    this.props.cardClicked(this.props.id, this.props.title, this.props.amount);
   }
 
   render() {
