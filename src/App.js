@@ -24,8 +24,7 @@ const guestRoutes = [
   { path: "/my_reservations", component: MyReservationPage, exact: true },
   { path: "/account", component: Account, exact: true},
   { path: "/personnel", component: HelpersPage, exact: true },
-  {/* path: "/usr-reservations", component: None, exact: true },
-  { path: "/material-history", component: None, exact: true },*/},
+  {/*path: "/material-history", component: None, exact: true },*/},
 ];
 
 console.log("w3 validated? :^)");
