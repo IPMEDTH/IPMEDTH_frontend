@@ -4,8 +4,6 @@ import Person from "./Person";
 import axios from "axios";
 import UrlService from "../../services/UrlService";
 
-var deviceid = window.localStorage.getItem('device');
-
 class PersonList extends React.Component {
 
 

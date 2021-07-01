@@ -1,7 +1,5 @@
 import React from "react";
 import './helpers.scss';
-import UrlService from "../../services/UrlService";
-import axios from 'axios';
 import { connect } from "react-redux";
 
 import Header from "../../components/header/Header";
