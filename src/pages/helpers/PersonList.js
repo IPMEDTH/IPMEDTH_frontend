@@ -17,9 +17,8 @@ class PersonList extends React.Component {
   }
 
   getHelperData() {
-    deviceid = window.localStorage.getItem('device');
-    axios.get(UrlService.HelpMenu(deviceid), {}).then(res => {
-      const data = res.data.helpers
+    axios.get(UrlService.HelperMenu(), {}).then(res => {
+      const data = res.data
       console.log(data);
       window.localStorage.setItem('helpers_amount', data.length);
       const helper = data.map(u =>
@@ -47,7 +46,7 @@ class PersonList extends React.Component {
 
   render() {
     return (
-      <section className="reservation__cards">
+      <section className="helpers__cards">
         {this.state.helper}
       </section>
     );

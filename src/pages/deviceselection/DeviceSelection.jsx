@@ -49,8 +49,7 @@ class DeviceSelectionPage extends React.Component {
           <section>
             <h1 className="deviceselection__choice__subtitle">Van welk apparaat wilt u gebruik maken?</h1>
             <p className="deviceselection__choice__text">
-              Bij het reserveren van een plek in het houtbewerkingslokaal valt dit onder een apparaat en werkplek, hierbij is het dus niet nodig voor u om ook een werkplek te reserveren.
-              Bij andere apparaten zoals een lasersnijder of 3D printer krijgt u de keuze of u er ook een werkplek bij wilt.
+              Bij het reserveren van een apparaat valt dit onder een apparaat en werkplek, het dus niet nodig voor u om ook een losse werkplek te reserveren.
             </p>
           </section>
           <section className="deviceselection__container">

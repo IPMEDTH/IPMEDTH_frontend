@@ -15,6 +15,7 @@ class UrlService {
     static DeviceImages(filename) { return apiDomain + 'img/devices/' + filename; }
     static DeviceMenu(id) { return apiDomain + 'api/locations/' + id; }
     static HelpMenu(id) { return apiDomain + 'api/locations/' + id; }
+    static HelperMenu() { return apiDomain + 'api/helpers' }
     static Materials() { return apiDomain + 'api/materials'}
     static ReservationMenu(userid) { return apiDomain + 'api/reservations/user/' + userid; }
     static GetReservationMenu(deviceid, date) { return apiDomain + 'api/reservations/' + deviceid + '/' + date; }

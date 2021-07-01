@@ -1,0 +1,213 @@
+@import '../../assets/scss/var';
+@import '../../assets/scss/default';
+
+.header__return {
+  text-decoration: none;
+  :hover {
+    text-decoration: underline;
+  }
+}
+
+.header__back {
+  color: $color_blue;
+  font-size: 25px;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.reservation__choice__subtitle{
+  max-width: 768px;
+  padding: 0 40px;
+  font-size: 21px;
+  font-weight: 800;
+  color: black;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.helpers {
+  font-family: 'Muli', sans-serif;
+  height: 100vh;
+  position: relative;
+
+  &__card__container {
+    background-color: #fff;
+  }
+}
+
+.helpers__content {
+  max-width: 768px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.helpers__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+
+  &__link{
+    text-decoration: none;
+  }
+
+  .helpers__optie {
+    margin-bottom: 2vh;
+
+    &__knop {
+      cursor: default;
+      background-color: #eee;
+      color: #ececec;
+      display: grid;
+      grid-template-columns: auto 1fr 1fr;
+      grid-template-rows: auto;
+      grid-template-areas: "image text text";
+      min-height: 100px;
+      position: relative;
+      text-align: center;
+
+      &__image--person {
+        width: 12.5rem;
+      }
+
+      p {
+        grid-area: text;
+        border-radius: 5px;
+        padding: 5px;
+        text-align: left;
+        color: black;
+        font-family: 'Muli', sans-serif;
+      }
+
+      &__name {
+        position: relative;
+        top: 5px;
+        margin-left: 0px;
+        text-align: left;
+        font-size: 18px;
+      }
+
+      &__knowledge {
+        position: relative;
+        top: 60px;
+        margin-left: 0px;
+        font-size: 18px;
+      }
+
+      &__available {
+        position: relative;
+        top: 140px;
+        margin-left: 0px;
+        font-size: 18px;
+      }
+    }
+
+    > p {
+      color: $color_grey;
+      margin-top: 7px;
+    }
+  }
+}
+
+.reservation__hulp {
+  padding: 0 40px;
+  margin-top: 2vh;
+  &__container {
+    cursor: pointer;
+    max-width: 768px;
+    margin: 0 auto;
+    background-color: $color_blue;
+    border-radius: 0.5rem;
+    color: #ececec;
+    -webkit-box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    min-height: 60px;
+    position: relative;
+    text-align: center;
+
+    &__image {
+      max-width: 11rem;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 5px;
+      padding: 5px;
+      font-family: 'Muli', sans-serif;
+    }
+  }
+}
+
+
+
+
+
+@media (max-width: $bp_tablet){
+  .helpers__cards {
+    .helpers__optie {
+      &__knop {
+        &__image--person {
+          max-width: 16rem;
+        }
+
+        &__name {
+          top: 140px;
+          font-size: 18px;
+        }
+
+        &__knowledge {
+          top: 220px;
+          font-size: 18px;
+        }
+
+        &__available {
+          top: 340px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $bp_mobile){
+  .helpers__cards {
+    grid-template-columns: 1fr;
+
+    .helpers__optie {
+      &__knop {
+        &__image--person {
+          max-width: 11rem;
+        }
+
+        &__name {
+          top: 90px;
+          font-size: 18px;
+        }
+
+        &__knowledge {
+          top: 140px;
+          font-size: 18px;
+        }
+
+        &__available {
+          top: 210px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
