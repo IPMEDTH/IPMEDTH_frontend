@@ -135,11 +135,11 @@ class Inventory extends React.Component {
             ariaHideApp={false}
            >
 
-           {this.state.showSuccessComponent===false ?
-              this.AddMaterialForm
-              :
-              this.AddMaterialSuccess
-            }
+          {this.state.showSuccessComponent===false ?
+            this.AddMaterialForm
+            :
+            this.AddMaterialSuccess
+          }
           </Modal>
           {this.state.dataIsReturned!==false ? this.MaterialListComponent : <h2> Loading... </h2>}
         </main>

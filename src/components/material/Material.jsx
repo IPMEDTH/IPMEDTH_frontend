@@ -1,5 +1,8 @@
 import React from "react";
 import UrlService from "../../services/UrlService";
+// import Modal from 'react-modal';
+
+import EditMaterialModal from "../../components/editmaterialmodal/EditMaterialModal"
 
 class Material extends React.Component {
   constructor(props) {
@@ -14,7 +17,25 @@ class Material extends React.Component {
       // location: this.props.location,
       // img_url: this.props.img_url,
       showAttributes: false,
+      showModal: false,
+      showSuccessComponent: false,
+      attributes: [],
     };
+  }
+
+  handleOpenModal = () => {
+    this.setState({ showModal: true })
+  }
+
+  handleCloseModal = () => {
+    this.setState({ showModal: false,
+    showSuccessComponent: false })
+    this.getMaterialsData();  // update material list
+    // this.setState({ showSuccessComponent: false })
+  }
+
+  putAttributesIntoState = () => {
+    this.setState({attributes: this.props.allAttributes})
   }
 
   toggleItem = () => {
@@ -31,6 +52,7 @@ class Material extends React.Component {
 
   render() {
     return(
+      <>
       <section className="inventory__content-item" onClick={this.toggleItem}>
         <article className="inventory__content-item__info">
           <h3 className="inventory__content-item__info__title"> {this.props.name}</h3>
@@ -49,6 +71,9 @@ class Material extends React.Component {
           <img className="inventory__content-item__info__figure__image" src={UrlService.MaterialImage(this.props.img_url)} alt={"Foto van " + this.props.name}></img>
         </figure>
       </section>
+
+      <EditMaterialModal />
+      </>
     )
   }
 

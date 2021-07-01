@@ -20,6 +20,7 @@ class MaterialList extends React.Component {
           added_by={item.added_by}
           img_url={item.img_url}
           key={item.id}
+          allAttributes={item}
         />
       ))}
       </>
