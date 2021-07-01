@@ -25,6 +25,10 @@ class EditMaterialModal extends React.Component {
     this.EditMaterialSuccess = <EditMaterialSuccess showSuccessComponent={this.handleShowSuccessComponent} closeModal={this.handleCloseModal} />;
   }
 
+  handleShowSuccessComponent = (bool) => {
+    this.setState({ showSuccessComponent: bool });
+  }
+
   handleOpenModal = () => {
     this.setState({ showModal: true })
   }
@@ -32,8 +36,7 @@ class EditMaterialModal extends React.Component {
   handleCloseModal = () => {
     this.setState({ showModal: false,
     showSuccessComponent: false })
-    this.getMaterialsData();  // update material list
-    // this.setState({ showSuccessComponent: false })
+    // this.getMaterialsData();  // update material list
   }
 
   render() {
@@ -52,7 +55,7 @@ class EditMaterialModal extends React.Component {
         this.EditMaterialSuccess
       }
       </Modal>
-      <p> test </p>
+      <p onClick={this.handleOpenModal}> test </p>
       </>
     )
   }

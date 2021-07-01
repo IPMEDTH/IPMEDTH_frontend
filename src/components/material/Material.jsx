@@ -19,7 +19,6 @@ class Material extends React.Component {
       showAttributes: false,
       showModal: false,
       showSuccessComponent: false,
-      attributes: [],
     };
   }
 
@@ -34,9 +33,14 @@ class Material extends React.Component {
     // this.setState({ showSuccessComponent: false })
   }
 
-  putAttributesIntoState = () => {
-    this.setState({attributes: this.props.allAttributes})
-  }
+  // putAttributesIntoState = () => {
+  //   this.setState({attributes: this.props.allAttributes})
+  //   console.log(this.props.allAttributes);
+  // }
+  //
+  // componentDidMount = () =>{
+  //   this.putAttributesIntoState();
+  // };
 
   toggleItem = () => {
     switch (this.state.showAttributes) {
@@ -72,7 +76,7 @@ class Material extends React.Component {
         </figure>
       </section>
 
-      <EditMaterialModal />
+      <EditMaterialModal materialAttributes={this.props.allAttributes}/>
       </>
     )
   }
