@@ -15,11 +15,8 @@ function TimePicker2() {
     setSelectedDate(date);
     window.localStorage.setItem('timeend', date);
     //var timedate = window.localStorage.getItem('timedate');
-    var timestart = window.localStorage.getItem('timestart');
     var timeend = window.localStorage.getItem('timeend');
-    timestart = timestart.substring(16,21);
     timeend = timeend.substring(16,21);
-    window.localStorage.setItem('timestart', timestart);
     window.localStorage.setItem('timeend', timeend);
     //console.log("times");
     //console.log(timedate);
