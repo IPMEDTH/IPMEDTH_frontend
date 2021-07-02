@@ -17,6 +17,7 @@ function TimePicker1() {
 
     var timestart = window.localStorage.getItem('timestart');
     timestart = timestart.substring(16,21);
+    console.log("STARTTIJD: " + timestart);
     window.localStorage.setItem('timestart', timestart);
   };
 
