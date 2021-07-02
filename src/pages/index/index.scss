@@ -20,7 +20,7 @@
 
     &__selection{
       display: inline-grid;
-      grid-template-columns: auto auto;
+      grid-template-columns: 1fr 1fr;
       width: 100%;
 
       &-item{
