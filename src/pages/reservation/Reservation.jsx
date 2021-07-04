@@ -52,11 +52,11 @@ class ReservationPage extends React.Component {
       checkbox.checked = true;
       document.getElementById("js--reservation__triangle").animate([{transform: 'rotate(0deg)'}], {duration: 300});
       var helpers_amount = window.localStorage.getItem('helpers_amount');
-      var marginBot = helpers_amount * 31;
+      var marginBot = helpers_amount * 32.5;
       marginBot = marginBot + "vh";
       if (helpers_amount === "0") {
         valueHelpers = "Helaas zal er op dit moment niemand zijn om te helpen.";
-        marginBot = "10vh";
+        marginBot = "12vh";
       } else {
         valueHelpers = "Wij zijn er om je te helpen!";
       }

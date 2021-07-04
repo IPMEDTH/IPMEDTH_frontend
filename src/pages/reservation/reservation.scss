@@ -345,7 +345,7 @@ section.active {
     .reservation__optie {
       &__knop {
         &__image {
-          max-width: 12rem;
+          width: 9rem;
 
           &--person {
             width: 11rem;
@@ -357,6 +357,7 @@ section.active {
         }
 
         &__description {
+          margin-top: 15px;
           font-size: 15px;
         }
 
@@ -379,6 +380,12 @@ section.active {
           font-size: 18px;
         }
       }
+    }
+  }
+
+  .reservation__confirm {
+    &__button__submit {
+      padding: 0 41%;
     }
   }
 }
