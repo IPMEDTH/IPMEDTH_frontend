@@ -49,14 +49,8 @@ class EditMaterialForm extends React.Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    console.log(this.props.materialAttributes.id);
-    console.log(this.state.id);
     if (this.checkIfFormFilled() && !this.state.isLoading) {
       const { id, name, description, amount, unit, location, image } = this.state;
-      const testIdVar = this.state.id;
-      console.log(testIdVar);
-      this.setState({ isLoading: true });
-      console.log(this.state);
 
       axios.defaults.withCredentials = true;
       axios.get(UrlService.getCookie())
