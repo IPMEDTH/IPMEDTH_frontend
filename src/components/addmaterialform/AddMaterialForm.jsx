@@ -19,6 +19,7 @@ class AddMaterialForm extends React.Component {
     };
   }
 
+  // TODO: add check for file upload
   checkIfFormFilled = () => {
     return (
       this.state.name !== ''  &&
