@@ -74,9 +74,12 @@ class Material extends React.Component {
         <figure className="inventory__content-item__info__figure">
           <img className="inventory__content-item__info__figure__image" src={UrlService.MaterialImage(this.props.img_url)} alt={"Foto van " + this.props.name}></img>
         </figure>
+        {this.state.showAttributes===false ?
+           null
+           :
+           <EditMaterialModal materialAttributes={this.props.allAttributes} updateList={this.props.updateList}/>
+         }
       </section>
-
-      <EditMaterialModal materialAttributes={this.props.allAttributes} updateList={this.props.updateList}/>
       </>
     )
   }

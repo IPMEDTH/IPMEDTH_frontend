@@ -1,5 +1,5 @@
 import React from "react";
-// import UrlService from "../../services/UrlService";
+import './editmaterial.scss';
 import Modal from 'react-modal';
 
 import EditMaterialForm from "../editmaterialform/EditMaterialForm";
@@ -29,7 +29,8 @@ class EditMaterialModal extends React.Component {
     this.setState({ showSuccessComponent: bool });
   }
 
-  handleOpenModal = () => {
+  handleOpenModal = (e) => {
+    e.stopPropagation();
     this.setState({ showModal: true })
   }
 
@@ -55,7 +56,7 @@ class EditMaterialModal extends React.Component {
         this.EditMaterialSuccess
       }
       </Modal>
-      <p onClick={this.handleOpenModal}> test </p>
+      <button className="editmaterial__button" onClick={this.handleOpenModal} />
       </>
     )
   }
