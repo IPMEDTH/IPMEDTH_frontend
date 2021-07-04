@@ -58,9 +58,10 @@
 
       &__info{
         pointer-events: none;
+        padding: 20px;
 
         &__title{
-          margin: 0 auto;
+          // margin: 25px auto 0 auto;
         }
 
         &__figure{
@@ -85,7 +86,9 @@
         &>*{
           margin: 0 0 5px 10px;
           &:first-child{
-            margin: $default-gap/2 10px;
+            // margin: 0 10px 25px 10px;
+            margin-bottom: 15px;
+            margin-left: 0;
           }
         }
 

@@ -8,7 +8,7 @@
     top: 0;
     height: $default-gap;
     width: $default-gap;
-    background-color: #00000061;
+    background-color: #00000085;
     background-image: url('../../images/edit_white_24dp.svg');
     background-size: contain;
     background-position: center;
@@ -16,6 +16,7 @@
     cursor: pointer;
     border: none;
     border-radius: 3px;
-    margin: $default-gap/2;
+    margin: 1%;
+    box-shadow: 2px 2px 2px #666464;
   }
 }
