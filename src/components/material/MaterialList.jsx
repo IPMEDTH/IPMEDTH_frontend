@@ -9,6 +9,10 @@ class MaterialList extends React.Component {
 
   // TODO: implement getmethod to update materials in here or with help of redux rather than inventory.js
 
+  componentDidMount = () => {
+    console.log("mounted MaterialList");
+  }
+
   render() {
     return(
       <>

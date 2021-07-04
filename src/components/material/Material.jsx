@@ -19,6 +19,7 @@ class Material extends React.Component {
       showAttributes: false,
       showModal: false,
       showSuccessComponent: false,
+      outOfStock: false,
     };
   }
 
@@ -30,6 +31,7 @@ class Material extends React.Component {
     this.setState({ showModal: false,
     showSuccessComponent: false })
     this.getMaterialsData();  // update material list
+    this.checkOutOfStock();
     // this.setState({ showSuccessComponent: false })
   }
 
@@ -37,12 +39,25 @@ class Material extends React.Component {
   //   this.setState({attributes: this.props.allAttributes})
   //   console.log(this.props.allAttributes);
   // }
-  //
-  // componentDidMount = () =>{
-  //   this.putAttributesIntoState();
-  // };
 
-  toggleItem = () => {
+  checkOutOfStock = () => {
+    // console.log("checked amount");
+    // console.log(this.props.amount);
+    if (this.props.amount == 0) {
+      this.setState({outOfStock: true})
+    } else {
+      this.setState({outOfStock: false})
+    }
+  }
+
+  componentDidMount = () =>{
+    this.checkOutOfStock()
+  };
+
+  toggleItem = (e) => {
+    if (e.target.className!=="inventory__content-item" && e.target.className!=="inventory__content-item__outofstock") {
+      return
+    }
     switch (this.state.showAttributes) {
       case false:
         this.setState({showAttributes: true})
@@ -58,6 +73,11 @@ class Material extends React.Component {
     return(
       <>
       <section className="inventory__content-item" onClick={this.toggleItem}>
+        {this.state.outOfStock===false ?
+           null
+           :
+           <div className="inventory__content-item__outofstock" onClick={this.toggleItem}> Niet op voorraad </div>
+         }
         <article className="inventory__content-item__info">
           <h3 className="inventory__content-item__info__title"> {this.props.name}</h3>
           {this.state.showAttributes===false ?
@@ -77,7 +97,7 @@ class Material extends React.Component {
         {this.state.showAttributes===false ?
            null
            :
-           <EditMaterialModal materialAttributes={this.props.allAttributes} updateList={this.props.updateList}/>
+           <EditMaterialModal materialAttributes={this.props.allAttributes} updateList={this.props.updateList} stockCheck={this.checkOutOfStock}/>
          }
       </section>
       </>
