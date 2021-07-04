@@ -4,7 +4,10 @@ import Material from "../../components/material/Material";
 class MaterialList extends React.Component {
   // constructor(props) {
   //   super(props);
+  //   console.log(props);
   // }
+
+  // TODO: implement getmethod to update materials in here or with help of redux rather than inventory.js
 
   render() {
     return(
@@ -21,6 +24,7 @@ class MaterialList extends React.Component {
           img_url={item.img_url}
           key={item.id}
           allAttributes={item}
+          updateList={this.props.updateList}
         />
       ))}
       </>

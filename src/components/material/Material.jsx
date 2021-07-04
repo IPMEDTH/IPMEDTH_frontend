@@ -76,7 +76,7 @@ class Material extends React.Component {
         </figure>
       </section>
 
-      <EditMaterialModal materialAttributes={this.props.allAttributes}/>
+      <EditMaterialModal materialAttributes={this.props.allAttributes} updateList={this.props.updateList}/>
       </>
     )
   }

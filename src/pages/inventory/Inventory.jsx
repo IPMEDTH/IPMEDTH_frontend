@@ -60,7 +60,7 @@ class Inventory extends React.Component {
   getMaterialsData = () => {
     axios.get(UrlService.Materials())
     .then((response) => {
-      this.MaterialListComponent = <MaterialList materials={response.data} />;
+      this.MaterialListComponent = <MaterialList materials={response.data} updateList={this.getMaterialsData}/>;
       this.setState({dataIsReturned: true});
       console.log(response);
 
@@ -88,7 +88,7 @@ class Inventory extends React.Component {
     if (term!=='') {
       axios.get(UrlService.Material(term))
       .then((response) => {
-        this.MaterialListComponent = <MaterialList materials={response.data} />;
+        this.MaterialListComponent = <MaterialList materials={response.data} updateList={this.getMaterialsData}/>;
         this.setState({dataIsReturned: true});
         console.log(response);
 

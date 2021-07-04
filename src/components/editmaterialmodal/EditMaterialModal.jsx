@@ -37,6 +37,8 @@ class EditMaterialModal extends React.Component {
     this.setState({ showModal: false,
     showSuccessComponent: false })
     // this.getMaterialsData();  // update material list
+    this.props.updateList();
+    // console.log(this.props);
   }
 
   render() {
