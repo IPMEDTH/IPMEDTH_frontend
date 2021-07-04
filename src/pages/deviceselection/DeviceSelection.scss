@@ -122,9 +122,15 @@
 @media (max-width: $bp_mobile){
   .deviceselection__cards {
     grid-template-columns: 1fr;
+    gap: 20px;
 
     .deviceselection__optie {
       &__knop {
+
+        &__image {
+          max-width: 10rem;
+        }
+
         &__title {
           font-size: 13px;
         }
