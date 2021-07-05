@@ -56,6 +56,7 @@ class Register extends React.Component {
 
     axios.get(UrlService.getCookie())
     .then(() => {
+      this.setState({ loading: true });
       axios.post(UrlService.register(), {
         name: this.state.name,
         email: this.state.email,
@@ -80,10 +81,13 @@ class Register extends React.Component {
               this.setState({ error: "Er is een probleem met de mailserver, maar je account is wel aangemaakt!" });
             }
           }
-          if (error.response.data.errors.email[0] === "The email has already been taken") {
-            this.setState({ error: "Dit emailadres is al in gebruik!" });
+          if (error.response.data.errors) {
+            if (error.response.data.errors.email[0] === "The email has already been taken") {
+              this.setState({ error: "Dit emailadres is al in gebruik!" });
+            }
           } else {
-            this.setState({ error: error.response.data.message });
+            this.setState({ error: "Sorry, een onbekende error is opgetreden." });
+            console.log(error.response.data.message);
           }
         }
       });

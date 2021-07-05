@@ -33,6 +33,7 @@ class Login extends React.Component {
 
     axios.get(UrlService.getCookie())
     .then(() => {
+      this.setState({ loading: true });
       axios.post(UrlService.login(), {
   			email: this.state.email,
   			password: this.state.password
@@ -50,10 +51,13 @@ class Login extends React.Component {
   		.catch((error) => {
         this.setState({ loading: false });
         if (error.response) {
-          if (error.response.data.errors.email[0] === "These credentials do not match our records.") {
-            this.setState({ error: "E-mailadres of wachtwoord onjuist" });
+          if (error.response.data.errors) {
+            if (error.response.data.errors.email[0] === "These credentials do not match our records.") {
+              this.setState({ error: "E-mailadres of wachtwoord onjuist" });
+            }
           } else {
-            this.setState({ error: error.response.data.message });
+            this.setState({ error: "Sorry, een onbekende error is opgetreden." });
+            console.log(error.response.data.message);
           }
         }
   		});
