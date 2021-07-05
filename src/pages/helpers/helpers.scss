@@ -161,9 +161,14 @@
 }
 
 @media (max-width: $bp_mobile){
+  .helpers__content {
+    max-width: 340px;
+  }
+
   .helpers__cards {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 10px;
+
     .helpers__optie {
       &__knop {
 
@@ -178,7 +183,7 @@
         }
 
         &__available {
-          top: 110px;
+          top: 100px;
           font-size: 15px;
         }
       }
