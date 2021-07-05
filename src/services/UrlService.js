@@ -11,6 +11,7 @@ class UrlService {
     static register() { return apiDomain + 'register' }
     static logout() { return apiDomain + 'logout' }
     static getUser() { return apiDomain + 'api/user' }
+    static getUsers() { return apiDomain + 'api/users' }
     static Devices() { return apiDomain + 'api/locations'; }
     static DeviceImages(filename) { return apiDomain + 'img/devices/' + filename; }
     static DeviceMenu(id) { return apiDomain + 'api/locations/' + id; }
