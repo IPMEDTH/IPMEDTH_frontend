@@ -14,6 +14,7 @@ class EditMaterialForm extends React.Component {
       location: '',
       image: '',
       isLoading: false,
+      isAdmin: '',
     };
   }
 
@@ -29,6 +30,7 @@ class EditMaterialForm extends React.Component {
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+    console.log(e.target.value);
     if (e.target.name === "image") {
       let files = e.target.files || e.dataTransfer.files;
         if (!files.length)
@@ -70,7 +72,7 @@ class EditMaterialForm extends React.Component {
           })
       })
     } else {
-      alert("Whoops! Je bent een veld vergeten in te vullen. \nVul a.u.b. voor verzenden alle velden in.");
+      alert("Whoops! Je bent een veld vergeten in te vullen, of je hebt een komma gebruikt. \nVul a.u.b. voor verzenden alle velden in.");
     }
 
     // console.log("edit material form submitted");
@@ -86,6 +88,7 @@ class EditMaterialForm extends React.Component {
       amount: this.props.materialAttributes.amount,
       unit: this.props.materialAttributes.unit,
       location: this.props.materialAttributes.location,
+      isAdmin: this.props.isAdmin,
     })
   }
 
@@ -99,24 +102,45 @@ class EditMaterialForm extends React.Component {
       <h2 className="addmaterial__title"> MATERIAAL AANPASSEN...</h2>
       <div className="addmaterial__titlebar"></div>
       <form className="addmaterial__form" method="POST">
-        <label className="addmaterial__form__label" htmlFor="name">
-          <input className="addmaterial__form__input" placeholder="Naam" type="text" name="name"   onChange={this.onChange} defaultValue={this.props.materialAttributes.name} required autoComplete='false'/>
-        </label>
-        <label className="addmaterial__form__label" htmlFor="description">
-          <input className="addmaterial__form__input" placeholder="Omschrijving" type="text" name="description"   onChange={this.onChange} defaultValue={this.props.materialAttributes.description} required autoComplete='false'/>
-        </label>
+
+        {this.state.isAdmin===true ?
+          <>
+            <label className="addmaterial__form__label" htmlFor="name">
+              <input className="addmaterial__form__input" placeholder="Naam" type="text" name="name"   onChange={this.onChange} defaultValue={this.props.materialAttributes.name} required autoComplete='false'/>
+            </label>
+            <label className="addmaterial__form__label" htmlFor="description">
+              <input className="addmaterial__form__input" placeholder="Omschrijving" type="text" name="description"   onChange={this.onChange} defaultValue={this.props.materialAttributes.description} required autoComplete='false'/>
+            </label>
+          </>
+        :
+          <>
+            <h3 className=""> {this.state.name}</h3>
+            <p className=""> {this.state.description}</p>
+          </>
+         }
+
         <label className="addmaterial__form__label" htmlFor="amount">
           <input className="addmaterial__form__input" placeholder="Hoeveelheid" type="number" name="amount"  onChange={this.onChange} defaultValue={this.props.materialAttributes.amount} required autoComplete='false'/>
         </label>
         <label className="addmaterial__form__label" htmlFor="unit">
           <input className="addmaterial__form__input" placeholder="Eenheid" type="text" name="unit"   onChange={this.onChange} defaultValue={this.props.materialAttributes.unit} required autoComplete='false'/>
         </label>
-        <label className="addmaterial__form__label" htmlFor="location">
-          <input className="addmaterial__form__input" placeholder="Waar ligt het?" type="text" name="location"   onChange={this.onChange} defaultValue={this.props.materialAttributes.location} required autoComplete='false'/>
-        </label>
-        <label className="addmaterial__form__label" htmlFor="image">
-        <input className="addmaterial__form__input" placeholder="Hoe ziet het eruit?" type="file" name="image"   onChange={this.onChange} autoComplete='false'/>
-        </label>
+
+        {this.state.isAdmin===true ?
+          <>
+            <label className="addmaterial__form__label" htmlFor="location">
+              <input className="addmaterial__form__input" placeholder="Waar ligt het?" type="text" name="location"   onChange={this.onChange} defaultValue={this.props.materialAttributes.location} required autoComplete='false'/>
+            </label>
+            <label className="addmaterial__form__label" htmlFor="image">
+            <input className="addmaterial__form__input" placeholder="Hoe ziet het eruit?" type="file" name="image"   onChange={this.onChange} autoComplete='false'/>
+            </label>
+          </>
+        :
+          <>
+            <p className=""> {this.state.location}</p>
+          </>
+         }
+
         <section className="addmaterial__form__buttons">
           <div className="addmaterial__form__buttons__close" onClick={this.props.closeModal}></div>
           <button className="addmaterial__form__buttons__submit" type="submit" value="submit" onClick={this.submitForm}></button>

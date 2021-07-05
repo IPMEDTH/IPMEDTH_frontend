@@ -43,7 +43,7 @@ class Material extends React.Component {
   checkOutOfStock = () => {
     // console.log("checked amount");
     // console.log(this.props.amount);
-    if (this.props.amount == 0) {
+    if (this.props.amount === 0 || this.props.amount === "0") {
       this.setState({outOfStock: true})
     } else {
       this.setState({outOfStock: false})
@@ -85,9 +85,9 @@ class Material extends React.Component {
              :
              <>
                <p className="inventory__content-item__info__amount"> {this.props.amount} {this.props.unit}</p>
-               <p className="inventory__content-item__info__description attributes"> {this.props.description}</p>
-               {/*<p className="inventory__content-item__info__addedby attributes"> {this.props.added_by}</p>*/}
-               <p className="inventory__content-item__info__location attributes"> {this.props.location}</p>
+               <p className="inventory__content-item__info__description"> {this.props.description}</p>
+               {/*<p className="inventory__content-item__info__addedby"> {this.props.added_by}</p>*/}
+               <p className="inventory__content-item__info__location"> {this.props.location}</p>
             </>
            }
         </article>
