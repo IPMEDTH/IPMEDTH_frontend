@@ -26,7 +26,7 @@ class MaterialList extends React.Component {
           location={item.location}
           added_by={item.added_by}
           img_url={item.img_url}
-          key={item.amount + item.id}
+          key={item.amount + item.name + item.id}
           allAttributes={item}
           updateList={this.props.updateList}
         />
