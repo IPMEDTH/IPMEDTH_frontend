@@ -87,8 +87,6 @@ class Account extends React.Component {
           }
 
           <button className="login__content__form__submit" onClick={this.handleLogout}>Log uit</button>
-
-          <pre>{ JSON.stringify(this.props.user, null, 4)}</pre>
         </main>
         <Footer />
       </section>
