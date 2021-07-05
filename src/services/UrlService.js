@@ -1,5 +1,5 @@
-let apiDomain = 'https://api.ipmedth.meulen.dev/'
-// let apiDomain = 'http://localhost/'
+// let apiDomain = 'https://api.ipmedth.meulen.dev/'
+let apiDomain = 'http://localhost/'
 // let apiDomain = 'http://localhost:8000/'
 
 let apiStorage = apiDomain + "storage/public/"   // online
@@ -24,6 +24,7 @@ class UrlService {
     static PostMaterial() { return apiDomain + 'api/materials' }
     static Reservations() { return apiDomain + 'api/reservations' }
     static DeleteReservations(id) { return apiDomain + 'api/reservations/' + id; }
+    static verifyEmail() { return apiDomain + 'email/verification-notification' }
 }
 
 export default UrlService;

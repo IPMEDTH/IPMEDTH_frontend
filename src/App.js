@@ -12,6 +12,7 @@ import DeviceSelectionPage from "./pages/deviceselection/DeviceSelection";
 import ReservationPage from "./pages/reservation/Reservation";
 import MyReservationPage from "./pages/my_reservations/MyReservation";
 import Account from './pages/account/Account';
+import Editaccount from './pages/editaccount/Editaccount';
 import HelpersPage from './pages/helpers/Helpers';
 
 const guestRoutes = [
@@ -23,12 +24,11 @@ const guestRoutes = [
   { path: "/reservation", component: ReservationPage, exact: true },
   { path: "/my_reservations", component: MyReservationPage, exact: true },
   { path: "/account", component: Account, exact: true},
+  { path: "/editaccount", component: Editaccount, exact: true},
   { path: "/personnel", component: HelpersPage, exact: true },
   {/* path: "/usr-reservations", component: None, exact: true },
   { path: "/material-history", component: None, exact: true },*/},
 ];
-
-console.log("w3 validated? :^)");
 
 class App extends Component {
   render() {
