@@ -75,7 +75,7 @@
             // margin: 0 auto;
             width: 100%;
             position: absolute;
-            top: -100%; 
+            top: -100%;
             left: 0;
             right: 0;
             bottom: -100%;
@@ -86,7 +86,7 @@
         &>*{
           margin: 0 0 5px 10px;
           &:first-child{
-            margin: $default-gap/2 10px;
+            margin: math.div($default-gap, 2) 10px;
           }
         }
 
