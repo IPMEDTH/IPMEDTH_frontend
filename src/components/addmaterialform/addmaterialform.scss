@@ -31,11 +31,13 @@
     }
 
     &__label{
+      display: flex;
     }
 
     &__input{
       display: block;
       margin: math.div($default-gap, 2);
+      margin-top: 0;
       width: (400-$default-gap);
       box-sizing: border-box;
       border-radius: 2px;
@@ -47,6 +49,7 @@
       padding: 6px 15px;
       font-size: 1rem;
       border-left-style: solid;
+      flex: 1;
     }
 
     &__buttons{
@@ -84,10 +87,11 @@
     &--after-open{
       position: relative !important;
       inset: 50% !important;
-      width: max-content !important;
       transform: translate(-50%, -50%) !important;
       padding: 0 !important;
-      width: 400px !important;
+      width: 0 !important;
+      width: 95% !important;
+      max-width: $max-modal-width !important;
     }
   }
 }
