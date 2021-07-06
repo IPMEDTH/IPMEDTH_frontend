@@ -2,6 +2,7 @@ import React from "react";
 import UrlService from "../../services/UrlService";
 import axios from 'axios';
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 class EditMaterialForm extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class EditMaterialForm extends React.Component {
       location: '',
       image: '',
       isLoading: false,
+      redirect: false,
     };
   }
 
@@ -51,6 +53,12 @@ class EditMaterialForm extends React.Component {
 
   submitForm = (e) => {
     e.preventDefault();
+    if (this.props.user === ''){
+      console.log("Niet ingelogd!");
+      alert("Om te de voorraad aan te passen moet je ingelogd zijn!");
+      this.setState({ redirect: "/login" });
+      return;
+    }
     if (this.checkIfFormFilled() && !this.state.isLoading) {
       const { id, name, description, amount, unit, location, image } = this.state;
 
@@ -88,18 +96,25 @@ class EditMaterialForm extends React.Component {
     })
   }
 
+  checkUserRights = (user) => {
+    return user.is_admin!==undefined && user.is_admin!==0;
+  }
+
   componentDidMount = () => {
     this.parseAttributesIntoState()
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />
+    }
     return(
       <>
       <h2 className="addmaterial__title"> MATERIAAL AANPASSEN...</h2>
       <div className="addmaterial__titlebar"></div>
       <form className="addmaterial__form" method="POST">
 
-        {this.props.isAdmin===0 ?
+        {this.checkUserRights(this.props.user)===false ?
           <>
             <h3 className="addmaterial__form__title"> {this.state.name}</h3>
             <p className="addmaterial__form__text"> {this.state.description}</p>
@@ -122,7 +137,7 @@ class EditMaterialForm extends React.Component {
           <input className="addmaterial__form__input" placeholder="Eenheid" type="text" name="unit"   onChange={this.onChange} defaultValue={this.props.materialAttributes.unit} required autoComplete='false'/>
         </label>
 
-        {this.props.isAdmin===0 ?
+        {this.checkUserRights(this.props.user)===false ?
           <>
             <p className="addmaterial__form__text"> {this.state.location}</p>
             <p className="addmaterial__form__text"></p>
@@ -151,7 +166,7 @@ class EditMaterialForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    isAdmin: state.user.is_admin
+    user: state.user
   }
 }
 
