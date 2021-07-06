@@ -1,6 +1,7 @@
 import React from "react";
 import UrlService from "../../services/UrlService";
 import axios from 'axios';
+import { connect } from "react-redux";
 
 class EditMaterialForm extends React.Component {
   constructor(props) {
@@ -14,7 +15,6 @@ class EditMaterialForm extends React.Component {
       location: '',
       image: '',
       isLoading: false,
-      isAdmin: '',
     };
   }
 
@@ -75,9 +75,6 @@ class EditMaterialForm extends React.Component {
       alert("Whoops! Je bent een veld vergeten in te vullen, of je hebt een komma gebruikt. \nVul a.u.b. voor verzenden alle velden in.");
     }
 
-    // console.log("edit material form submitted");
-    // this.props.showSuccessComponent(true);
-
   }
 
   parseAttributesIntoState = () => {
@@ -88,7 +85,6 @@ class EditMaterialForm extends React.Component {
       amount: this.props.materialAttributes.amount,
       unit: this.props.materialAttributes.unit,
       location: this.props.materialAttributes.location,
-      isAdmin: this.props.isAdmin,
     })
   }
 
@@ -103,7 +99,12 @@ class EditMaterialForm extends React.Component {
       <div className="addmaterial__titlebar"></div>
       <form className="addmaterial__form" method="POST">
 
-        {this.state.isAdmin===true ?
+        {this.props.isAdmin===0 ?
+          <>
+            <h3 className="addmaterial__form__title"> {this.state.name}</h3>
+            <p className="addmaterial__form__text"> {this.state.description}</p>
+          </>
+        :
           <>
             <label className="addmaterial__form__label" htmlFor="name">
               <input className="addmaterial__form__input" placeholder="Naam" type="text" name="name"   onChange={this.onChange} defaultValue={this.props.materialAttributes.name} required autoComplete='false'/>
@@ -111,11 +112,6 @@ class EditMaterialForm extends React.Component {
             <label className="addmaterial__form__label" htmlFor="description">
               <input className="addmaterial__form__input" placeholder="Omschrijving" type="text" name="description"   onChange={this.onChange} defaultValue={this.props.materialAttributes.description} required autoComplete='false'/>
             </label>
-          </>
-        :
-          <>
-            <h3 className=""> {this.state.name}</h3>
-            <p className=""> {this.state.description}</p>
           </>
          }
 
@@ -126,7 +122,12 @@ class EditMaterialForm extends React.Component {
           <input className="addmaterial__form__input" placeholder="Eenheid" type="text" name="unit"   onChange={this.onChange} defaultValue={this.props.materialAttributes.unit} required autoComplete='false'/>
         </label>
 
-        {this.state.isAdmin===true ?
+        {this.props.isAdmin===0 ?
+          <>
+            <p className="addmaterial__form__text"> {this.state.location}</p>
+            <p className="addmaterial__form__text"></p>
+          </>
+        :
           <>
             <label className="addmaterial__form__label" htmlFor="location">
               <input className="addmaterial__form__input" placeholder="Waar ligt het?" type="text" name="location"   onChange={this.onChange} defaultValue={this.props.materialAttributes.location} required autoComplete='false'/>
@@ -134,10 +135,6 @@ class EditMaterialForm extends React.Component {
             <label className="addmaterial__form__label" htmlFor="image">
             <input className="addmaterial__form__input" placeholder="Hoe ziet het eruit?" type="file" name="image"   onChange={this.onChange} autoComplete='false'/>
             </label>
-          </>
-        :
-          <>
-            <p className=""> {this.state.location}</p>
           </>
          }
 
@@ -152,4 +149,10 @@ class EditMaterialForm extends React.Component {
 
 }
 
-export default EditMaterialForm;
+const mapStateToProps = state => {
+  return {
+    isAdmin: state.user.is_admin
+  }
+}
+
+export default connect(mapStateToProps)(EditMaterialForm);

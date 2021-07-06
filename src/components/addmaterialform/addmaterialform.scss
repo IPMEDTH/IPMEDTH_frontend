@@ -18,6 +18,11 @@
   &__form{
     // width: 400px;
 
+    &__text, &__title{
+      margin: $default-gap/2;
+      padding: 0 15px;
+    }
+
     &__label{
     }
 

@@ -19,9 +19,8 @@ class EditMaterialModal extends React.Component {
       // img_url: this.props.img_url,
       showModal: false,
       showSuccessComponent: false,
-      isAdmin: false,
     };
-    this.EditMaterialForm = <EditMaterialForm showSuccessComponent={this.handleShowSuccessComponent} closeModal={this.handleCloseModal} materialAttributes={this.props.materialAttributes} isAdmin={this.state.isAdmin}/>;
+    this.EditMaterialForm = <EditMaterialForm showSuccessComponent={this.handleShowSuccessComponent} closeModal={this.handleCloseModal} materialAttributes={this.props.materialAttributes} />;
     this.EditMaterialSuccess = <EditMaterialSuccess showSuccessComponent={this.handleShowSuccessComponent} closeModal={this.handleCloseModal} />;
   }
 
