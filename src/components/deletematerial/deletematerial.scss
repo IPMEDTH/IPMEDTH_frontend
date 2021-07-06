@@ -1,0 +1,30 @@
+@import '../../assets/scss/var';
+
+.deletematerial{
+
+  &__button{
+      position: absolute;
+      right: 50%;
+      top: -20%;
+      height: 75px;
+      width: 200px;
+      background-color: unset;
+      background-image: url('../../images/delete_forever_black_24dp.svg');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      border: none;
+      border-radius: 3px;
+      margin: 1%;
+      // box-shadow: 2px 2px 2px #666464;
+      transform: translate(50%, 0);
+      transition: all 0.1s ease-in-out;
+
+      &:hover, &:active{
+        background-color: $colour_close_red;
+        background-image: url('../../images/delete_forever_white_24dp.svg');
+
+      }
+  }
+}

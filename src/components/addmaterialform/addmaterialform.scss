@@ -67,9 +67,9 @@
         border: none;
         width: 50%;
         height: 50px;
-        transition: all 0.1s ease-out;
+        transition: all 0.1s ease-in-out;
 
-        &:hover{
+        &:hover, &:active{
           background-image: url('../../images/done_white_24dp.svg');
           background-color: $colour_done_green;
         }
@@ -85,9 +85,9 @@
         border: none;
         width: 50%;
         height: 50px;
-        transition: all 0.1s ease-out;
+        transition: all 0.1s ease-in-out;
 
-        &:hover{
+        &:hover, &:active{
           background-image: url('../../images/close_white_24dp.svg');
           background-color: $colour_close_red;
         }
@@ -108,6 +108,7 @@
       width: 0 !important;
       width: 95% !important;
       max-width: $max-modal-width !important;
+      overflow: visible !important;
     }
   }
 }
