@@ -1,19 +1,19 @@
 @import '../../assets/scss/var';
 @import '../../assets/scss/default';
 
-.header__return {
-  text-decoration: none;
-  :hover {
-    text-decoration: underline;
-  }
-}
-
-.header__back {
-  color: $color_blue;
-  font-size: 25px;
-  text-decoration: none;
-  margin-left: 20px;
-}
+// .header__return {
+//   text-decoration: none;
+//   :hover {
+//     text-decoration: underline;
+//   }
+// }
+//
+// .header__back {
+//   color: $color_blue;
+//   font-size: 25px;
+//   text-decoration: none;
+//   margin-left: 20px;
+// }
 
 .reservation__choice__subtitle{
   max-width: 768px;
@@ -28,11 +28,12 @@
 
 .reservation {
   font-family: 'Muli', sans-serif;
-  height: 100vh;
+  height: 100%;
   position: relative;
+  background-color: $colour_white_background;
 
   &__card__container {
-    background-color: #fff;
+    // background-color: #fff;
   }
 }
 
@@ -49,7 +50,7 @@
 
     &__knop {
       cursor: default;
-      background-color: #eee;
+      background-color: white;
       color: #ececec;
       display: grid;
       grid-template-columns: auto 1fr 1fr;
@@ -60,6 +61,9 @@
       min-height: 100px;
       position: relative;
       text-align: center;
+      border-radius: $default-border-radius;
+      box-shadow: $default-box-shadow;
+      overflow: auto;
 
       &__image {
         grid-area: image;

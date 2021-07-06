@@ -1,31 +1,31 @@
 @import '../../assets/scss/var';
+@import '../../assets/scss/default';
 
 .searchbar{
   &__form{
+    @extend .thebettercontainer;
 
     &__input{
-      width: 20rem;
+      width: 100%;
       background: #F2F1F9;
       border: none;
       padding: 0.5rem;
       margin-bottom: $default-gap;
+      box-sizing: border-box;
+      height: 50px;
+      font-size: 1rem;
     }
   }
 }
 
 @media (min-width: $bp_mobile){
-  .index{
-  }
+
 }
 
 @media (min-width: $bp_tablet){
-
-  .index{
-  }
+  
 }
 
 @media (min-width: $bp_laptop){
-
-  .index{
-  }
+  
 }

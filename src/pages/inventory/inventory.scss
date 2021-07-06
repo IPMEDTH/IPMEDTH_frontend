@@ -1,20 +1,21 @@
 @use 'sass:math';
 
 @import '../../assets/scss/var';
+@import '../../assets/scss/default';
 
-.header__return {
-  text-decoration: none;
-  :hover {
-    text-decoration: underline;
-  }
-}
-
-.header__back {
-  color: $color_blue;
-  font-size: 25px;
-  text-decoration: none;
-  margin-left: 20px;
-}
+// .header__return {
+//   text-decoration: none;
+//   :hover {
+//     text-decoration: underline;
+//   }
+// }
+//
+// .header__back {
+//   color: $color_blue;
+//   font-size: 25px;
+//   text-decoration: none;
+//   margin-left: 20px;
+// }
 
 .inventory{
   &__content{
@@ -28,11 +29,20 @@
       text-align: center;
       margin-top: math.div($default-gap, 2);
       margin-bottom: $default-gap;
+
+      &__title{
+        margin-bottom: math.div($default-gap, 2);
+        font-size: 2rem;
+      }
     }
 
     &__wrapper{
         width: 95%;
         margin: 0 auto;
+
+        &__container{
+          @extend .thebettercontainer;
+        }
     }
 
     &-item{
@@ -65,7 +75,7 @@
 
       &__info{
         pointer-events: none;
-        padding: 20px;
+        padding: 20px 5px;
 
         &__title{
           // margin: 25px auto 0 auto;

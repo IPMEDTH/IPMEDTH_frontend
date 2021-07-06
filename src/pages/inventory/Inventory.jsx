@@ -7,7 +7,7 @@ import Header from "../../components/header/Header"
 import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer"
 import MaterialList from "../../components/material/MaterialList"
-import AddMaterial from "../../components/addmaterial/AddMaterial"
+// import AddMaterial from "../../components/addmaterial/AddMaterial"
 import SearchBar from '../../components/searchbar/SearchBar';
 
 class Inventory extends React.Component {
@@ -81,7 +81,8 @@ class Inventory extends React.Component {
         <main className="inventory__content__wrapper">
           <header className="inventory__content__header">
             <h2 className="inventory__content__header__title"> MATERIALEN</h2>
-            <p className="inventory__content__header__text"> Hier bevind een actueel overzicht van alle materialen aanwezig in The Space die gebruikt mogen worden. </p>
+            <div className="titlebar"></div>
+            <p className="inventory__content__header__text"> Hier bevindt zich een actueel overzicht van alle materialen aanwezig in The Space die gebruikt mogen worden. </p>
           </header>
           <SearchBar
             name="search_term"
@@ -89,8 +90,9 @@ class Inventory extends React.Component {
             onChange={this.updateInput}
             onCheck={this.onCheck}
           />
-          <AddMaterial updateList={this.getMaterialsData}/>
-          {this.state.dataIsReturned!==false ? this.MaterialListComponent : <h2> Loading... </h2>}
+          <article className="inventory__content__wrapper__container">
+            {this.state.dataIsReturned!==false ? this.MaterialListComponent : <h2> Loading... </h2>}
+          </article>
         </main>
         <Footer />
       </div>

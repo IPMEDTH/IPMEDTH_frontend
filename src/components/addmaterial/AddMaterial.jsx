@@ -41,7 +41,9 @@ class AddMaterial extends React.Component {
         <article className="addmaterial__info">
           <h3 className="addmaterial__info__title"> Materiaal Toevoegen... </h3>
         </article>
-        <img className="addmaterial__info__image" src={icon} alt="Add Material icon"></img>
+        <figure className="inventory__content-item__info__figure">
+          <img className="addmaterial__info__image" src={icon} alt="Add Material icon"></img>
+        </figure>
       </section>
 
       <Modal

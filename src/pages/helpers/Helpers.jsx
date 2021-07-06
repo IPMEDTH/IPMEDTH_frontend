@@ -21,6 +21,7 @@ class HelpersPage extends React.Component {
         <article className="helpers__content">
           <section>
             <h1 className="reservation__choice__subtitle">Wij zijn er om je te helpen!</h1>
+            <div className="titlebar"></div>
           </section>
           <PersonList />
         </article>
