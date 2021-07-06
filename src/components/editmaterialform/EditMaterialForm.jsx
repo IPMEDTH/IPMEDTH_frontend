@@ -158,16 +158,17 @@ class EditMaterialForm extends React.Component {
         <label className="addmaterial__form__label" htmlFor="amount">
           <input className="addmaterial__form__input" placeholder="Hoeveelheid" type="number" name="amount"  onChange={this.onChange} defaultValue={this.props.materialAttributes.amount} required autoComplete='false'/>
         </label>
-        <label className="addmaterial__form__label" htmlFor="unit">
-          <input className="addmaterial__form__input" placeholder="Eenheid" type="text" name="unit"   onChange={this.onChange} defaultValue={this.props.materialAttributes.unit} required autoComplete='false'/>
-        </label>
 
         {this.checkUserRights(this.props.user)===false ?
           <>
+            <p className="addmaterial__form__text"> {this.state.unit}</p>
             <p className="addmaterial__form__text"> {this.state.location}</p>
           </>
         :
           <>
+            <label className="addmaterial__form__label" htmlFor="unit">
+              <input className="addmaterial__form__input" placeholder="Eenheid" type="text" name="unit"   onChange={this.onChange} defaultValue={this.props.materialAttributes.unit} required autoComplete='false'/>
+            </label>
             <label className="addmaterial__form__label" htmlFor="location">
               <input className="addmaterial__form__input" placeholder="Waar ligt het?" type="text" name="location"   onChange={this.onChange} defaultValue={this.props.materialAttributes.location} required autoComplete='false'/>
             </label>
