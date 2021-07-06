@@ -81,7 +81,8 @@ class Inventory extends React.Component {
         <main className="inventory__content__wrapper">
           <header className="inventory__content__header">
             <h2 className="inventory__content__header__title"> MATERIALEN</h2>
-            <p className="inventory__content__header__text"> Hier bevind een actueel overzicht van alle materialen aanwezig in The Space die gebruikt mogen worden. </p>
+            <div className="titlebar"></div>
+            <p className="inventory__content__header__text"> Hier bevindt zich een actueel overzicht van alle materialen aanwezig in The Space die gebruikt mogen worden. </p>
           </header>
           <SearchBar
             name="search_term"

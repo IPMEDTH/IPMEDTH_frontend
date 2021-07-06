@@ -89,7 +89,7 @@ class AddMaterialForm extends React.Component {
     return(
       <>
         <h2 className="addmaterial__title"> MATERIAAL TOEVOEGEN...</h2>
-        <div className="addmaterial__titlebar"></div>
+        <div className="titlebar"></div>
         {this.checkUserRights(this.props.user)===false ?
           <YouAreNotAdmin closeModal={this.props.closeModal}/>
         :

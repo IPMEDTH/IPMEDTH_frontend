@@ -29,6 +29,11 @@
       text-align: center;
       margin-top: math.div($default-gap, 2);
       margin-bottom: $default-gap;
+
+      &__title{
+        margin-bottom: math.div($default-gap, 2);
+        font-size: 2rem;
+      }
     }
 
     &__wrapper{
