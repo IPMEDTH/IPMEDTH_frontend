@@ -25,6 +25,10 @@
     }
 
     &__form {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      margin: 0 16px;
 
         &__imgdiv {
             margin-top: 1em;

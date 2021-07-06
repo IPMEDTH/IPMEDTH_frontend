@@ -53,8 +53,13 @@
         object-fit: cover;
     }
 
-    h4 {
+    section {
+      display: flex;
+      flex-flow: column;
+      margin: 0 1em;
+      h4 {
         margin-top: 0.5em;
+      }
     }
 
   }

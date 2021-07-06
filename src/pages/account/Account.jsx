@@ -70,22 +70,23 @@ class Account extends React.Component {
               <img className="account__content__img" src={this.props.user.image_url ? this.props.user.image_url : 'https://idronline.org/wp-content/uploads/2021/01/Screen-Shot-2019-02-19-at-1.23.40-PM-300x300-3.jpg'} alt="Profielfoto" />
             </figure>
           </div>
-          <h4>Naam</h4>
-          <p>{this.props.user.name}</p>
-          <h4>E-mailadres</h4>
-          <p>{this.props.user.email} {this.props.user.email_verified_at ? '' : <input type="button" value="E-mailverificatie opnieuw versturen" onClick={this.handleVerifyEmail}/> }</p>
-          <h4>Kennis</h4>
-          <p>{this.props.user.knowledge ? this.props.user.knowledge : '-'}</p>
-          <h4>Beschikbaarheid</h4>
-          <p>{this.props.user.available ? this.props.user.available : '-'}</p>
-          {
-            this.props.user.isadmin === "1" ? <>
-              <Link to="manageusers">Beheer gebruikers</Link>
-              <Link to="managereservations">Beheer reserveringen</Link>
-              <Link to="managelocations">Beheer locaties en helpers</Link>
-            </> : ''
-          }
-
+          <section>
+            <h4>Naam</h4>
+            <p>{this.props.user.name}</p>
+            <h4>E-mailadres</h4>
+            <p>{this.props.user.email} {this.props.user.email_verified_at ? '' : <input type="button" value="E-mailverificatie opnieuw versturen" onClick={this.handleVerifyEmail}/> }</p>
+            <h4>Kennis</h4>
+            <p>{this.props.user.knowledge ? this.props.user.knowledge : '-'}</p>
+            <h4>Beschikbaarheid</h4>
+            <p>{this.props.user.available ? this.props.user.available : '-'}</p>
+            {
+              this.props.user.isadmin === "1" ? <>
+                <Link to="manageusers">Beheer gebruikers</Link>
+                <Link to="managereservations">Beheer reserveringen</Link>
+                <Link to="managelocations">Beheer locaties en helpers</Link>
+              </> : ''
+            }
+          </section>
           <button className="login__content__form__submit" onClick={this.handleLogout}>Log uit</button>
         </main>
         <Footer />

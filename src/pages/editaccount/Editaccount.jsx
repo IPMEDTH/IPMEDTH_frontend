@@ -79,49 +79,52 @@ class Editaccount extends React.Component {
         <Header />
         <main className="editaccount__content">
           <h2 className="editaccount__content__title">BEWERKEN</h2>
-          <div className="editaccount__content__form__imgdiv">
-            <label className="editaccount__content__form__imglabel" htmlFor="image_url">
-              <img className="editaccount__content__form__img" src={this.state.image_url ? this.state.image_url : 'https://idronline.org/wp-content/uploads/2021/01/Screen-Shot-2019-02-19-at-1.23.40-PM-300x300-3.jpg'} alt="Profielfoto" />
-              <Icon className="editaccount__content__form__imgoverlay">launch</Icon>
-              <input className="editaccount__content__form__imginput" type="file" name="image_url" id="image_url" onChange={this.handleChange} required autoComplete='false'/>
-            </label>
-          </div>
-
-
-          <Input
-            type='text'
-            name='name'
-            value={this.state.name}
-            onChange={this.handleChange}
-            label="Naam"
-            placeholder={this.props.user.name}
-          />
-          <Input
-            type='text'
-            name='email'
-            value={this.state.email}
-            onChange={this.handleChange}
-            label="E-mailadres"
-            placeholder={this.props.user.email}
-          />
-          <Input
-            type='text'
-            name='knowledge'
-            value={this.state.knowledge}
-            onChange={this.handleChange}
-            label="Kennis"
-            placeholder={this.props.user.knowledge}
-          />
-          <Input
-            type='text'
-            name='available'
-            value={this.state.available}
-            onChange={this.handleChange}
-            label="Beschikbaarheid"
-            placeholder={this.props.user.available}
-          />
-          <button className="login__content__form__submit" onClick={this.handleSubmit}>Opslaan</button>
-
+          <form className="editaccount__content__form" onSubmit={this.handleSubmit}>
+            <div className="editaccount__content__form__imgdiv">
+              <label className="editaccount__content__form__imglabel" htmlFor="image_url">
+                <img className="editaccount__content__form__img" src={this.state.image_url ? this.state.image_url : 'https://idronline.org/wp-content/uploads/2021/01/Screen-Shot-2019-02-19-at-1.23.40-PM-300x300-3.jpg'} alt="Profielfoto" />
+                <Icon className="editaccount__content__form__imgoverlay">launch</Icon>
+                <input className="editaccount__content__form__imginput" type="file" name="image_url" id="image_url" onChange={this.handleChange} required autoComplete='false'/>
+              </label>
+            </div>
+            <Input
+              type='text'
+              name='name'
+              value={this.state.name}
+              onChange={this.handleChange}
+              label="Naam"
+              placeholder={this.props.user.name}
+            />
+            <Input
+              type='text'
+              name='email'
+              value={this.state.email}
+              onChange={this.handleChange}
+              label="E-mailadres"
+              placeholder={this.props.user.email}
+            />
+            <Input
+              type='text'
+              name='knowledge'
+              value={this.state.knowledge}
+              onChange={this.handleChange}
+              label="Kennis"
+              placeholder={this.props.user.knowledge}
+            />
+            <Input
+              type='text'
+              name='available'
+              value={this.state.available}
+              onChange={this.handleChange}
+              label="Beschikbaarheid"
+              placeholder={this.props.user.available}
+            />
+            <input
+              type="submit"
+              value="Opslaan"
+              className="login__content__form__submit"
+            />
+          </form>
         </main>
         <Footer />
       </section>
