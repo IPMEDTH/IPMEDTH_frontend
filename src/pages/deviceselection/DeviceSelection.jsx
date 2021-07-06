@@ -48,6 +48,7 @@ class DeviceSelectionPage extends React.Component {
         <article className="deviceselection__choice__content">
           <section>
             <h1 className="deviceselection__choice__subtitle">Van welk apparaat wilt u gebruik maken?</h1>
+            <div className="titlebar"></div>
             <p className="deviceselection__choice__text">
               Bij het reserveren van een apparaat valt dit onder een apparaat en werkplek, het dus niet nodig voor u om ook een losse werkplek te reserveren.
             </p>
