@@ -1,0 +1,22 @@
+@import '../../assets/scss/var';
+
+.editmaterial{
+
+  &__button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: $default-gap;
+    width: $default-gap;
+    background-color: #00000085;
+    background-image: url('../../images/edit_white_24dp.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    margin: 1%;
+    box-shadow: 2px 2px 2px #666464;
+  }
+}

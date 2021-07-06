@@ -2,20 +2,13 @@ import React from "react";
 import './inventory.scss';
 import axios from 'axios';
 import UrlService from "../../services/UrlService";
-import Modal from 'react-modal';
 
 import Header from "../../components/header/Header"
 import { Link } from "react-router-dom";
 import Footer from "../../components/footer/Footer"
-// import Material from "../../components/material/Material";
 import MaterialList from "../../components/material/MaterialList"
 import AddMaterial from "../../components/addmaterial/AddMaterial"
-import AddMaterialForm from "../../components/addmaterialform/AddMaterialForm"
-import AddMaterialSuccess from "../../components/addmaterialsuccess/AddMaterialSuccess"
 import SearchBar from '../../components/searchbar/SearchBar';
-
-// const MATERIALS_URL = 'http://localhost:8000/api/materials';
-// const SEARCH_URL = 'http://localhost:8000/api/getmaterials/';
 
 class Inventory extends React.Component {
   constructor (){
@@ -24,43 +17,14 @@ class Inventory extends React.Component {
     this.state = {
       dataIsReturned: false,
       search_term: '',
-      showModal: false,
-      // CloseOnOverlayClick: true,
-      showSuccessComponent: false,
     }
     this.MaterialListComponent = '';
-    this.AddMaterialForm = <AddMaterialForm showSuccessComponent={this.handleShowSuccessComponent} closeModal={this.handleCloseModal} />;
-    this.AddMaterialSuccess = <AddMaterialSuccess showSuccessComponent={this.handleShowSuccessComponent} closeModal={this.handleCloseModal} />;
-
-    // this.handleOpenModal = this.handleOpenModal.bind(this);
-    // this.handleCloseModal = this.handleCloseModal.bind(this);
-    // this.handleShowSuccessComponent = this.handleShowSuccessComponent.bind(this);
   }
-
-  handleOpenModal = () => {
-    this.setState({ showModal: true })
-  }
-
-  handleCloseModal = () => {
-    this.setState({ showModal: false,
-    showSuccessComponent: false })
-    this.getMaterialsData();  // update material list
-    // this.setState({ showSuccessComponent: false })
-  }
-
-  handleShowSuccessComponent = (bool) => {
-    this.setState({ showSuccessComponent: bool });
-  }
-  // handleCloseOnOverlayClick={this.handleCloseOnOverlayClick}
-
-  // switchModal = () => {
-  //
-  // }
 
   getMaterialsData = () => {
     axios.get(UrlService.Materials())
     .then((response) => {
-      this.MaterialListComponent = <MaterialList materials={response.data} />;
+      this.MaterialListComponent = <MaterialList materials={response.data} updateList={this.getMaterialsData}/>;
       this.setState({dataIsReturned: true});
       console.log(response);
 
@@ -88,7 +52,7 @@ class Inventory extends React.Component {
     if (term!=='') {
       axios.get(UrlService.Material(term))
       .then((response) => {
-        this.MaterialListComponent = <MaterialList materials={response.data} />;
+        this.MaterialListComponent = <MaterialList materials={response.data} updateList={this.getMaterialsData}/>;
         this.setState({dataIsReturned: true});
         console.log(response);
 
@@ -125,22 +89,7 @@ class Inventory extends React.Component {
             onChange={this.updateInput}
             onCheck={this.onCheck}
           />
-          <AddMaterial
-            onClick={this.handleOpenModal}
-            />
-          <Modal
-            isOpen={this.state.showModal}
-            onRequestClose={this.handleCloseModal}
-            shouldCloseOnOverlayClick={this.state.CloseOnOverlayClick}
-            ariaHideApp={false}
-           >
-
-           {this.state.showSuccessComponent===false ?
-              this.AddMaterialForm
-              :
-              this.AddMaterialSuccess
-            }
-          </Modal>
+          <AddMaterial updateList={this.getMaterialsData}/>
           {this.state.dataIsReturned!==false ? this.MaterialListComponent : <h2> Loading... </h2>}
         </main>
         <Footer />

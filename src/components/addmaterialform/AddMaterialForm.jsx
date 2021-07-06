@@ -1,9 +1,10 @@
 import React from "react";
 import UrlService from "../../services/UrlService";
 import axios from 'axios';
+import { connect } from "react-redux";
 import './addmaterialform.scss';
 
-// const COOKIE_URL = 'http://localhost:8000/sanctum/csrf-cookie';
+import YouAreNotAdmin from "../../components/youarenotadmin/YouAreNotAdmin"
 
 class AddMaterialForm extends React.Component {
   constructor() {
@@ -19,6 +20,7 @@ class AddMaterialForm extends React.Component {
     };
   }
 
+  // TODO: add check for file upload
   checkIfFormFilled = () => {
     return (
       this.state.name !== ''  &&
@@ -78,39 +80,54 @@ class AddMaterialForm extends React.Component {
 
   }
 
+  checkUserRights = (user) => {
+    return user.is_admin!==undefined && user.is_admin!==0;
+  }
+
   render() {
+
     return(
       <>
         <h2 className="addmaterial__title"> MATERIAAL TOEVOEGEN...</h2>
         <div className="addmaterial__titlebar"></div>
-        <form className="addmaterial__form" method="POST">
-          <label className="addmaterial__form__label" htmlFor="name">
-            <input className="addmaterial__form__input" placeholder="Naam" type="text" name="name"   onChange={this.onChange} required autoComplete='false'/>
-          </label>
-          <label className="addmaterial__form__label" htmlFor="description">
-            <input className="addmaterial__form__input" placeholder="Omschrijving" type="text" name="description"   onChange={this.onChange} required autoComplete='false'/>
-          </label>
-          <label className="addmaterial__form__label" htmlFor="amount">
-            <input className="addmaterial__form__input" placeholder="Hoeveelheid" type="number" name="amount"  onChange={this.onChange} required autoComplete='false'/>
-          </label>
-          <label className="addmaterial__form__label" htmlFor="unit">
-            <input className="addmaterial__form__input" placeholder="Eenheid" type="text" name="unit"   onChange={this.onChange} required autoComplete='false'/>
-          </label>
-          <label className="addmaterial__form__label" htmlFor="location">
-            <input className="addmaterial__form__input" placeholder="Waar ligt het?" type="text" name="location"   onChange={this.onChange} required autoComplete='false'/>
-          </label>
-          <label className="addmaterial__form__label" htmlFor="image">
-          <input className="addmaterial__form__input" placeholder="Hoe ziet het eruit?" type="file" name="image"   onChange={this.onChange} required autoComplete='false'/>
-          </label>
-          <section className="addmaterial__form__buttons">
-            <div className="addmaterial__form__buttons__close" onClick={this.props.closeModal}></div>
-            <button className="addmaterial__form__buttons__submit" type="submit" value="submit" onClick={this.submitForm}></button>
-          </section>
-        </form>
+        {this.checkUserRights(this.props.user)===false ?
+          <YouAreNotAdmin closeModal={this.props.closeModal}/>
+        :
+          <form className="addmaterial__form" method="POST">
+            <label className="addmaterial__form__label" htmlFor="name">
+              <input className="addmaterial__form__input" placeholder="Naam" type="text" name="name"   onChange={this.onChange} required autoComplete='false'/>
+            </label>
+            <label className="addmaterial__form__label" htmlFor="description">
+              <input className="addmaterial__form__input" placeholder="Omschrijving" type="text" name="description"   onChange={this.onChange} required autoComplete='false'/>
+            </label>
+            <label className="addmaterial__form__label" htmlFor="amount">
+              <input className="addmaterial__form__input" placeholder="Hoeveelheid" type="number" name="amount"  onChange={this.onChange} required autoComplete='false'/>
+            </label>
+            <label className="addmaterial__form__label" htmlFor="unit">
+              <input className="addmaterial__form__input" placeholder="Eenheid" type="text" name="unit"   onChange={this.onChange} required autoComplete='false'/>
+            </label>
+            <label className="addmaterial__form__label" htmlFor="location">
+              <input className="addmaterial__form__input" placeholder="Waar ligt het?" type="text" name="location"   onChange={this.onChange} required autoComplete='false'/>
+            </label>
+            <label className="addmaterial__form__label" htmlFor="image">
+            <input className="addmaterial__form__input" placeholder="Hoe ziet het eruit?" type="file" name="image"   onChange={this.onChange} required autoComplete='false'/>
+            </label>
+            <section className="addmaterial__form__buttons">
+              <div className="addmaterial__form__buttons__close" onClick={this.props.closeModal}></div>
+              <button className="addmaterial__form__buttons__submit" type="submit" value="submit" onClick={this.submitForm}></button>
+            </section>
+          </form>
+        }
       </>
     )
   }
 
 }
 
-export default AddMaterialForm;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(AddMaterialForm);

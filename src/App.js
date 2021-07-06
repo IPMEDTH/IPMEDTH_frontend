@@ -32,8 +32,7 @@ const guestRoutes = [
   { path: "/managelocations", component: ManageLocations, exact: true},
   { path: "/managereservations", component: ManageReservations, exact: true},
   { path: "/personnel", component: HelpersPage, exact: true },
-  {/* path: "/usr-reservations", component: None, exact: true },
-  { path: "/material-history", component: None, exact: true },*/},
+  {/*path: "/material-history", component: None, exact: true },*/},
 ];
 
 class App extends Component {

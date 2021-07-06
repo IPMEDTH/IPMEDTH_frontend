@@ -1,0 +1,22 @@
+@import '../../assets/scss/var';
+
+.notadmin{
+
+  &__text, &__title{
+    text-align: center;
+    margin: $default-gap/2;
+  }
+
+  &__close{
+    background: url('../../images/thumb_up_off_alt_black_24dp.svg') no-repeat;
+    background-size: 50%;
+    background-position: center;
+    cursor: pointer;
+    height: 100px;
+    width: 100px;
+    border: solid 3px $colour_space_yellow;
+    border-radius: 50%;
+    margin: 0 auto $default-gap auto;
+    box-shadow: 2px 2px 5px #c8c1c1;
+  }
+}
