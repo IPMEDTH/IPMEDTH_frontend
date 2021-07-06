@@ -1,5 +1,5 @@
-let apiDomain = 'https://api.ipmedth.meulen.dev/'
-// let apiDomain = 'http://localhost/'
+// let apiDomain = 'https://api.ipmedth.meulen.dev/'
+let apiDomain = 'http://localhost/'
 // let apiDomain = 'http://localhost:8000/'
 
 let apiStorage = apiDomain + "storage/public/"   // online
@@ -12,6 +12,7 @@ class UrlService {
     static logout() { return apiDomain + 'logout' }
     static getUser() { return apiDomain + 'api/user' }
     static getUsers() { return apiDomain + 'api/users' }
+    static setUserAdmin(id) { return apiDomain + 'api/users/' + id; }
     static Devices() { return apiDomain + 'api/locations'; }
     static DeviceImages(filename) { return apiDomain + 'img/devices/' + filename; }
     static DeviceMenu(id) { return apiDomain + 'api/locations/' + id; }
