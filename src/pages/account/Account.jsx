@@ -13,7 +13,7 @@ class Account extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: ''
+      isadmin: this.props.user.isadmin
     }
     // Bindings
     this.handleLogout = this.handleLogout.bind(this);
@@ -79,11 +79,11 @@ class Account extends React.Component {
           <h4>Beschikbaarheid</h4>
           <p>{this.props.user.available ? this.props.user.available : '-'}</p>
           {
-            this.props.user.isadmin ? <>
+            this.state.isadmin ? <div>
               <Link to="manageusers">Beheer gebruikers</Link>
               <Link to="managereservations">Beheer reserveringen</Link>
               <Link to="managelocations">Beheer locaties en helpers</Link>
-            </> : ''
+            </div> : ''
           }
 
           <button className="login__content__form__submit" onClick={this.handleLogout}>Log uit</button>
