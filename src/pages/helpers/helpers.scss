@@ -69,6 +69,7 @@
       text-align: center;
       box-shadow: $default-box-shadow;
       border-radius: $default-border-radius;
+      overflow: hidden;
 
       &__imgdiv {
           display: flex;
