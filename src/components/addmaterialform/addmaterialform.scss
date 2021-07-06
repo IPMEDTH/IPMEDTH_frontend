@@ -55,26 +55,42 @@
     &__buttons{
       display: flex;
       width: 100%;
+      transition: all .3s ease-out;
 
       &__submit{
-        background: url('../../images/done_black_24dp.svg') no-repeat;
+        background-image: url('../../images/done_black_24dp.svg');
+        background-color: white;
+        background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
         cursor: pointer;
         border: none;
         width: 50%;
         height: 50px;
+        transition: all 0.1s ease-out;
 
+        &:hover{
+          background-image: url('../../images/done_white_24dp.svg');
+          background-color: $colour_done_green;
+        }
       }
 
       &__close{
-        background: url('../../images/close_black_24dp.svg') no-repeat;
+        background-image: url('../../images/close_black_24dp.svg');
+        background-color: white;
+        background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
         cursor: pointer;
         border: none;
         width: 50%;
         height: 50px;
+        transition: all 0.1s ease-out;
+
+        &:hover{
+          background-image: url('../../images/close_white_24dp.svg');
+          background-color: $colour_close_red;
+        }
       }
 
     }
