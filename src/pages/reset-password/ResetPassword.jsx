@@ -73,37 +73,42 @@ class ResetPassword extends React.Component {
 
   render() {
     return (
-      <section className='editaccount'>
+      <section className='resetpassword'>
         <Header />
-        <main className="editaccount__content">
-          <h2 className="editaccount__content__title">Wachtwoord herstellen</h2>
-          <Input
-            type='text'
-            name='email'
-            value={this.state.email}
-            onChange={this.handleChange}
-            label="E-mailadres"
-            placeholder="jantje@voorbeeld.nl"
-          />
-          <Input
-            type='password'
-            name='password'
-            value={this.state.password}
-            onChange={this.handleChange}
-            label="Wachtwoord"
-            placeholder="Kaas1234"
-          />
-          <Input
-            type='password'
-            name='password_confirmation'
-            value={this.state.password_confirmation}
-            onChange={this.handleChange}
-            label="Bevestig wachtwoord"
-            placeholder="Kaas1234"
-          />
-          <div className="error">{this.state.error}</div>
-          <button className="login__content__form__submit" onClick={this.handleSubmit}>Opslaan</button>
-
+        <main className="resetpassword__content">
+          <h2 className="resetpassword__content__title">Wachtwoord herstellen</h2>
+          <form className="resetpassword__content__form" onSubmit={this.handleSubmit}>
+            <Input
+              type='text'
+              name='email'
+              value={this.state.email}
+              onChange={this.handleChange}
+              label="E-mailadres"
+              placeholder="jantje@voorbeeld.nl"
+            />
+            <Input
+              type='password'
+              name='password'
+              value={this.state.password}
+              onChange={this.handleChange}
+              label="Wachtwoord"
+              placeholder="Kaas1234"
+            />
+            <Input
+              type='password'
+              name='password_confirmation'
+              value={this.state.password_confirmation}
+              onChange={this.handleChange}
+              label="Bevestig wachtwoord"
+              placeholder="Kaas1234"
+            />
+            <div className="error">{this.state.error}</div>
+            <input
+              className="resetpassword__content__form__submit"
+              type='submit'
+              value='Opslaan'
+            />
+          </form>
         </main>
         <Footer />
       </section>

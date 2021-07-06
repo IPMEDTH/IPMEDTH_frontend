@@ -60,23 +60,26 @@ class ForgotPassword extends React.Component {
 
   render() {
     return (
-      <section className='editaccount'>
+      <section className='forgotpassword'>
         <Header />
-        <main className="editaccount__content">
-          <h2 className="editaccount__content__title">Wachtwoord vergeten</h2>
-          <br />
-          <p>Vul hieronder je emailadres in, en als je een account hebt sturen we je een mailtje met een link om je wachtwoord te herstellen!</p>
-          <br />
-          <Input
-            type='text'
-            name='email'
-            value={this.state.email}
-            onChange={this.handleChange}
-            label="E-mailadres"
-            placeholder="jantje@voorbeeld.nl"
-          />
-          <button className="login__content__form__submit" onClick={this.handleSubmit}>Verzenden</button>
-
+        <main className="forgotpassword__content">
+          <h2 className="forgotpassword__content__title">Wachtwoord vergeten</h2>
+          <form className="forgotpassword__content__form" onSubmit={this.handleSubmit}>
+            <p>Vul hieronder je emailadres in, en als je een account hebt sturen we je een mailtje met een link om je wachtwoord te herstellen!</p>
+            <Input
+              type='text'
+              name='email'
+              value={this.state.email}
+              onChange={this.handleChange}
+              label="E-mailadres"
+              placeholder="jantje@voorbeeld.nl"
+            />
+            <input
+              className="forgotpassword__content__form__submit"
+              type='submit'
+              value='Verzenden'
+            />
+          </form>
         </main>
         <Footer />
       </section>
