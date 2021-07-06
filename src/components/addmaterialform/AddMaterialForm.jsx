@@ -2,7 +2,6 @@ import React from "react";
 import UrlService from "../../services/UrlService";
 import axios from 'axios';
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import './addmaterialform.scss';
 
 import YouAreNotAdmin from "../../components/youarenotadmin/YouAreNotAdmin"
