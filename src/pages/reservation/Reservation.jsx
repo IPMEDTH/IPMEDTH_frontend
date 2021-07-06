@@ -64,7 +64,7 @@ class ReservationPage extends React.Component {
       if (width < 1600 && width > 1400) {
         var marginBot = helpers_amount * 40;
       } else {
-        var marginBot = helpers_amount * 32.5;
+        marginBot = helpers_amount * 32.5;
       }
       marginBot = marginBot + "vh";
       if (helpers_amount === "0") {
