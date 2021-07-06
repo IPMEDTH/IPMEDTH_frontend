@@ -9,14 +9,6 @@ class EditMaterialModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // itemId: this.props.itemId,
-      // name: this.props.name,
-      // description: this.props.description,
-      // amount: this.props.amount,
-      // unit: this.props.unit,
-      // added_by: this.props.added_by,
-      // location: this.props.location,
-      // img_url: this.props.img_url,
       showModal: false,
       showSuccessComponent: false,
     };

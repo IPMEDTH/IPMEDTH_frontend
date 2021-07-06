@@ -1,5 +1,4 @@
 import React from "react";
-// import UrlService from "../../services/UrlService";
 
 class EditMaterialSuccess extends React.Component {
   constructor(props) {

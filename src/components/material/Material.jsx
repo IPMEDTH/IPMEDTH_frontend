@@ -8,14 +8,6 @@ class Material extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // itemId: this.props.itemId,
-      // name: this.props.name,
-      // description: this.props.description,
-      // amount: this.props.amount,
-      // unit: this.props.unit,
-      // added_by: this.props.added_by,
-      // location: this.props.location,
-      // img_url: this.props.img_url,
       showAttributes: false,
       showModal: false,
       showSuccessComponent: false,
@@ -32,17 +24,9 @@ class Material extends React.Component {
     showSuccessComponent: false })
     this.getMaterialsData();  // update material list
     this.checkOutOfStock();
-    // this.setState({ showSuccessComponent: false })
   }
 
-  // putAttributesIntoState = () => {
-  //   this.setState({attributes: this.props.allAttributes})
-  //   console.log(this.props.allAttributes);
-  // }
-
   checkOutOfStock = () => {
-    // console.log("checked amount");
-    // console.log(this.props.amount);
     if (this.props.amount === 0 || this.props.amount === "0") {
       this.setState({outOfStock: true})
     } else {

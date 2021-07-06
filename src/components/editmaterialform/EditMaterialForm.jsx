@@ -32,7 +32,6 @@ class EditMaterialForm extends React.Component {
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(e.target.value);
     if (e.target.name === "image") {
       let files = e.target.files || e.dataTransfer.files;
         if (!files.length)
@@ -97,8 +96,6 @@ class EditMaterialForm extends React.Component {
   }
 
   checkUserRights = (user) => {
-    // console.log(user.isadmin);
-    // console.log(user.isadmin!==undefined && user.isadmin!=="0");
     return user.isadmin!==undefined && user.isadmin!=="0";
   }
 

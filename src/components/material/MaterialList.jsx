@@ -1,5 +1,4 @@
 import React from "react";
-// import './materiallist.scss';
 
 import AddMaterial from "../../components/addmaterial/AddMaterial"
 import Material from "../../components/material/Material";
