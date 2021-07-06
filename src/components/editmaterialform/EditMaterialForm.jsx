@@ -97,9 +97,9 @@ class EditMaterialForm extends React.Component {
   }
 
   checkUserRights = (user) => {
-    // console.log(user.is_admin);
-    // console.log(user.is_admin!==undefined && user.is_admin!=="0");
-    return user.is_admin!==undefined && user.is_admin!=="0";
+    // console.log(user.isadmin);
+    // console.log(user.isadmin!==undefined && user.isadmin!=="0");
+    return user.isadmin!==undefined && user.isadmin!=="0";
   }
 
   componentDidMount = () => {

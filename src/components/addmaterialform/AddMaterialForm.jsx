@@ -81,7 +81,7 @@ class AddMaterialForm extends React.Component {
   }
 
   checkUserRights = (user) => {
-    return user.is_admin!==undefined && user.is_admin!=="0";
+    return user.isadmin!==undefined && user.isadmin!=="0";
   }
 
   render() {
