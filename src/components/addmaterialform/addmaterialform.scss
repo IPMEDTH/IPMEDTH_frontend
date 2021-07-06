@@ -20,7 +20,14 @@
 
     &__text, &__title{
       margin: $default-gap/2;
-      padding: 0 15px;
+      padding: 6px 15px;
+      box-sizing: border-box;
+      border-radius: 2px;
+      border-top: none;
+      border-right: none;
+      border-color: #d2d2d2;
+      border-width: 2px;
+      border-left-style: solid;
     }
 
     &__label{
@@ -33,11 +40,7 @@
       box-sizing: border-box;
       border-radius: 2px;
       border-top: none;
-          // border-top-color: currentcolor;
-          // border-top-width: medium;
       border-right: none;
-          // border-right-color: currentcolor;
-          // border-right-width: medium;
       border-color: #d2d2d2;
       border-bottom-style: solid;
       border-width: 2px;

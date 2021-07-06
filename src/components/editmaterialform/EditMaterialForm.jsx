@@ -140,7 +140,6 @@ class EditMaterialForm extends React.Component {
         {this.checkUserRights(this.props.user)===false ?
           <>
             <p className="addmaterial__form__text"> {this.state.location}</p>
-            <p className="addmaterial__form__text"></p>
           </>
         :
           <>
