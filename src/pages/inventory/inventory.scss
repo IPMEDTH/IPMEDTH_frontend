@@ -52,7 +52,15 @@
         position: absolute;
         height: 100%;
         width: 100%;
-        background: #babbbbdb;
+        background: #e6e4e4f2;;
+        display: flex;
+        align-items: center;
+
+        &__text{
+          margin: 0 auto;
+          font-style: italic;
+          color: #605f5f;
+        }
       }
 
       &__info{

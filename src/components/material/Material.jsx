@@ -76,7 +76,9 @@ class Material extends React.Component {
         {this.state.outOfStock===false ?
            null
            :
-           <div className="inventory__content-item__outofstock" onClick={this.toggleItem}> Niet op voorraad </div>
+           <div className="inventory__content-item__outofstock" onClick={this.toggleItem}>
+            <p className="inventory__content-item__outofstock__text">Niet op voorraad</p>
+           </div>
          }
         <article className="inventory__content-item__info">
           <h3 className="inventory__content-item__info__title"> {this.props.name}</h3>
