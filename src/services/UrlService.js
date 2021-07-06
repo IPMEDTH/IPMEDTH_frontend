@@ -26,6 +26,8 @@ class UrlService {
     static Reservations() { return apiDomain + 'api/reservations' }
     static DeleteReservations(id) { return apiDomain + 'api/reservations/' + id; }
     static verifyEmail() { return apiDomain + 'email/verification-notification' }
+    static forgotPassword() { return apiDomain + 'forgot-password' }
+    static resetPassword() { return apiDomain + 'reset-password' }
 }
 
 export default UrlService;

@@ -97,7 +97,7 @@ class Login extends React.Component {
             />
           </form>
           <Link className="login__content__register" to="/register"> Maak nieuw account aan</Link>
-          {/* <Link className="login__content__forgotpassword" to="/forgotpassword">Wachtwoord vergeten?</Link> */}
+          <Link className="login__content__forgotpassword" to="/forgot-password">Wachtwoord vergeten?</Link>
         </main>
         <Footer />
       </section>
