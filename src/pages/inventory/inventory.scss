@@ -1,6 +1,7 @@
 @use 'sass:math';
 
 @import '../../assets/scss/var';
+@import '../../assets/scss/default';
 
 .header__return {
   text-decoration: none;
@@ -33,6 +34,10 @@
     &__wrapper{
         width: 95%;
         margin: 0 auto;
+
+        &__container{
+          @extend .thebettercontainer;
+        }
     }
 
     &-item{

@@ -1,7 +1,9 @@
 @import '../../assets/scss/var';
+@import '../../assets/scss/default';
 
 .searchbar{
   &__form{
+    @extend .thebettercontainer;
 
     &__input{
       width: 100%;
@@ -17,18 +19,13 @@
 }
 
 @media (min-width: $bp_mobile){
-  .index{
-  }
+
 }
 
 @media (min-width: $bp_tablet){
-
-  .index{
-  }
+  
 }
 
 @media (min-width: $bp_laptop){
-
-  .index{
-  }
+  
 }
