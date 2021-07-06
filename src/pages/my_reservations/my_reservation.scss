@@ -50,10 +50,7 @@
     &__knop {
       cursor: default;
       background-color: #eee;
-      border-radius: 0.5rem;
       color: #ececec;
-      -webkit-box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
-      box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
       display: grid;
       grid-template-columns: auto 1fr 1fr;
       grid-template-rows: auto;
@@ -67,8 +64,6 @@
       &__image {
         grid-area: image;
         max-width: 18rem;
-        border-top-left-radius: 0.5rem;
-        border-bottom-left-radius: 0.5rem;
       }
 
       &:hover {
@@ -167,15 +162,18 @@
         }
 
         &__title {
-          font-size: 18px;
+          font-weight: 700;
+          font-size: 12px;
         }
 
         &__description {
-          font-size: 15px;
+          margin-top: 25px;
+          font-size: 11px;
         }
 
         &__places {
-          font-size: 15px;
+          margin-top: 80px;
+          font-size: 12px;
         }
       }
     }

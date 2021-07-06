@@ -14,6 +14,11 @@ function TimePicker1() {
   const handleDateChange = (date) => {
     setSelectedDate(date);
     window.localStorage.setItem('timestart', date);
+
+    var timestart = window.localStorage.getItem('timestart');
+    timestart = timestart.substring(16,21);
+    console.log("STARTTIJD: " + timestart);
+    window.localStorage.setItem('timestart', timestart);
   };
 
   return (

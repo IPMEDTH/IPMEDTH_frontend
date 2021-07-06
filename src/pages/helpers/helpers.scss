@@ -60,15 +60,38 @@
       background-color: #eee;
       color: #ececec;
       display: grid;
-      grid-template-columns: auto 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr;
       grid-template-rows: auto;
       grid-template-areas: "image text text";
       min-height: 100px;
       position: relative;
       text-align: center;
 
+      &__imgdiv {
+          display: flex;
+          flex-flow: column;
+          justify-content: center;
+          width: 100%;
+          align-self: center;
+      }
+
+      &__imgfigure {
+        height: 0px;
+        padding-top: 50%;
+        padding-bottom: 50%;
+        overflow: hidden;
+        position: relative;
+      }
+
       &__image--person {
-        width: 12.5rem;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        object-fit: cover;
       }
 
       p {
@@ -82,24 +105,27 @@
 
       &__name {
         position: relative;
-        top: 5px;
-        margin-left: 0px;
+        top: 0px;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
         text-align: left;
-        font-size: 18px;
+        font-size: 16px;
       }
 
       &__knowledge {
         position: relative;
-        top: 60px;
-        margin-left: 0px;
-        font-size: 18px;
+        top: 40px;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+        font-size: 16px;
       }
 
       &__available {
         position: relative;
-        top: 140px;
-        margin-left: 0px;
-        font-size: 18px;
+        top: 110px;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+        font-size: 16px;
       }
     }
 
@@ -110,73 +136,24 @@
   }
 }
 
-.reservation__hulp {
-  padding: 0 40px;
-  margin-top: 2vh;
-  &__container {
-    cursor: pointer;
-    max-width: 768px;
-    margin: 0 auto;
-    background-color: $color_blue;
-    border-radius: 0.5rem;
-    color: #ececec;
-    -webkit-box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
-    box-shadow: 0px 0px 30px -10px rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    min-height: 60px;
-    position: relative;
-    text-align: center;
-
-    &__image {
-      max-width: 11rem;
-      border-top-left-radius: 0.5rem;
-      border-top-right-radius: 0.5rem;
-    }
-
-    &:hover {
-      opacity: 0.9;
-    }
-
-    p {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 5px;
-      padding: 5px;
-      font-family: 'Muli', sans-serif;
-    }
-  }
-}
-
-
-
-
-
 @media (max-width: $bp_tablet){
   .helpers__cards {
     .helpers__optie {
       &__knop {
-        &__image--person {
-          max-width: 16rem;
-        }
 
         &__name {
-          top: 140px;
-          font-size: 18px;
+          top: 5px;
+          font-size: 16px;
         }
 
         &__knowledge {
-          top: 220px;
-          font-size: 18px;
+          top: 40px;
+          font-size: 15px;
         }
 
         &__available {
-          top: 340px;
-          font-size: 18px;
+          top: 110px;
+          font-size: 15px;
         }
       }
     }
@@ -184,28 +161,30 @@
 }
 
 @media (max-width: $bp_mobile){
+  .helpers__content {
+    max-width: 340px;
+  }
+
   .helpers__cards {
     grid-template-columns: 1fr;
+    gap: 10px;
 
     .helpers__optie {
       &__knop {
-        &__image--person {
-          max-width: 11rem;
-        }
 
         &__name {
-          top: 90px;
-          font-size: 18px;
+          top: 5px;
+          font-size: 16px;
         }
 
         &__knowledge {
-          top: 140px;
-          font-size: 18px;
+          top: 40px;
+          font-size: 15px;
         }
 
         &__available {
-          top: 210px;
-          font-size: 18px;
+          top: 100px;
+          font-size: 15px;
         }
       }
     }

@@ -93,9 +93,7 @@
         &>*{
           margin: 0 0 5px 10px;
           &:first-child{
-            // margin: 0 10px 25px 10px;
-            margin-bottom: 15px;
-            margin-left: 0;
+          margin: math.div($default-gap, 2) 10px;
           }
         }
 
