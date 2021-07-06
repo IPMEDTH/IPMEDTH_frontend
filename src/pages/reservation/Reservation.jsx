@@ -18,6 +18,13 @@ var state = "closed";
 var valueHelpers = "Wij zijn er om je te helpen!";
 var countReservations = 0;
 
+function getWindowDimensions() {
+  const { innerWidth: width} = window;
+  return {
+    width
+  };
+}
+
 
 class ReservationPage extends React.Component {
 
@@ -52,7 +59,13 @@ class ReservationPage extends React.Component {
       checkbox.checked = true;
       document.getElementById("js--reservation__triangle").animate([{transform: 'rotate(0deg)'}], {duration: 300});
       var helpers_amount = window.localStorage.getItem('helpers_amount');
-      var marginBot = helpers_amount * 32.5;
+      const { width } = getWindowDimensions();
+      console.log(width);
+      if (width < 1600 && width > 1400) {
+        var marginBot = helpers_amount * 40;
+      } else {
+        var marginBot = helpers_amount * 32.5;
+      }
       marginBot = marginBot + "vh";
       if (helpers_amount === "0") {
         valueHelpers = "Helaas zal er op dit moment niemand zijn om te helpen.";
