@@ -149,7 +149,7 @@
           font-size: 15px;
         }
 
-        &__places {
+        &__starttime {
           font-size: 15px;
         }
       }
@@ -175,13 +175,18 @@
           font-size: 11px;
         }
 
-        &__places {
-          margin-top: 80px;
-          font-size: 12px;
+        &__starttime {
+          margin-top: 40px;
+          font-size: 11px;
         }
 
         & p{
           font-size: .9rem;
+        }
+
+
+        &__button {
+          font-size: 12px;
         }
       }
     }
