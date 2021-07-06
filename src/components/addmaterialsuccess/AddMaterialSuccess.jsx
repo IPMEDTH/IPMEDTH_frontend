@@ -1,8 +1,6 @@
 import React from "react";
 import './addmaterialsuccess.scss';
 
-// const COOKIE_URL = 'http://localhost:8000/sanctum/csrf-cookie';
-
 class AddMaterialSuccess extends React.Component {
   constructor() {
     super();

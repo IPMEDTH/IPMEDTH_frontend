@@ -4,6 +4,8 @@ import axios from 'axios';
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
+import DeleteMaterial from "../deletematerial/DeleteMaterial";
+
 class EditMaterialForm extends React.Component {
   constructor(props) {
     super(props);
@@ -32,7 +34,6 @@ class EditMaterialForm extends React.Component {
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(e.target.value);
     if (e.target.name === "image") {
       let files = e.target.files || e.dataTransfer.files;
         if (!files.length)
@@ -85,6 +86,30 @@ class EditMaterialForm extends React.Component {
 
   }
 
+  handleDelete = (e) => {
+    e.preventDefault();
+    const { id } = this.state;
+
+    axios.defaults.withCredentials = true;
+    axios.get(UrlService.getCookie())
+    .then(response => {
+      axios.delete(UrlService.DeleteMaterial(id), { id })
+        .then((response) => {
+          console.log(response);
+          // TODO: ADD LOADING COMPONENT TO PREVENT USER FROM TAPPING SEND MORE THAN ONCE
+          if (response.status === 200) {
+            this.setState({ isLoading: false }); // quick fix for above TODO
+            this.props.showSuccessComponent(true);
+          }
+        })
+        .catch((error) => {
+          console.log(error)
+          this.setState({ isLoading: false });
+        })
+    })
+
+  }
+
   parseAttributesIntoState = () => {
     this.setState({
       id: this.props.materialAttributes.id,
@@ -97,8 +122,6 @@ class EditMaterialForm extends React.Component {
   }
 
   checkUserRights = (user) => {
-    // console.log(user.isadmin);
-    // console.log(user.isadmin!==undefined && user.isadmin!=="0");
     return user.isadmin!==undefined && user.isadmin!=="0";
   }
 
@@ -158,6 +181,11 @@ class EditMaterialForm extends React.Component {
           <div className="addmaterial__form__buttons__close" onClick={this.props.closeModal}></div>
           <button className="addmaterial__form__buttons__submit" type="submit" value="submit" onClick={this.submitForm}></button>
         </section>
+        {this.checkUserRights(this.props.user)===false ?
+          null
+        :
+          <DeleteMaterial onClick={this.handleDelete}/>
+        }
       </form>
       </>
     )

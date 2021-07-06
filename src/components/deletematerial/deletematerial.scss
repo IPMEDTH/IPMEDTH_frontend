@@ -1,0 +1,62 @@
+@import '../../assets/scss/var';
+@import '../../assets/scss/default';
+
+.deletematerial{
+
+  &__button{
+    position: absolute;
+    right: 50%;
+    top: -20%;
+    height: 75px;
+    width: 200px;
+    background-color: unset;
+    background-image: url('../../images/delete_forever_black_24dp.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    margin: 1%;
+    // box-shadow: 2px 2px 2px #666464;
+    transform: translate(50%, 0);
+    transition: all 0.1s ease-in-out;
+
+    &:hover, &:active{
+      background-color: $colour_close_red;
+      background-image: url('../../images/delete_forever_white_24dp.svg');
+
+    }
+  }
+
+  &__areyousure{
+    position: absolute;
+    right: 50%;
+    top: -25%;
+    text-align: center;
+    transform: translate(50%, 0);
+    padding: 5px;
+    border: 2px solid $colour_close_red;
+    border-radius: $default-border-radius;
+    background-color: white;
+
+    & h3{
+      margin-bottom: 10px;
+    }
+
+    &__yes{
+      font-size: 1rem;
+      padding: 5px;
+      background-color: unset;
+      border: none;
+      width: 100%;
+      border-radius: $default-border-radius;
+
+      &:hover, &:active{
+        color: white;
+        background-color: $colour_close_red;
+      }
+    }
+
+  }
+}
