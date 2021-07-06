@@ -80,13 +80,17 @@ class AddMaterialForm extends React.Component {
 
   }
 
+  checkUserRights = (user) => {
+    return user.is_admin!==undefined && user.is_admin!==0;
+  }
+
   render() {
 
     return(
       <>
         <h2 className="addmaterial__title"> MATERIAAL TOEVOEGEN...</h2>
         <div className="addmaterial__titlebar"></div>
-        {this.props.isAdmin===0 ?
+        {this.checkUserRights(this.props.user)===false ?
           <YouAreNotAdmin closeModal={this.props.closeModal}/>
         :
           <form className="addmaterial__form" method="POST">
@@ -122,7 +126,7 @@ class AddMaterialForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    isAdmin: state.user.is_admin
+    user: state.user
   }
 }
 
