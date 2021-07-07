@@ -31,7 +31,7 @@ class TokenItemList extends React.Component {
 
   render() {
     return (
-      this.props.user.tokens.map(user =>
+      this.props.user.tokens ? this.props.user.tokens.map(user =>
         <TokenItem
           name={user.name}
           email={user.email}
@@ -43,7 +43,7 @@ class TokenItemList extends React.Component {
           image_url={user.image_url}
           key={user.id}
         />
-      )
+      ) : ''
     );
   }
 }
