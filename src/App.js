@@ -6,6 +6,7 @@ import history from "./history";
 //Pagina's
 import IndexPage from "./pages/index/index";
 import Inventory from "./pages/inventory/Inventory";
+import MaterialHistory from "./pages/materialhistory/MaterialHistory";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import ForgotPassword from "./pages/forgot-password/ForgotPassword";
@@ -36,7 +37,7 @@ const guestRoutes = [
   { path: "/managelocations", component: ManageLocations, exact: true},
   { path: "/managereservations", component: ManageReservations, exact: true},
   { path: "/personnel", component: HelpersPage, exact: true },
-  {/*path: "/material-history", component: None, exact: true },*/},
+  { path: "/materialhistory", component: MaterialHistory, exact: true },
 ];
 
 class App extends Component {
