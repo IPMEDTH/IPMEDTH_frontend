@@ -25,7 +25,7 @@ class UrlService {
     static PostMaterial() { return apiDomain + 'api/materials' }
     static DeleteMaterial(id) { return apiDomain + 'api/materials/' + id }
     static History() { return apiDomain + 'api/history'}
-    static History(term) { return apiDomain + 'api/history/search/' + term}
+    static getHistory(term) { return apiDomain + 'api/history/search/' + term}
     static Reservations() { return apiDomain + 'api/reservations' }
     static DeleteReservations(id) { return apiDomain + 'api/reservations/' + id; }
     static verifyEmail() { return apiDomain + 'email/verification-notification' }

@@ -49,9 +49,9 @@ class MaterialHistory extends React.Component {
   searchForHistory = (term) => {
     console.log("searching for: " + term);
     if (term!=='') {
-      axios.get(UrlService.History(term))
+      axios.get(UrlService.getHistory(term))
       .then((response) => {
-        this.MaterialListComponent = <HistoryList history={response.data} updateList={this.getHistoryData}/>;
+        this.HistoryListComponent = <HistoryList history={response.data} updateList={this.getHistoryData}/>;
         this.setState({dataIsReturned: true});
         console.log(response);
 
