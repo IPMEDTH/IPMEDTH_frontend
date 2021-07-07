@@ -1,9 +1,9 @@
-// let apiDomain = 'https://api.ipmedth.meulen.dev/'
+let apiDomain = 'https://api.ipmedth.meulen.dev/'
 // let apiDomain = 'http://localhost/'
-let apiDomain = 'http://localhost:8000/'
+// let apiDomain = 'http://localhost:8000/'
 
-// let apiStorage = apiDomain + "storage/public/"   // online
-let apiStorage = apiDomain + "storage/"           // local
+let apiStorage = apiDomain + "storage/public/"   // online
+// let apiStorage = apiDomain + "storage/"           // local
 
 class UrlService {
     static getCookie() { return apiDomain + 'sanctum/csrf-cookie' }
@@ -25,6 +25,7 @@ class UrlService {
     static PostMaterial() { return apiDomain + 'api/materials' }
     static DeleteMaterial(id) { return apiDomain + 'api/materials/' + id }
     static History() { return apiDomain + 'api/history'}
+    static History(term) { return apiDomain + 'api/history/search/' + term}
     static Reservations() { return apiDomain + 'api/reservations' }
     static DeleteReservations(id) { return apiDomain + 'api/reservations/' + id; }
     static verifyEmail() { return apiDomain + 'email/verification-notification' }

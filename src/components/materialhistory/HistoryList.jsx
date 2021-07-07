@@ -13,7 +13,8 @@ class HistoryList extends React.Component {
             name={item.name}
             amount={item.amount}
             unit={item.unit}
-            changed_by={item.changed_by}
+            updated_by={item.updated_by}
+            updated_at={item.updated_at}
             img_url={item.img_url}
             modification={item.modification}
             key={item.amount + item.name + item.id}
