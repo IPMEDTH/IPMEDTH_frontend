@@ -25,6 +25,8 @@ class UrlService {
     static MaterialImage(filename) { return apiStorage + filename; }
     static PostMaterial() { return apiDomain + 'api/materials' }
     static DeleteMaterial(id) { return apiDomain + 'api/materials/' + id }
+    static History() { return apiDomain + 'api/history'}
+    static getHistory(term) { return apiDomain + 'api/history/search/' + term}
     static Reservations() { return apiDomain + 'api/reservations' }
     static DeleteReservations(id) { return apiDomain + 'api/reservations/' + id; }
     static verifyEmail() { return apiDomain + 'email/verification-notification' }

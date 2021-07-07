@@ -62,11 +62,12 @@ class EditMaterialForm extends React.Component {
     }
     if (this.checkIfFormFilled() && !this.state.isLoading) {
       const { id, name, description, amount, unit, location, image } = this.state;
+      const added_by = this.props.user.name;
 
       axios.defaults.withCredentials = true;
       axios.get(UrlService.getCookie())
       .then(response => {
-        axios.put(UrlService.PostMaterial(), { id, name, description, amount, unit, location, image })
+        axios.put(UrlService.PostMaterial(), { id, name, description, amount, unit, location, image, added_by })
           .then((response) => {
             console.log(response);
             // TODO: ADD LOADING COMPONENT TO PREVENT USER FROM TAPPING SEND MORE THAN ONCE

@@ -55,13 +55,15 @@ class AddMaterialForm extends React.Component {
     e.preventDefault();
     if (this.checkIfFormFilled() && !this.state.isLoading) {
       const { name, description, amount, unit, location, image } = this.state;
+      const added_by = this.props.user.name;
+      console.log(added_by);
       this.setState({ isLoading: true });
       console.log(this.state);
 
       axios.defaults.withCredentials = true;
       axios.get(UrlService.getCookie())
       .then(response => {
-        axios.post(UrlService.PostMaterial(), { name, description, amount, unit, location, image })
+        axios.post(UrlService.PostMaterial(), { name, description, amount, unit, added_by, location, image })
           .then((response) => {
             // TODO: ADD LOADING COMPONENT TO PREVENT USER FROM TAPPING SEND MORE THAN ONCE
             if (response.status === 200) {
