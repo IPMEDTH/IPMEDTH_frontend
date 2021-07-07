@@ -30,6 +30,8 @@ class UrlService {
     static verifyEmail() { return apiDomain + 'email/verification-notification' }
     static forgotPassword() { return apiDomain + 'forgot-password' }
     static resetPassword() { return apiDomain + 'reset-password' }
+    static createToken() { return apiDomain + 'api/tokens' }
+    static delToken(tokenId) { return apiDomain + 'api/tokens/' + tokenId }
 }
 
 export default UrlService;

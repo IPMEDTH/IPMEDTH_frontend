@@ -8,6 +8,8 @@ import Header from "../../components/header/Header"
 import Footer from "../../components/footer/Footer"
 import { connect } from "react-redux";
 import { changeUser } from "../../redux/actions";
+import TokenItemList from "./TokenItemList";
+import TokenCreator from "./TokenCreator";
 
 class Account extends React.Component {
   constructor(props) {
@@ -79,11 +81,15 @@ class Account extends React.Component {
             <p>{this.props.user.knowledge ? this.props.user.knowledge : '-'}</p>
             <h4>Beschikbaarheid</h4>
             <p>{this.props.user.available ? this.props.user.available : '-'}</p>
+            <h4>Genereer API Token</h4>
+            <TokenCreator/>
+            <TokenItemList/>
             {
-              this.props.user.isadmin === "1" ? <>
-                <Link to="manageusers">Beheer gebruikers</Link>
-                <Link to="managereservations">Beheer reserveringen</Link>
-                <Link to="managelocations">Beheer locaties en helpers</Link>
+              this.props.user.isadmin === "1" || this.props.user.isadmin === 1 ? <>
+                <h4>Administratorpagina's</h4>
+                <Link to="manageusers"><button>Beheer gebruikers</button></Link>
+                <Link to="managereservations"><button>Beheer reserveringen</button></Link>
+                <Link to="managelocations"><button>Beheer locaties en helpers</button></Link>
               </> : ''
             }
           </section>
