@@ -7,7 +7,7 @@ class UserCard extends React.Component {
 
   toggleAdmin = () => {
     console.log('clicked')
-    axios.put(UrlService.setUserAdmin(this.props.id), {isadmin: !this.props.isadmin})
+    axios.put(UrlService.setUserAdmin(this.props.id), {isadmin: this.props.isadmin === "1" || this.props.isadmin === 1 ? 0 : 1})
     .then(response => {
       window.location.reload(false);
     })
@@ -31,7 +31,7 @@ class UserCard extends React.Component {
           <p>Aanwezigheid: {this.props.available}</p>
           <button type="button" onClick={this.toggleAdmin}>
             {
-              this.props.isadmin ? "Beheersrol intrekken" : "Beheersrol toekennen"
+              this.props.isadmin === "1" || this.props.isadmin === 1 ? "Beheersrol intrekken" : "Beheersrol toekennen"
             }
           </button>
         </section>
