@@ -21,13 +21,10 @@ class History extends React.Component {
     switch (modification) {
       case 'increase':
         return this.state.increaseIcon;
-        break;
       case 'decrease':
         return this.state.decreaseIcon;
-        break;
       case 'unchanged':
         return this.state.unchangedIcon;
-        break;
       default:
 
     }
